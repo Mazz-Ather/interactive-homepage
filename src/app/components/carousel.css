@@ -1,0 +1,133 @@
+Carousel Container
+.carousel {
+  width: 100%;
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+/* Swiper Container */
+.carousel-swiper {
+  width: 100%;
+  height: 400px;
+  padding: 0 20px;
+}
+
+/* Individual Carousel Card */
+.carousel-card {
+  height: 100%;
+  cursor: grab;
+  transition: transform 0.3s ease;
+}
+
+.carousel-card:active {
+  cursor: grabbing;
+}
+
+/* Card hover effect */
+.carousel-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Card Image Container with Polygon Shape */
+.card-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+  overflow: hidden;
+  background: #000;
+  border-radius: 0;
+}
+
+/* Image Styling */
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Image hover effect */
+.carousel-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* Card Content Overlay */
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+  color: white;
+  padding: 2rem 1.5rem 1.5rem;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+/* Card Heading */
+.card-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Description */
+.card-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+  color: #e0e0e0;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 1023px) {
+  .carousel-swiper {
+    height: 350px;
+    padding: 0 15px;
+  }
+  
+  .card-heading {
+    font-size: 1.3rem;
+  }
+  
+  .card-description {
+    font-size: 0.85rem;
+  }
+  
+  .card-content {
+    padding: 1.5rem 1rem 1rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .carousel-swiper {
+    height: 300px;
+    padding: 0 10px;
+  }
+  
+  .card-heading {
+    font-size: 1.2rem;
+  }
+  
+  .card-description {
+    font-size: 0.8rem;
+  }
+  
+  .card-content {
+    padding: 1rem 0.8rem 0.8rem;
+  }
+}
+
+/* Custom scrollbar for horizontal scroll on mobile */
+.carousel-swiper::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-swiper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
