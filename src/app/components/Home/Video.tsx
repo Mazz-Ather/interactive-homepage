@@ -1,95 +1,62 @@
-'use client'
-import { VideoScrollHero } from "@/components/ui/video-sccroll-hero";
-import { motion } from "framer-motion";
+"use client";
+import { useState, useRef, useEffect } from "react";
+import { X, Play } from "lucide-react";
 
-export default function VideoScrollHeroPage() {
+export default function Video() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && !isPlaying) {
+      videoRef.current.currentTime = 1; // show 1st second as thumbnail
+    }
+  }, [isPlaying]);
+
   return (
-    <div className="h-max">
-      <VideoScrollHero />
+    <div className="w-full h-screen relative bg-black overflow-hidden">
+      {/* Video */}
+      <video
+        ref={videoRef}
+        src="https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4"
+        className="w-full h-full object-cover"
+        muted
+        playsInline
+      />
 
-      {/* Next Section */}
-      <motion.section
-        className="relative bg-muted -mt-8 rounded-t-3xl h-auto"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-10px" }}
-        transition={{
-          duration: 0.8,
-          type: "spring",
-          stiffness: 200,
-          damping: 25,
-        }}
-      >
-        <div className="container mx-auto px-8 xl:py-4">
-          {/* <div className="max-w-4xl mx-auto text-center">
-            <motion.h2
-              className="text-3xl md:text-5xl font-bold mb-8 text-foreground"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.2,
-                duration: 0.8,
-                type: "spring",
-                stiffness: 200,
-                damping: 25,
-              }}
-            >
-              Next Section
-            </motion.h2>
-            <motion.p
-              className="text-lg md:text-xl text-muted-foreground mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.4,
-                duration: 0.8,
-                type: "spring",
-                stiffness: 200,
-                damping: 25,
-              }}
-            >
-              The video has reached full size and now you can continue scrolling through the rest of the content.
-            </motion.p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((item, index) => (
-                <motion.div
-                  key={item}
-                  className="bg-card p-6 rounded-xl border border-border/50 shadow-sm"
-                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: 0.6 + index * 0.1,
-                    duration: 0.8,
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 25,
-                  }}
-                  whileHover={{
-                    scale: 1.05,
-                    y: -5,
-                    transition: { type: "spring", stiffness: 400, damping: 25 }
-                  }}
-                >
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <div className="w-6 h-6 bg-primary rounded" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-foreground">
-                    Feature {item}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Sed do eiusmod tempor incididunt ut labore.
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div> */}
+      {!isPlaying ? (
+        // Thumbnail overlay with play button
+        <div className="absolute inset-0 flex items-center justify-center">
+          {/* <button
+            onClick={() => {
+              setIsPlaying(true);
+              videoRef.current?.play();
+            }}
+            className="bg-white/40 backdrop-blur-md lg:hidden text-black rounded-full p-7 shadow-lg flex items-center justify-center hover:scale-110 transition"
+          >
+            <Play size={45} fill="white" stroke="none" />
+          </button> */}
+            <button
+            onClick={() => {
+              setIsPlaying(true);
+              videoRef.current?.play();
+            }}
+            className="bg-white/40 backdrop-blur-md  text-black rounded-full p-4 shadow-lg flex items-center justify-center hover:scale-110 transition"
+          >
+            <Play size={50} fill="white" stroke="none" />
+          </button>
         </div>
-      </motion.section>
+      ) : (
+        // Close button when playing
+        <button
+          onClick={() => {
+            setIsPlaying(false);
+            videoRef.current?.pause();
+          }}
+          className="absolute top-3 right-3 bg-white/80 text-black rounded-full p-5 shadow-md hover:scale-110 transition"
+        >
+          <X size={20} />
+        </button>
+      )}
     </div>
   );
 }

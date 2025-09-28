@@ -25,7 +25,7 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black  lg:px-20 text-white">
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 py-8 lg:py-16">
         {/* Top Header Section */}

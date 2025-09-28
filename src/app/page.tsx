@@ -1,8 +1,8 @@
 
-import Carousel from "./components/Home/Carousel";
 import Contact from "./components/Home/Contact";
 import Hero from "./components/Home/Hero";
 import Projects from "./components/Home/Projects";
+import { RecentProjects } from "./components/Home/RecentProjects.tsx";
 import Services from "./components/Home/Services";
 import Testimonials from "./components/Home/Testimonials";
 import Video from "./components/Home/Video";
@@ -37,14 +37,8 @@ const Home = ({ lenis }:any) => {
    <>
   <Hero/>
   <Video/>
-   {/* <div style={{ 
-      backgroundColor: 'black', 
-      minHeight: '100vh',
-      cursor: "url('https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b239d7aeb290a31ac5_cursor-default%402x.svg') 2 0, auto"
-    }}>
-      <Carousel slides={slides} />
-    </div> */}
    <Services/>
+    <RecentProjects/>
    <Contact/> 
     <Testimonials />
    </>

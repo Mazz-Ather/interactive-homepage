@@ -2,7 +2,9 @@ import Link from "next/link"
 
 const VRHeroPage = () => {
   return (
-    <div className="relative max-w-[1800px] mx-auto lg:h-[120vh] bg-black !sm:bg-red-500 !md:bg-green-500 !lg:bg-red-500 !xl:bg-green-500 overflow-hidden">
+  <div className="bg-black pt-8">
+
+    <div className="relative max-w-[1800px] mx-auto lg:h-[120vh] overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
@@ -13,8 +15,8 @@ const VRHeroPage = () => {
       {/* Main Content Container */}
       <div className="relative z-10 min-h-screen bg-black/70">
         {/* Top Right Company Description - Only visible on desktop */}
-        <div className="absolute top-8 lg:top-[170px] xl:top-[80px] right-8 max-w-sm hidden lg:block">
-          <p className="text-gray-400 text-sm leading-relaxed">
+        <div className="absolute top-8 lg:top-[80px] right-8 xl:right-[100px] max-w-sm hidden lg:block">
+          <p className="text-gray-400 text-sm xl:text-base leading-relaxed">
             Welcome to AO Interactive, a leading creative and technology solutions company based in Riyadh. We
             specialize in building custom, immersive experiences that drive real-world results. From revolutionizing
             training with Virtual Reality to captivating audiences at events, we blend cutting-edge technology with
@@ -55,7 +57,7 @@ const VRHeroPage = () => {
   <img
     src="/images/vr.png"
     alt="VR Headset"
-    className="w-full max-w-[450px] sm:max-w-[600px] h-auto -rotate-[10.35deg] object-contain filter drop-shadow-2xl"
+    className="w-full w-full sm:max-w-[600px] h-auto -rotate-[10.35deg] object-contain filter drop-shadow-2xl"
   />
 </div>
 
@@ -69,7 +71,7 @@ const VRHeroPage = () => {
                 <span className="text-white font-bold text-sm">A</span>
               </div> */}
               <div>
-                <h3 className="text-white font-bold text-lg mb-3">Where Ideas Become Immersive Realities</h3>
+                <h3 className="text-white font-bold text-lg lg mb-3">Where Ideas Become Immersive Realities</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Can be used from young age to old age if you want to be more trendy.
                 </p>
@@ -124,7 +126,7 @@ const VRHeroPage = () => {
                 className="relative lg:left-[-60px] top-[35px] w-[1000px] xl:w-[1400px] scale-150 2xl:w-[1900px] h-auto -rotate-[10.35deg] object-contain filter drop-shadow-2xl"
               />
 
-              <div className="absolute top-[41%] -left-[170px] lg:-left-[200px] xl:-left-[270px] 2xl:-left-[250px] max-w-[300px]">
+              <div className="absolute top-[41%] xl:top-[44%] -left-[170px] lg:-left-[260px] xl:-left-[290px] 2xl:-left-[250px] max-w-[280px]">
                 <div className="flex items-start space-x-3">
                 
                   <div>
@@ -137,16 +139,16 @@ const VRHeroPage = () => {
                       <img
                     src="/images/arrow2.png"
                     alt="Arrow pointing to VR"
-                    className="w-[250px] xl:w-[300px] absolute top-[-60px] left-[90px] 2xl:left-[150px] flex-shrink-0 transform   opacity-100"
+                    className="w-[250px] lg:w-[220px] xl:w-[380px] absolute top-[-55px] left-[100px] xl:left-[130px] 2xl:left-[150px] flex-shrink-0 transform   opacity-100"
                   />
                 </div>
               </div>
 
-              <div className="absolute top-[55%] lg:top-[68%] -right-[350px] lg:-right-[270px]  xl:-right-[320px] 2xl:-right-[450px] max-w-[300px]">
+              <div className="absolute top-[55%] lg:top-[68%] -right-[350px] lg:-right-[270px]  xl:-right-[300px] 2xl:-right-[290px] max-w-[300px]">
                 <img
                     src="/images/arrow.png"
                     alt="Arrow pointing to VR"
-                    className="w-[250px] xl:w-[280px] absolute top-[-60px] -left-[150px] 2xl:left-[150px] flex-shrink-0 transform   opacity-100"
+                    className="w-[250px] lg:w-[200px] xl:w-[260px] absolute top-[-60px] -left-[150px] lg:-left-[90px] xl:-left-[130px] 2xl:-left-[130px] flex-shrink-0 transform   opacity-100"
                   />  
                     <div className="flex  items-start space-x-6">
                     <div>
@@ -195,6 +197,7 @@ const VRHeroPage = () => {
         <div className="absolute top-1/2 right-0 w-64 h-px bg-gradient-to-l from-[#065FE5] via-[#B54CBE] to-transparent opacity-40"></div>
         <div className="absolute bottom-1/3 left-1/4 w-96 h-px bg-gradient-to-r from-[#B54CBE] to-transparent opacity-30"></div>
       </div>
+    </div>
     </div>
   )
 }

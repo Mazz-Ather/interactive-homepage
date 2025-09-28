@@ -19,7 +19,7 @@ const services: Service[] = [
 const ServicesComponent: React.FC = () => {
   return (
     <>
-    <section className="relative min-h-screen bg-black text-white overflow-hidden">
+    <section className="relative min-h-screen bg- text-white overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0  z-0">
         <video
@@ -38,7 +38,7 @@ const ServicesComponent: React.FC = () => {
      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 items-start text-center lg:text-left">
   {/* Left Side - Services Heading */}
   <div className="space-y-1 flex justify-center lg:block">
-    <h1 className="text-6xl lg:pt-6 md:text-7xl font-light tracking-tight whitespace-nowrap">
+    <h1 className="text-6xl lg:pt-6 md:text-7xl lg:text-6xl font-light tracking-tight whitespace-nowrap">
       <span className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent font-[700]">
         our core services
       </span>
@@ -46,7 +46,7 @@ const ServicesComponent: React.FC = () => {
   </div>
 
   {/* Center - Description */}
-  <div className="lg:pt-6 lg:ml-72 lg:w-[70%] flex justify-center lg:block">
+  <div className="lg:pt-6 md:ml-72 lg:ml-40 lg:w-[70%] flex justify-center lg:block">
     <p className="text-gray-300 text-md leading-relaxed max-w-md">
       IP68Waterproof, built-in alexa, 1.8" , Heart Rate, SpO2, Stress Measurement,
       Pedometer, Sleep Monitor, Message & Call Sync, Step
