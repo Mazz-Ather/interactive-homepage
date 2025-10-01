@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -57,7 +58,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const getCardStyles = () => {
     // Base values
     let translateXValue = '0%';
-    let rotateYValue = '0deg';
+    let rotateYValue = '0deg'; // Remove rotation for consistent shape
     let scaleValue = 1;
     let opacityValue = 1;
     let zIndexValue = 2;
@@ -66,13 +67,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     if (screenWidth < 768) {
       if (position === 'left') {
         translateXValue = '-80%';
-        rotateYValue = '30deg';
+        rotateYValue = '0deg'; // no rotation
         scaleValue = 0.6;
         opacityValue = 0.5;
         zIndexValue = 1;
       } else if (position === 'right') {
         translateXValue = '80%';
-        rotateYValue = '-30deg';
+        rotateYValue = '0deg'; // no rotation
         scaleValue = 0.6;
         opacityValue = 0.5;
         zIndexValue = 1;
@@ -82,13 +83,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     else if (screenWidth < 1024) {
       if (position === 'left') {
         translateXValue = '-70%';
-        rotateYValue = '25deg';
+        rotateYValue = '0deg'; // no rotation
         scaleValue = 0.7;
         opacityValue = 0.6;
         zIndexValue = 1;
       } else if (position === 'right') {
         translateXValue = '70%';
-        rotateYValue = '-25deg';
+        rotateYValue = '0deg'; // no rotation
         scaleValue = 0.7;
         opacityValue = 0.6;
         zIndexValue = 1;
@@ -98,13 +99,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     else {
       if (position === 'left') {
         translateXValue = '-60%';
-        rotateYValue = '25deg';
+        rotateYValue = '0deg'; // no rotation
         scaleValue = 0.85;
         opacityValue = 0.7;
         zIndexValue = 1;
       } else if (position === 'right') {
         translateXValue = '60%';
-        rotateYValue = '-25deg';
+        rotateYValue = '0deg'; // no rotation
         scaleValue = 0.85;
         opacityValue = 0.7;
         zIndexValue = 1;
@@ -141,12 +142,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     if (screenWidth < 640) return 'h-[450px]';
     if (screenWidth < 768) return 'h-[600px]';
     if (screenWidth < 1024) return 'h-[650px]';
-    return 'h-[700px]';
+    return 'h-[580px]';
   };
 
   return (
     <motion.div
-      className={`absolute cursor-pointer ${getCardWidth()} ${getCardHeight()} perspective-1000 transition-all duration-500`}
+      className={`absolute cursor-pointer ${getCardWidth()} ${getCardHeight()} perspective-1000 transition-all duration-300`}
       initial={cardStyles}
       animate={{
         zIndex: cardStyles.zIndex,
@@ -156,7 +157,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         opacity: cardStyles.opacity
       }}
       transition={{
-        duration: 0.5,
+        duration: 0.03,
         ease: 'easeInOut'
       }}
       onClick={onClick}
@@ -168,96 +169,96 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       }}
     >
       <div
-        className="relative w-full h-full overflow-hidden"
+        className="relative mx-auto overflow-hidden w-full h-[90vh]"
         style={{
-          clipPath: 'polygon(0 27%, 100% 0%, 100% 82%, 0% 100%)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundImage: isPlaying ? 'none' : `url(${project.imageUrl})`
+          clipPath: "url(#cardClip)",
+          backgroundImage: `url(${project.imageUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
-      >
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/80"></div>
+      ></div>
 
-        {/* Date display */}
-        <div className="absolute top-8 right-8 text-white text-sm font-medium z-20">
-          {project.date}
-        </div>
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/80"></div>
 
-        {/* Video element */}
-        {isPlaying && isActive && (
-          <video
-            ref={videoRef}
-            src={project.videoUrl}
-            className="absolute inset-0 w-full h-full object-cover z-10"
-            controls
-            autoPlay
-            onClick={e => e.stopPropagation()}
-          />
-        )}
+      {/* Date display */}
+      <div className="absolute top-8 right-8 text-white text-sm font-medium z-20">
+        {project.date}
+      </div>
 
-        {/* Play button */}
-        {!isPlaying && isActive && (
-          <div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
-            onClick={handlePlayClick}
+      {/* Video element */}
+      {isPlaying && isActive && (
+        <video
+          ref={videoRef}
+          src={project.videoUrl}
+          className="absolute inset-0 w-full h-full object-cover z-10"
+          controls
+          autoPlay
+          onClick={e => e.stopPropagation()}
+        />
+      )}
+
+      {/* Play button */}
+      {!isPlaying && isActive && (
+        <div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
+          onClick={handlePlayClick}
+        >
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
           >
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 md:h-10 md:w-10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 md:h-10 md:w-10"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polygon points="10 8 16 12 10 16" fill="white" />
-              </svg>
-            </motion.div>
-          </div>
-        )}
-
-        {/* Pause button */}
-        {isPlaying && isActive && (
-          <div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
-            onClick={handlePlayClick}
-          >
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 md:h-10 md:w-10"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="6" y="8" width="4" height="8" fill="white" />
-                <rect x="14" y="8" width="4" height="8" fill="white" />
-              </svg>
-            </motion.div>
-          </div>
-        )}
-
-        {/* Project info */}
-        <div className="absolute bottom-28 left-8 right-8 text-white z-20">
-          <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
-          <p className="text-xs md:text-sm text-white/80 line-clamp-3">
-            {project.subtitle}
-          </p>
+              <polygon points="10 8 16 12 10 16" fill="white" />
+            </svg>
+          </motion.div>
         </div>
+      )}
+
+      {/* Pause button */}
+      {isPlaying && isActive && (
+        <div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
+          onClick={handlePlayClick}
+        >
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 md:h-10 md:w-10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="6" y="8" width="4" height="8" fill="white" />
+              <rect x="14" y="8" width="4" height="8" fill="white" />
+            </svg>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Project info */}
+      <div className="absolute bottom-28 left-8 right-8 text-white z-20">
+        <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
+        <p className="text-xs md:text-sm text-white/80 line-clamp-3">
+          {project.subtitle}
+        </p>
       </div>
     </motion.div>
   );

@@ -25,9 +25,9 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black  lg:px-20 text-white">
+    <div className="min-h-screen flex flex-col bg-black lg:px-20 text-white overflow-auto">
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 py-8 lg:py-16">
+      <div className="max-w-7xl mx-auto px-4 py-8 lg:py-16 flex-grow min-h-[min-content]">
         {/* Top Header Section */}
         <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-0 mb-12 lg:mb-20">
           <div className="text-center lg:text-left">
@@ -101,7 +101,7 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
               </div>
 
               {/* Testimonial */}
-              <div className="bg-[#5D5D5D] rounded-2xl p-4 lg:p-6 border border-gray-800 max-w-full relative">
+              <div className="bg-[#101010] rounded-2xl p-4 lg:p-6 border border-gray-800 max-w-full relative">
                 <div className="absolute top-4 left-4 text-white text-2xl font-serif">"</div>
                 <div className="pt-6 pb-12">
                   <p className="text-[#888888] text-xs leading-relaxed pl-4">

@@ -34,7 +34,7 @@ const ServicesComponent: React.FC = () => {
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px- py-20">
+      <div className="relative z-10 container mx-auto px- py-11">
      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 items-start text-center lg:text-left">
   {/* Left Side - Services Heading */}
   <div className="space-y-1 flex justify-center lg:block">
@@ -48,13 +48,12 @@ const ServicesComponent: React.FC = () => {
   {/* Center - Description */}
   <div className="lg:pt-6 md:ml-72 lg:ml-40 lg:w-[70%] flex justify-center lg:block">
     <p className="text-gray-300 text-md leading-relaxed max-w-md">
-      IP68Waterproof, built-in alexa, 1.8" , Heart Rate, SpO2, Stress Measurement,
-      Pedometer, Sleep Monitor, Message & Call Sync, Step
-    </p>
+    We design and build full-scale immersive solutions tailored to your unique needs.
+</p>
   </div>
 
   {/* Right Side - Button */}
-  <div className="lg:pt-16 flex justify-center lg:justify-end">
+  <div className="lg:pt-6 flex justify-center lg:justify-end">
     <div className="inline-block">
       <Link href="/contact" className="relative group">
         <div className="group relative px-8 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-full overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
@@ -77,7 +76,7 @@ const ServicesComponent: React.FC = () => {
                 <div className="flex items-center justify-between py-8 border-b border-gray-800 transition-all duration-300 cursor-pointer">
                   <div className="flex items-center space-x-12">
                     {/* Service Number */}
-                    <span className="text-2xl font-light text-gray-500 group-hover:text-gray-300 transition-colors duration-300 w-12">
+                    <span className="text-3xl font-light text-gray-500 group-hover:text-gray-300 transition-colors duration-300 w-12">
                       {String(service.id).padStart(2, '0')}
                     </span>
                     

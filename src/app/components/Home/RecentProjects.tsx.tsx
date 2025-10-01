@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useEffect, useState } from 'react';
 import { ProjectCard } from './ProjectCard';
 import { motion } from 'framer-motion';
@@ -56,16 +57,16 @@ const projects = [
 
 export const RecentProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-const [screenWidth, setScreenWidth] = useState(0);
+  const [screenWidth, setScreenWidth] = useState(0);
 
-useEffect(() => {
-  const handleResize = () => {
-    setScreenWidth(window.innerWidth);
-  };
-  handleResize();
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleNext = () => {
     setActiveIndex(prev => (prev + 1) % projects.length);
@@ -88,6 +89,13 @@ useEffect(() => {
 
   return (
     <div className="w-full py-16 px-4 md:px-8 lg:px-16 relative overflow-hidden">
+      {/* ClipPath definition once globally */}
+      <svg className="absolute w-0 h-0">
+        <clipPath id="cardClip" clipPathUnits="objectBoundingBox">
+          <path d="M0,0.26 L0.9,0 Q1,0 1,0.1 L1,0.82 L0,1 Z" />
+        </clipPath>
+      </svg>
+
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
         <div className="max-w-2xl">
