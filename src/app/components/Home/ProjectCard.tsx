@@ -165,7 +165,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       onMouseLeave={() => setIsHovered(false)}
       style={{
         transformStyle: 'preserve-3d',
-        filter: isActive ? 'drop-shadow(0 0 15px rgba(0, 0, 0, 0.3))' : 'none'
+        filter: isActive ? '' : 'none'
       }}
     >
       <div
@@ -179,7 +179,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       ></div>
 
       {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/80"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/80"></div> */}
 
       {/* Date display */}
       <div className="absolute top-8 right-8 text-white text-sm font-medium z-20">
