@@ -65,18 +65,18 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
                 {/* All gradient layers INSIDE the black background */}
                 <div className="absolute inset-0">
                   {/* Edge glow only - positioned inside with padding */}
-               <div className="relative w-[100%] h-[90vh] rounded-[40px] overflow-hidden">
+  <div className="relative w-[100%] h-[90vh] rounded-[40px] overflow-hidden">
   {/* Top Gradient */}
-  <div className="absolute top-0 left-0 right-0 h-[50px] rounded-t-[40px] bg-gradient-to-b from-[#6F61ED] to-transparent opacity-100"></div>
+  <div className="absolute top-0 left-0 right-0 h-[50px] bg-gradient-to-b from-[#6F61ED] to-transparent opacity-100"></div>
 
   {/* Bottom Gradient */}
-  <div className="absolute bottom-0 left-0 right-0 h-[40px] rounded-b-[40px] bg-gradient-to-t from-[#6F61ED] to-transparent opacity-100"></div>
+  <div className="absolute bottom-0 left-0 right-0 h-[40px] bg-gradient-to-t from-[#6F61ED] to-transparent opacity-100"></div>
 
   {/* Left Gradient */}
-  <div className="absolute top-0 left-0 bottom-0 w-[40px] rounded-l-[40px] bg-gradient-to-r from-[#6F61ED] to-transparent opacity-100"></div>
+  <div className="absolute top-0 left-0 bottom-0 w-[40px] bg-gradient-to-r from-[#6F61ED] to-transparent opacity-100"></div>
 
   {/* Right Gradient */}
-  <div className="absolute top-0 right-0 bottom-0 w-[30px] rounded-r-[40px] bg-gradient-to-l from-[#6F61ED] to-transparent opacity-100"></div>
+  <div className="absolute top-0 right-0 bottom-0 w-[30px] bg-gradient-to-l from-[#6F61ED] to-transparent opacity-100"></div>
 </div>
 
                   {/* Corner glows */}
