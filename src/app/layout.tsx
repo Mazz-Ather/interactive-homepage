@@ -14,6 +14,9 @@ const poppins = Poppins({
 export const metadata = {
   title: "Interactive | Home",
   description: "Awesome website",
+icons: {
+    icon: "/favicon.png", // point to your PNG
+  },
 };
 
 

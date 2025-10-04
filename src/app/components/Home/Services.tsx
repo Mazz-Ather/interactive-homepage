@@ -19,7 +19,7 @@ const services: Service[] = [
 const ServicesComponent: React.FC = () => {
   return (
     <>
-    <section className="relative min-h-screen bg- text-white overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-t from-black to-black text-white overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0  z-0">
         <video
@@ -32,14 +32,20 @@ const ServicesComponent: React.FC = () => {
           <source src="https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985516/servide-bg_npenqb.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        {/* Gradient overlay for top + bottom */}
+<div className="absolute inset-0 z-10">
+  {/* Top + bottom gradient */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black py-9"></div>
+</div>
+
       </div>
 
-      <div className="relative z-10 container mx-auto px- py-11">
+      <div className="relative z-10 container mx-auto px-  py-11">
      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 items-start text-center lg:text-left">
   {/* Left Side - Services Heading */}
   <div className="space-y-1 flex justify-center lg:block">
     <h1 className="text-6xl lg:pt-6 md:text-7xl lg:text-6xl font-light tracking-tight whitespace-nowrap">
-      <span className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent font-[700]">
+      <span className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent z-[999] font-[700]">
         our core services
       </span>
     </h1>

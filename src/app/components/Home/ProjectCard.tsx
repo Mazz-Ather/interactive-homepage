@@ -14,7 +14,7 @@ interface Project {
 
 interface ProjectCardProps {
   project: Project;
-  position: 'left' | 'center' | 'right';
+  position: 'farLeft' | 'left' | 'center' | 'right' | 'farRight';
   isActive: boolean;
   screenWidth: number;
   onClick: () => void;
@@ -31,7 +31,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Stop video when card is not active or when isPlaying is false
   useEffect(() => {
     if (!isActive && isPlaying) {
       setIsPlaying(false);
@@ -42,7 +41,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     }
   }, [isActive, isPlaying]);
 
-  // Play or pause video based on isPlaying state
   useEffect(() => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -54,63 +52,115 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     }
   }, [isPlaying]);
 
-  // Position-based styling adjusted for different screen sizes
   const getCardStyles = () => {
-    // Base values
     let translateXValue = '0%';
-    let rotateYValue = '0deg'; // Remove rotation for consistent shape
+    let rotateYValue = '0deg';
     let scaleValue = 1;
     let opacityValue = 1;
     let zIndexValue = 2;
 
-    // Mobile screens (adjust these values to ensure 3 cards are visible)
     if (screenWidth < 768) {
-      if (position === 'left') {
-        translateXValue = '-80%';
-        rotateYValue = '0deg'; // no rotation
-        scaleValue = 0.6;
-        opacityValue = 0.5;
-        zIndexValue = 1;
-      } else if (position === 'right') {
-        translateXValue = '80%';
-        rotateYValue = '0deg'; // no rotation
-        scaleValue = 0.6;
-        opacityValue = 0.5;
-        zIndexValue = 1;
+      switch (position) {
+        case 'farLeft':
+          translateXValue = '-120%';
+          scaleValue = 0.5;
+          opacityValue = 0.3;
+          zIndexValue = 0;
+          break;
+        case 'left':
+          translateXValue = '-80%';
+          scaleValue = 0.6;
+          opacityValue = 0.5;
+          zIndexValue = 1;
+          break;
+        case 'center':
+          translateXValue = '0%';
+          scaleValue = 1;
+          opacityValue = 1;
+          zIndexValue = 3;
+          break;
+        case 'right':
+          translateXValue = '80%';
+          scaleValue = 0.6;
+          opacityValue = 0.5;
+          zIndexValue = 1;
+          break;
+        case 'farRight':
+          translateXValue = '120%';
+          scaleValue = 0.5;
+          opacityValue = 0.3;
+          zIndexValue = 0;
+          break;
+      }
+    } else if (screenWidth < 1024) {
+      switch (position) {
+        case 'farLeft':
+          translateXValue = '-110%';
+          scaleValue = 0.55;
+          opacityValue = 0.35;
+          zIndexValue = 0;
+          break;
+        case 'left':
+          translateXValue = '-70%';
+          scaleValue = 0.7;
+          opacityValue = 0.6;
+          zIndexValue = 1;
+          break;
+        case 'center':
+          translateXValue = '0%';
+          scaleValue = 1;
+          opacityValue = 1;
+          zIndexValue = 3;
+          break;
+        case 'right':
+          translateXValue = '70%';
+          scaleValue = 0.7;
+          opacityValue = 0.6;
+          zIndexValue = 1;
+          break;
+        case 'farRight':
+          translateXValue = '110%';
+          scaleValue = 0.55;
+          opacityValue = 0.35;
+          zIndexValue = 0;
+          break;
+      }
+    } else {
+      // Large screens
+      switch (position) {
+        case 'farLeft':
+          translateXValue = '-100%';
+          scaleValue = 0.6;
+          opacityValue = 0.4;
+          zIndexValue = 0;
+          break;
+        case 'left':
+          translateXValue = '-60%';
+          scaleValue = 0.85;
+          opacityValue = 0.7;
+          zIndexValue = 1;
+          break;
+        case 'center':
+          translateXValue = '0%';
+          scaleValue = 1;
+          opacityValue = 1;
+          zIndexValue = 3;
+          break;
+        case 'right':
+          translateXValue = '60%';
+          scaleValue = 0.85;
+          opacityValue = 0.7;
+          zIndexValue = 1;
+          break;
+        case 'farRight':
+          translateXValue = '100%';
+          scaleValue = 0.6;
+          opacityValue = 0.4;
+          zIndexValue = 0;
+          break;
       }
     }
-    // Tablet screens
-    else if (screenWidth < 1024) {
-      if (position === 'left') {
-        translateXValue = '-70%';
-        rotateYValue = '0deg'; // no rotation
-        scaleValue = 0.7;
-        opacityValue = 0.6;
-        zIndexValue = 1;
-      } else if (position === 'right') {
-        translateXValue = '70%';
-        rotateYValue = '0deg'; // no rotation
-        scaleValue = 0.7;
-        opacityValue = 0.6;
-        zIndexValue = 1;
-      }
-    }
-    // Desktop screens
-    else {
-      if (position === 'left') {
-        translateXValue = '-60%';
-        rotateYValue = '0deg'; // no rotation
-        scaleValue = 0.85;
-        opacityValue = 0.7;
-        zIndexValue = 1;
-      } else if (position === 'right') {
-        translateXValue = '60%';
-        rotateYValue = '0deg'; // no rotation
-        scaleValue = 0.85;
-        opacityValue = 0.7;
-        zIndexValue = 1;
-      }
-    }
+
     return {
       zIndex: zIndexValue,
       translateX: translateXValue,
@@ -129,7 +179,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     }
   };
 
-  // Calculate card width based on screen size
   const getCardWidth = () => {
     if (screenWidth < 640) return 'w-[220px]';
     if (screenWidth < 768) return 'w-[250px]';
@@ -137,129 +186,165 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     return 'w-[380px]';
   };
 
-  // Calculate card height based on screen size
   const getCardHeight = () => {
-    if (screenWidth < 640) return 'h-[450px]';
-    if (screenWidth < 768) return 'h-[600px]';
-    if (screenWidth < 1024) return 'h-[650px]';
-    return 'h-[580px]';
+    return 'h-[90vh]';
   };
 
   return (
-    <motion.div
-      className={`absolute cursor-pointer ${getCardWidth()} ${getCardHeight()} perspective-1000 transition-all duration-300`}
-      initial={cardStyles}
-      animate={{
-        zIndex: cardStyles.zIndex,
-        translateX: cardStyles.translateX,
-        rotateY: cardStyles.rotateY,
-        scale: isHovered && isActive ? 1.05 : cardStyles.scale,
-        opacity: cardStyles.opacity
-      }}
-      transition={{
-        duration: 0.03,
-        ease: 'easeInOut'
-      }}
-      onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{
-        transformStyle: 'preserve-3d',
-        filter: isActive ? '' : 'none'
-      }}
-    >
-      <div
-        className="relative mx-auto overflow-hidden w-full h-[90vh]"
-        style={{
-          clipPath: "url(#cardClip)",
-          backgroundImage: `url(${project.imageUrl})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+    <>
+      {/* SVG definition for rounded corners */}
+      <svg width="0" height="0">
+        <clipPath id="cardClip" clipPathUnits="objectBoundingBox">
+          <path d="
+            M0.05,0 
+            Q0,0 0,0.05 
+            V1 H1 V0.05 
+            Q1,0 0.95,0 
+            Z
+          " />
+        </clipPath>
+      </svg>
+
+      <motion.div
+        className={`absolute cursor-pointer ${getCardWidth()} ${getCardHeight()} perspective-1000 transition-all duration-300 overflow-hidden`}
+        initial={cardStyles}
+        animate={{
+          zIndex: cardStyles.zIndex,
+          translateX: cardStyles.translateX,
+          rotateY: cardStyles.rotateY,
+          scale: isHovered && isActive ? 1.05 : cardStyles.scale,
+          opacity: cardStyles.opacity
         }}
-      ></div>
-
-      {/* Overlay gradient */}
-      {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/80"></div> */}
-
-      {/* Date display */}
-      <div className="absolute top-8 right-8 text-white text-sm font-medium z-20">
-        {project.date}
-      </div>
-
-      {/* Video element */}
-      {isPlaying && isActive && (
-        <video
-          ref={videoRef}
-          src={project.videoUrl}
-          className="absolute inset-0 w-full h-full object-cover z-10"
-          controls
-          autoPlay
-          onClick={e => e.stopPropagation()}
-        />
-      )}
-
-      {/* Play button */}
-      {!isPlaying && isActive && (
+        transition={{
+          duration: 0.03,
+          ease: 'easeInOut'
+        }}
+        onClick={onClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        style={{
+          transformStyle: 'preserve-3d',
+          filter: isActive ? '' : 'none'
+        }}
+      >
         <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
-          onClick={handlePlayClick}
-        >
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 md:h-10 md:w-10"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polygon points="10 8 16 12 10 16" fill="white" />
-            </svg>
-          </motion.div>
-        </div>
-      )}
+          className="relative mx-auto overflow-hidden w-full h-full"
+      style={{
+  clipPath: "url(#cardClip)",
+  backgroundImage: `url(${project.imageUrl})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+}}
 
-      {/* Pause button */}
-      {isPlaying && isActive && (
+        ></div>
+
+        {/* Black shading at top and bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-none z-10"></div>
+
+        {/* Darker overlay only for left/right/farLeft/farRight cards */}
+        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+          <div className="absolute inset-0 bg-black/60 z-10"></div>
+        )}
+
+        {/* Subtle overlay for the center card */}
+        {position === 'center' && (
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-none z-10"></div>
+        )}
+
+        {/* Date display */}
+        <div className="absolute top-8 right-8 text-white text-sm font-medium z-20">
+          {project.date}
+        </div>
+
+        {/* Video element */}
+        {isPlaying && isActive && (
+          <video
+            ref={videoRef}
+            src={project.videoUrl}
+            className="absolute inset-0 w-full h-[98vh] mx-auto object-cover z-10"
+            controls
+            autoPlay
+            onClick={e => e.stopPropagation()}
+          />
+        )}
+
+        {/* Play button */}
+        {!isPlaying && isActive && (
+          <div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
+            onClick={handlePlayClick}
+          >
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8 md:h-10 md:w-10"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polygon points="10 8 16 12 10 16" fill="white" />
+              </svg>
+            </motion.div>
+          </div>
+        )}
+
+        {/* Pause button */}
+        {isPlaying && isActive && (
+          <div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
+            onClick={handlePlayClick}
+          >
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8 md:h-10 md:w-10"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="6" y="8" width="4" height="8" fill="white" />
+                <rect x="14" y="8" width="4" height="8" fill="white" />
+              </svg>
+            </motion.div>
+          </div>
+        )}
+
+        {/* Project info */}
         <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
-          onClick={handlePlayClick}
+          className="
+            absolute 
+            bottom-11 
+            left-0 right-0 
+            p-4 md:p-6 
+            text-white
+            z-20
+          "
         >
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
+          <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
+          <p
+            className="
+              text-xs md:text-sm text-white/80 line-clamp-3 
+              max-w-[90%] xl:max-w-[80%]
+            "
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 md:h-10 md:w-10"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="6" y="8" width="4" height="8" fill="white" />
-              <rect x="14" y="8" width="4" height="8" fill="white" />
-            </svg>
-          </motion.div>
+            {project.subtitle}
+          </p>
         </div>
-      )}
-
-      {/* Project info */}
-      <div className="absolute bottom-28 left-8 right-8 text-white z-20">
-        <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
-        <p className="text-xs md:text-sm text-white/80 line-clamp-3">
-          {project.subtitle}
-        </p>
-      </div>
-    </motion.div>
+      </motion.div>
+    </>
   );
 };

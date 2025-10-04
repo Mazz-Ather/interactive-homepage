@@ -16,7 +16,7 @@ const VRHeroPage = () => {
         <div className="relative z-10 h-screen bg-black/70 pt-6">
           {/* Top Right Company Description - Only visible on desktop */}
           <div className="absolute top-8 lg:top-[80px] right-8 xl:right-[100px] max-w-sm hidden lg:block">
-            <p className="text-gray-400 text-xs leading-relaxed">
+            <p className="text-gray-200 text-xs lg:text-[14px] leading-relaxed">
               Welcome to AO Interactive, a leading creative and technology solutions company based in Riyadh. We
               specialize in building custom, immersive experiences that drive real-world results. From revolutionizing
               training with Virtual Reality to captivating audiences at events, we blend cutting-edge technology with

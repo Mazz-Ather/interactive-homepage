@@ -135,15 +135,17 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="bg-black text-white fixed top-0 left-0 right-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="bg-black text-white container max-w-[1800px] mx-auto  fixed top-0 left-0 right-0 z-10">
+        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[86px] xl:ppx]">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex-shrink-0">
-              <Link href="/" className="text-xl font-bold tracking-wider">
-                {t.logo}
-              </Link>
-            </div>
+         <div className="flex-shrink-0 ">
+  <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-wider">
+    <img src="/images/logo.png" alt="logo" width={66} height={50} />
+    {t.logo}
+  </Link>
+</div>
+
 
             {/* Desktop Nav */}
             <div className="hidden md:block">

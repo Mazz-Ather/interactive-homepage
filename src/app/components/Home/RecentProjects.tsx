@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useEffect, useState } from 'react';
 import { ProjectCard } from './ProjectCard';
 import { motion } from 'framer-motion';
@@ -9,7 +8,6 @@ const projects = [
     id: 1,
     title: 'About Project',
     subtitle: 'National Day Campaign | Saudi Arabia National Day 2023 video has been made to celebrate love for country.',
-    // date: '9/23/23',
     imageUrl: "/images/pro1.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
@@ -17,7 +15,6 @@ const projects = [
     id: 2,
     title: 'About Project',
     subtitle: 'Interactive digital experience showcasing cultural heritage through immersive storytelling.',
-    // date: '8/15/23',
     imageUrl: "/images/pro2.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
@@ -25,7 +22,6 @@ const projects = [
     id: 3,
     title: 'About Project',
     subtitle: 'Architectural visualization project highlighting modern sustainable design concepts.',
-    // date: '7/10/23',
     imageUrl: "/images/pro3.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
@@ -33,7 +29,6 @@ const projects = [
     id: 4,
     title: 'About Project',
     subtitle: 'Brand identity development for emerging tech startup with global reach.',
-    // date: '6/05/23',
     imageUrl: "/images/pro1.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
@@ -41,7 +36,6 @@ const projects = [
     id: 5,
     title: 'About Project',
     subtitle: 'Motion graphics campaign for international sports event with custom animations.',
-    // date: '5/22/23',
     imageUrl: "/images/pro2.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
@@ -49,7 +43,6 @@ const projects = [
     id: 6,
     title: 'About Project',
     subtitle: 'Motion graphics campaign for international sports event with custom animations.',
-    // date: '5/22/23',
     imageUrl: "/images/pro3.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   }
@@ -76,15 +69,16 @@ export const RecentProjects = () => {
     setActiveIndex(prev => (prev - 1 + projects.length) % projects.length);
   };
 
-  const handleCardClick = (index: number) => {
-    setActiveIndex(index);
-  };
+  // Positions for 5 cards
+  const positions = ['farLeft', 'left', 'center', 'right', 'farRight'] as const;
 
-  // Always show 3 cards regardless of screen size
+  // Get 5 visible projects centered on activeIndex
   const visibleProjects = [
+    projects[(activeIndex - 2 + projects.length) % projects.length],
     projects[(activeIndex - 1 + projects.length) % projects.length],
     projects[activeIndex],
-    projects[(activeIndex + 1) % projects.length]
+    projects[(activeIndex + 1) % projects.length],
+    projects[(activeIndex + 2) % projects.length],
   ];
 
   return (
@@ -92,7 +86,13 @@ export const RecentProjects = () => {
       {/* ClipPath definition once globally */}
       <svg className="absolute w-0 h-0">
         <clipPath id="cardClip" clipPathUnits="objectBoundingBox">
-          <path d="M0,0.26 L0.9,0 Q1,0 1,0.1 L1,0.82 L0,1 Z" />
+          <path d="
+            M0.1,0.2
+            Q0,0.2 0,0.3
+            V1 H1 V0.1
+            Q1,0 0.9,0
+            Z
+          " />
         </clipPath>
       </svg>
 
@@ -117,12 +117,12 @@ export const RecentProjects = () => {
           Show All Projects →
         </motion.button>
       </div>
+
       {/* Carousel Section */}
-      <div className="relative h-[500px] md:h-[550px] lg:h-[600px] w-full mt-8">
+      <div className="relative h-[500px] md:h-[550px] lg:h-[600px] max-w-[110vw] mx-auto mt-8">
         <div className="absolute inset-0 flex items-center justify-center">
           {visibleProjects.map((project, idx) => {
-            // Calculate position based on index (always 3 cards)
-            const position = idx === 0 ? 'left' : idx === 2 ? 'right' : 'center';
+            const position = positions[idx];
             const isActive = position === 'center';
             return (
               <ProjectCard
@@ -132,13 +132,14 @@ export const RecentProjects = () => {
                 isActive={isActive}
                 screenWidth={screenWidth}
                 onClick={() => {
-                  if (idx === 0) handlePrev();
-                  else if (idx === 2) handleNext();
+                  if (position === 'farLeft' || position === 'left') handlePrev();
+                  else if (position === 'right' || position === 'farRight') handleNext();
                 }}
               />
             );
           })}
         </div>
+
         {/* Navigation Arrows */}
         <button
           onClick={handlePrev}
@@ -147,7 +148,7 @@ export const RecentProjects = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-16 w-16"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -162,7 +163,7 @@ export const RecentProjects = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-16 w-16"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

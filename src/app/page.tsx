@@ -1,8 +1,7 @@
 
 import Contact from "./components/Home/Contact";
 import Hero from "./components/Home/Hero";
-import Projects from "./components/Home/Projects";
-import { RecentProjects } from "./components/Home/RecentProjects.tsx";
+import { RecentProjects } from "./components/Home/RecentProjects";
 import Services from "./components/Home/Services";
 import Testimonials from "./components/Home/Testimonials";
 import Video from "./components/Home/Video";
