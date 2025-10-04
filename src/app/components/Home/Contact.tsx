@@ -60,21 +60,30 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
             className="relative rounded-3xl p-4 lg:p-12 ml-0 lg:ml-[150px]"
           >
             {/* Outer container with gradient border */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 p-[2px] overflow-hidden">
+            <div className="absolute inset-0 rounded-3xl bg-gradint-to-r from-purple-500 via-blue-500 to-purple-500 p-[2px] overflow-hidden">
               <div className="w-full h-full bg-black rounded-3xl overflow-hidden">
                 {/* All gradient layers INSIDE the black background */}
                 <div className="absolute inset-0">
                   {/* Edge glow only - positioned inside with padding */}
-                  <div className="absolute top-0 left-0 right-0 h-[50px] bg-gradient-to-b from-[#5B4FE8] to-transparent opacity-100 blur-[30px]"></div>
-                  <div className="absolute bottom-0 left-0 right-0 h-[30px] bg-gradient-to-t from-[#4B3FD8] to-transparent opacity-100 blur-[30px]"></div>
-                  <div className="absolute top-0 left-0 bottom-0 w-[40px] bg-gradient-to-r from-[#6F5FF8] to-transparent opacity-100 blur-[30px]"></div>
-                  <div className="absolute top-0 right-0 bottom-0 w-[30px] bg-gradient-to-l from-[#6F5FF8] to-transparent opacity-100 blur-[30px]"></div>
-                  
+               <div className="relative w-[100%] h-[90vh] rounded-[40px] overflow-hidden">
+  {/* Top Gradient */}
+  <div className="absolute top-0 left-0 right-0 h-[50px] rounded-t-[40px] bg-gradient-to-b from-[#6F61ED] to-transparent opacity-100"></div>
+
+  {/* Bottom Gradient */}
+  <div className="absolute bottom-0 left-0 right-0 h-[40px] rounded-b-[40px] bg-gradient-to-t from-[#6F61ED] to-transparent opacity-100"></div>
+
+  {/* Left Gradient */}
+  <div className="absolute top-0 left-0 bottom-0 w-[40px] rounded-l-[40px] bg-gradient-to-r from-[#6F61ED] to-transparent opacity-100"></div>
+
+  {/* Right Gradient */}
+  <div className="absolute top-0 right-0 bottom-0 w-[30px] rounded-r-[40px] bg-gradient-to-l from-[#6F61ED] to-transparent opacity-100"></div>
+</div>
+
                   {/* Corner glows */}
-                  <div className="absolute top-0 left-0 w-[150px] h-[150px] bg-gradient-to-br from-[#7B6BFF] to-transparent opacity-40 blur-[40px]"></div>
+                  {/* <div className="absolute top-0 left-0 w-[150px] h-[50px] bg-gradient-to-br from-[#7B6BFF] to-transparent opacity-40 blur-[40px]"></div>
                   <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-gradient-to-bl from-[#7B6BFF] to-transparent opacity-40 blur-[40px]"></div>
                   <div className="absolute bottom-0 left-0 w-[150px] h-[150px] bg-gradient-to-tr from-[#6B5BEF] to-transparent opacity-40 blur-[40px]"></div>
-                  <div className="absolute bottom-0 right-0 w-[150px] h-[150px] bg-gradient-to-tl from-[#6B5BEF] to-transparent opacity-40 blur-[40px]"></div>
+                  <div className="absolute bottom-0 right-0 w-[150px] h-[150px] bg-gradient-to-tl from-[#6B5BEF] to-transparent opacity-40 blur-[40px]"></div> */}
                 </div>
               </div>
             </div>
