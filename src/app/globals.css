@@ -823,3 +823,24 @@ html[dir="rtl"] * {
   z-index: 1;
   pointer-events: none;
 }
+/* carousel */
+
+.carousel-card {
+  width: 100%;
+  height: 90vh;
+  background: linear-gradient(145deg, #6F61ED, #A084E8);
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.carousel-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: white; /* or transparent gradient */
+  clip-path: polygon(0 40%, 3% 0, 97% 0, 100% 40%, 100% 100%, 0 100%);
+}

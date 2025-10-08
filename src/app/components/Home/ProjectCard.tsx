@@ -187,7 +187,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   const getCardHeight = () => {
-    return 'h-[90vh]';
+    return 'h-full';  // Inherit from container to prevent overflow
   };
 
   return (
@@ -227,30 +227,28 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           filter: isActive ? '' : 'none'
         }}
       >
-        <div
-          className="relative mx-auto overflow-hidden w-full h-full"
-      style={{
-  clipPath: "url(#cardClip)",
-  backgroundImage: `url(${project.imageUrl})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-}}
+     {/* Background image */}
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: `url(${project.imageUrl})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* Black shading at top and bottom */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-none"></div>
+          
+          {/* Darker overlay only for left/right/farLeft/farRight cards */}
+          {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+            <div className="absolute inset-0 bg-black/60"></div>
+          )}
 
-        ></div>
-
-        {/* Black shading at top and bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-none z-10"></div>
-
-        {/* Darker overlay only for left/right/farLeft/farRight cards */}
-        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
-          <div className="absolute inset-0 bg-black/60 z-10"></div>
-        )}
-
-        {/* Subtle overlay for the center card */}
-        {position === 'center' && (
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-none z-10"></div>
-        )}
-
+          {/* Subtle overlay for the center card */}
+          {position === 'center' && (
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-none"></div>
+          )}
+        </div>
         {/* Date display */}
         <div className="absolute top-8 right-8 text-white text-sm font-medium z-20">
           {project.date}
@@ -261,7 +259,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <video
             ref={videoRef}
             src={project.videoUrl}
-            className="absolute inset-0 w-full h-[98vh] mx-auto object-cover z-10"
+            className="absolute inset-0 w-full h-full mx-auto object-cover z-10"  // h-full to match parent
             controls
             autoPlay
             onClick={e => e.stopPropagation()}

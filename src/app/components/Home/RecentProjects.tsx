@@ -82,18 +82,15 @@ export const RecentProjects = () => {
   ];
 
   return (
-    <div className="w-full py-16 px-4 md:px-8 lg:px-16 relative overflow-hidden">
-      {/* ClipPath definition once globally */}
-      <svg className="absolute w-0 h-0">
-        <clipPath id="cardClip" clipPathUnits="objectBoundingBox">
-          <path d="
-            M0.1,0.2
-            Q0,0.2 0,0.3
-            V1 H1 V0.1
-            Q1,0 0.9,0
-            Z
-          " />
-        </clipPath>
+    <div className="w-full py-32 px-4 md:px-8 lg:px-16 relative overflow-hidden">
+      {/* Global SVG clip-path definition - applies to ALL cards */}
+      <svg className="absolute w-0 h-0" style={{ position: 'absolute' }}>
+        <defs>
+          <clipPath id="cardClipPath" clipPathUnits="objectBoundingBox">
+            {/* Curved top corners with angled cut */}
+            <path d="M 0.02,0 L 0.98,0 Q 1,0 1,0.02 L 1,1 L 0,1 L 0,0.02 Q 0,0 0.02,0 Z" />
+          </clipPath>
+        </defs>
       </svg>
 
       {/* Header Section */}
@@ -119,7 +116,7 @@ export const RecentProjects = () => {
       </div>
 
       {/* Carousel Section */}
-      <div className="relative h-[500px] md:h-[550px] lg:h-[600px] max-w-[110vw] mx-auto mt-8">
+      <div className="relative h-[500px] md:h-[550px] lg:h-[680px] max-w-[110vw] mx-auto pt-20">
         <div className="absolute inset-0 flex items-center justify-center">
           {visibleProjects.map((project, idx) => {
             const position = positions[idx];
@@ -143,7 +140,7 @@ export const RecentProjects = () => {
         {/* Navigation Arrows */}
         <button
           onClick={handlePrev}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70 transition-colors"
           aria-label="Previous project"
         >
           <svg
@@ -158,7 +155,7 @@ export const RecentProjects = () => {
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70 transition-colors"
           aria-label="Next project"
         >
           <svg

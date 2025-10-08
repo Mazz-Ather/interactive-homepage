@@ -46,7 +46,7 @@ const ServicesComponent: React.FC = () => {
   <div className="space-y-1 flex justify-center lg:block">
     <h1 className="text-6xl lg:pt-6 md:text-7xl lg:text-6xl font-light tracking-tight whitespace-nowrap">
       <span className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent z-[999] font-[700]">
-        our core services
+        Our Core Services
       </span>
     </h1>
   </div>

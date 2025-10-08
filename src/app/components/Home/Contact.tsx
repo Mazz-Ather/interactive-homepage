@@ -25,7 +25,7 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-black lg:px-20 text-white overflow-auto">
+    <div className="min-h-screen  flex flex-col bg-re-500 lg:px-20 text-white overflow-auto">
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 py-8 lg:py-16 flex-grow min-h-[min-content]">
         {/* Top Header Section */}
@@ -57,28 +57,32 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
         <div className="relative">
       
           <div
-            className="relative rounded-3xl p-4 lg:p-12 ml-0 lg:ml-[150px]"
+            className="relative rounded-3xl p-4 lg:p-12 ml-0 lg:ml-[150px] h-x]"
           >
             {/* Outer container with gradient border */}
-            <div className="absolute inset-0 rounded-3xl bg-gradint-to-r from-purple-500 via-blue-500 to-purple-500 p-[2px] overflow-hidden">
+            <div className="absolute xl:-m-[20px]  inset-0 rounded-3xl bg-gradint-to-r from-purple-500 via-blue-500 to-purple-500 p-[2px] overflow-hidden">
               <div className="w-full h-full bg-black rounded-3xl overflow-hidden">
                 {/* All gradient layers INSIDE the black background */}
                 <div className="absolute inset-0">
                   {/* Edge glow only - positioned inside with padding */}
-  <div className="relative w-[100%] h-[90vh] rounded-[40px] overflow-hidden">
+  <div className="absolute inset-0 rounded-[40px] pointer-events-none">
   {/* Top Gradient */}
-  <div className="absolute top-0 left-0 right-0 h-[50px] bg-gradient-to-b from-[#6F61ED] to-transparent opacity-100"></div>
+  {/* <div className="absolute top-0 left-0 right-0 h-[20px] bg-gradient-to-b from-[#6F61ED] to-transparent opacity-90"></div> */}
+  <div className="absolute blur-sm top-0 left-0 right-0 h-[2px] blurred-xl bg-gradient-to-b from-[#6F61ED] to-transparent opacity-70"></div>
+  <div className="absolute blur-sm top-0 left-0 right-0 h-[60px] blurred-xl  bg-gradient-to-b from-[#6F61ED] to-transparent opacity-70"></div>
 
   {/* Bottom Gradient */}
-  <div className="absolute bottom-0 left-0 right-0 h-[40px] bg-gradient-to-t from-[#6F61ED] to-transparent opacity-100"></div>
+  <div className="absolute blur-sm bottom-0 left-0 right-0 h-[2px] bg-gradient-to-t from-[#6F61ED] to-transparent opacity-40"></div>
+  <div className="absolute blur-sm bottom-0 left-0 right-0 h-[60px] bg-gradient-to-t from-[#6F61ED] to-transparent opacity-40"></div>
 
   {/* Left Gradient */}
-  <div className="absolute top-0 left-0 bottom-0 w-[40px] bg-gradient-to-r from-[#6F61ED] to-transparent opacity-100"></div>
+  <div className="absolute blur-sm top-0 left-0 bottom-0 w-[2px] bg-gradient-to-r from-[#6F61ED] to-transparent opacity-60"></div>
+  <div className="absolute top-0 blur-sm left-0 bottom-0 w-[60px] bg-gradient-to-r from-[#6F61ED] to-transparent opacity-60"></div>
 
   {/* Right Gradient */}
-  <div className="absolute top-0 right-0 bottom-0 w-[30px] bg-gradient-to-l from-[#6F61ED] to-transparent opacity-100"></div>
+  <div className="absolute top-0 right-0 bottom-0 w-[2px] blur-sm bg-gradient-to-l from-[#6F61ED] to-transparent opacity-60"></div>
+  <div className="absolute top-0 right-0 bottom-0 w-[50px] blur-sm bg-gradient-to-l from-[#6F61ED] to-transparent opacity-60"></div>
 </div>
-
                   {/* Corner glows */}
                   {/* <div className="absolute top-0 left-0 w-[150px] h-[50px] bg-gradient-to-br from-[#7B6BFF] to-transparent opacity-40 blur-[40px]"></div>
                   <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-gradient-to-bl from-[#7B6BFF] to-transparent opacity-40 blur-[40px]"></div>
