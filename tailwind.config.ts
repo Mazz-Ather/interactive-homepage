@@ -61,13 +61,17 @@ const config: Config = {
   			}
   		},
   		animation: {
-  			marquee: 'marquee var(--duration, 30s) linear infinite'
+  			marquee: 'marquee var(--duration, 30s) linear infinite',
+  			'marquee-reverse': 'marquee-reverse var(--duration, 30s) linear infinite'
   		},
   		keyframes: {
   			marquee: {
-  				to: {
-  					transform: 'translateX(-50%)'
-  				}
+  				from: { transform: 'translateX(0)' },
+  				to: { transform: 'translateX(calc(-100% - 0rem))' }
+  			},
+  			'marquee-reverse': {
+  				from: { transform: 'translateX(calc(-100% - 0rem))' },
+  				to: { transform: 'translateX(0)' }
   			}
   		}
   	}
