@@ -60,10 +60,10 @@ const config: Config = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
-  		animation: {
-  			marquee: 'marquee var(--duration, 30s) linear infinite',
-  			'marquee-reverse': 'marquee-reverse var(--duration, 30s) linear infinite'
-  		},
+  	animation: {
+  marquee: 'marquee 30s linear infinite',
+  'marquee-reverse': 'marquee-reverse 30s linear infinite'
+},
   		keyframes: {
   			marquee: {
   				from: { transform: 'translateX(0)' },

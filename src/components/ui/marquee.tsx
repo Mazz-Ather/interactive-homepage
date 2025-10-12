@@ -7,7 +7,6 @@ interface MarqueeProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: "left" | "right"
   speed?: number
 }
-
 export function Marquee({
   children,
   pauseOnHover = false,
@@ -27,21 +26,29 @@ export function Marquee({
       <div className="relative flex w-full overflow-hidden py-5">
         <div 
           className={cn(
-            "flex w-max animate-marquee gap-0",
+            "flex w-max gap-0",
             pauseOnHover && "hover:[animation-play-state:paused]",
-            direction === "right" && "animate-marquee-reverse"
+            direction === "right" ? "animate-marquee-reverse" : "animate-marquee"
           )}
-          style={{ "--duration": `${speed}s` } as React.CSSProperties}
+          style={{ 
+            animationDuration: `${speed}s`,
+            animationTimingFunction: 'linear',
+            animationIterationCount: 'infinite'
+          } as React.CSSProperties}
         >
           {children}
         </div>
         <div 
           className={cn(
-            "flex w-max animate-marquee gap-0",
+            "flex w-max gap-0",
             pauseOnHover && "hover:[animation-play-state:paused]",
-            direction === "right" && "animate-marquee-reverse"
+            direction === "right" ? "animate-marquee-reverse" : "animate-marquee"
           )}
-          style={{ "--duration": `${speed}s` } as React.CSSProperties}
+          style={{ 
+            animationDuration: `${speed}s`,
+            animationTimingFunction: 'linear',
+            animationIterationCount: 'infinite'
+          } as React.CSSProperties}
           aria-hidden="true"
         >
           {children}
