@@ -186,163 +186,153 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     return 'w-[380px]';
   };
 
+  // Updated height calculation to fit within viewport
   const getCardHeight = () => {
-    return 'h-full';  // Inherit from container to prevent overflow
+    // Use max-h with specific pixel values that fit within the carousel container
+    if (screenWidth < 640) return 'h-[400px]';
+    if (screenWidth < 768) return 'h-[450px]';
+    if (screenWidth < 1024) return 'h-[500px]';
+    return 'h-[550px]';
   };
 
   return (
-    <>
-      {/* SVG definition for rounded corners */}
-      <svg width="0" height="0">
-        <clipPath id="cardClip" clipPathUnits="objectBoundingBox">
-          <path d="
-            M0.05,0 
-            Q0,0 0,0.05 
-            V1 H1 V0.05 
-            Q1,0 0.95,0 
-            Z
-          " />
-        </clipPath>
-      </svg>
-
-      <motion.div
-        className={`absolute cursor-pointer ${getCardWidth()} ${getCardHeight()} perspective-1000 transition-all duration-300 overflow-hidden`}
-        initial={cardStyles}
-        animate={{
-          zIndex: cardStyles.zIndex,
-          translateX: cardStyles.translateX,
-          rotateY: cardStyles.rotateY,
-          scale: isHovered && isActive ? 1.05 : cardStyles.scale,
-          opacity: cardStyles.opacity
-        }}
-        transition={{
-          duration: 0.03,
-          ease: 'easeInOut'
-        }}
-        onClick={onClick}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+    <motion.div
+      className={`absolute cursor-pointer ${getCardWidth()} ${getCardHeight()} perspective-1000 transition-all duration-300 overflow-hidden`}
+      initial={cardStyles}
+      animate={{
+        zIndex: cardStyles.zIndex,
+        translateX: cardStyles.translateX,
+        rotateY: cardStyles.rotateY,
+        scale: isHovered && isActive ? 1.05 : cardStyles.scale,
+        opacity: cardStyles.opacity
+      }}
+      transition={{
+        duration: 0.03,
+        ease: 'easeInOut'
+      }}
+      onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        transformStyle: 'preserve-3d',
+        filter: isActive ? '' : 'none'
+      }}
+    >
+      <div
+        className="relative mx-auto overflow-hidden w-full h-full rounded-"
         style={{
-          transformStyle: 'preserve-3d',
-          filter: isActive ? '' : 'none'
+          backgroundImage: `url(${project.imageUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
-      >
-     {/* Background image */}
-        <div 
-          className="absolute inset-0 w-full h-full"
-          style={{
-            backgroundImage: `url(${project.imageUrl})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          {/* Black shading at top and bottom */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-none"></div>
-          
-          {/* Darker overlay only for left/right/farLeft/farRight cards */}
-          {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
-            <div className="absolute inset-0 bg-black/60"></div>
-          )}
+      ></div>
 
-          {/* Subtle overlay for the center card */}
-          {position === 'center' && (
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-none"></div>
-          )}
-        </div>
-        {/* Date display */}
-        <div className="absolute top-8 right-8 text-white text-sm font-medium z-20">
-          {project.date}
-        </div>
+      {/* Black shading at top and bottom */}
+      <div className="absolute inset-0 bg-gradient-to-t from-blck via-transparent to-none z-10"></div>
 
-        {/* Video element */}
-        {isPlaying && isActive && (
-          <video
-            ref={videoRef}
-            src={project.videoUrl}
-            className="absolute inset-0 w-full h-full mx-auto object-cover z-10"  // h-full to match parent
-            controls
-            autoPlay
-            onClick={e => e.stopPropagation()}
-          />
-        )}
+      {/* Darker overlay only for left/right/farLeft/farRight cards */}
+      {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+        <div className="absolute inset-0 bg-black/60 z-10"></div>
+      )}
 
-        {/* Play button */}
-        {!isPlaying && isActive && (
-          <div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
-            onClick={handlePlayClick}
-          >
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center cursor-pointer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 md:h-10 md:w-10"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polygon points="10 8 16 12 10 16" fill="white" />
-              </svg>
-            </motion.div>
-          </div>
-        )}
+      {/* Subtle overlay for the center card */}
+      {position === 'center' && (
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-none z-10"></div>
+      )}
 
-        {/* Pause button */}
-        {isPlaying && isActive && (
-          <div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
-            onClick={handlePlayClick}
-          >
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 md:h-10 md:w-10"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="6" y="8" width="4" height="8" fill="white" />
-                <rect x="14" y="8" width="4" height="8" fill="white" />
-              </svg>
-            </motion.div>
-          </div>
-        )}
+      {/* Date display */}
+      <div className="absolute top-8 right-8 text-white text-sm font-medium z-20">
+        {project.date}
+      </div>
 
-        {/* Project info */}
+      {/* Video element */}
+      {isPlaying && isActive && (
+        <video
+          ref={videoRef}
+          src={project.videoUrl}
+          className="absolute inset-0 w-full h-full mx-auto object-cover z-10"
+          controls
+          autoPlay
+          onClick={e => e.stopPropagation()}
+        />
+      )}
+
+      {/* Play button */}
+      {!isPlaying && isActive && (
         <div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
+          onClick={handlePlayClick}
+        >
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 md:h-10 md:w-10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polygon points="10 8 16 12 10 16" fill="white" />
+            </svg>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Pause button */}
+      {isPlaying && isActive && (
+        <div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
+          onClick={handlePlayClick}
+        >
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 md:h-10 md:w-10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="6" y="8" width="4" height="8" fill="white" />
+              <rect x="14" y="8" width="4" height="8" fill="white" />
+            </svg>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Project info */}
+      <div
+        className="
+          absolute 
+          bottom-11 
+          left-0 right-0 
+          p-4 md:p-6 
+          text-white
+          z-20
+        "
+      >
+        <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
+        <p
           className="
-            absolute 
-            bottom-11 
-            left-0 right-0 
-            p-4 md:p-6 
-            text-white
-            z-20
+            text-xs md:text-sm text-white/80 line-clamp-3 
+            max-w-[90%] xl:max-w-[80%]
           "
         >
-          <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
-          <p
-            className="
-              text-xs md:text-sm text-white/80 line-clamp-3 
-              max-w-[90%] xl:max-w-[80%]
-            "
-          >
-            {project.subtitle}
-          </p>
-        </div>
-      </motion.div>
-    </>
+          {project.subtitle}
+        </p>
+      </div>
+    </motion.div>
   );
 };

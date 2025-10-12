@@ -60,7 +60,7 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
             className="relative rounded-3xl p-4 lg:p-12 ml-0 lg:ml-[150px] h-x]"
           >
             {/* Outer container with gradient border */}
-            <div className="absolute xl:-m-[20px]  inset-0 rounded-3xl bg-gradint-to-r from-purple-500 via-blue-500 to-purple-500 p-[2px] overflow-hidden">
+            <div className="absolute xl:-m-[2px]  inset-0 rounded-3xl bg-gradint-to-r from-purple-500 via-blue-500 to-purple-500 p-[2px] overflow-hidden">
               <div className="w-full h-full bg-black rounded-3xl overflow-hidden">
                 {/* All gradient layers INSIDE the black background */}
                 <div className="absolute inset-0">

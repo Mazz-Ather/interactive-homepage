@@ -171,14 +171,14 @@ html[dir="rtl"] * {
   .mobile-menu {
     width: min(280px, 90vw);
   }
-  
+
   .logo-text {
     font-size: 1.1rem;
   }
 }
 /* navbar end  */
 /* OurClients */
-   
+
         @keyframes float-slow {
           0%, 100% {
             transform: translateX(-10px) translateY(-5px) rotate(0deg);
@@ -190,7 +190,7 @@ html[dir="rtl"] * {
             transform: translateX(-5px) translateY(10px) rotate(-1deg);
           }
         }
-        
+
         @keyframes float-medium {
           0%, 100% {
             transform: translateX(15px) translateY(10px) rotate(0deg);
@@ -199,7 +199,7 @@ html[dir="rtl"] * {
             transform: translateX(-15px) translateY(-10px) rotate(2deg);
           }
         }
-        
+
         @keyframes float-fast {
           0%, 100% {
             transform: translateX(-8px) translateY(8px) rotate(0deg);
@@ -211,7 +211,7 @@ html[dir="rtl"] * {
             transform: translateX(-12px) translateY(6px) rotate(1.5deg);
           }
         }
-        
+
         @keyframes pulse-subtle {
           0%, 100% {
             transform: scale(1);
@@ -220,25 +220,23 @@ html[dir="rtl"] * {
             transform: scale(1.02);
           }
         }
-        
+
         .animate-float-slow {
           animation: float-slow 20s ease-in-out infinite;
         }
-        
+
         .animate-float-medium {
           animation: float-medium 15s ease-in-out infinite;
         }
-        
+
         .animate-float-fast {
           animation: float-fast 12s ease-in-out infinite;
         }
-        
+
         .animate-pulse-subtle {
           animation: pulse-subtle 4s ease-in-out infinite;
         }
-        
-        
-        
+
         @layer base {
   :root {
     --background: 0 0% 100%;
@@ -266,6 +264,8 @@ html[dir="rtl"] * {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --sky-400: #38bdf8;
+    --sky-500: #0ea5e9;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -292,11 +292,14 @@ html[dir="rtl"] * {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --sky-400: #38bdf8;
+    --sky-500: #0ea5e9;
+  }
+  .theme {
+    --animate-marquee: marquee var(--duration, 30s) linear infinite;
   }
 }
-        
-        
-        
+
         @layer base {
   * {
     @apply border-border;
@@ -315,7 +318,7 @@ html[dir="rtl"] * {
             transform: translateY(-100%);
           }
         }
-        
+
         .group:hover .animate-slide-up {
           animation: slideUp 0.5s ease-in-out forwards;
         }
@@ -434,6 +437,11 @@ html[dir="rtl"] * {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  @keyframes marquee {
+  to {
+    transform: translateX(-50%);
+    }
+  }
 }
 
 @layer base {
@@ -680,25 +688,25 @@ html[dir="rtl"] * {
         .embla {
           overflow: hidden;
         }
-        
+
         .embla__container {
           backface-visibility: hidden;
           will-change: transform;
           transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        
+
         .embla__slide {
           transform: translate3d(0, 0, 0);
           will-change: transform;
         }
-        
+
         /* Ensure smooth rendering */
         * {
           -webkit-backface-visibility: hidden;
           -moz-backface-visibility: hidden;
           -ms-backface-visibility: hidden;
           backface-visibility: hidden;
-          
+
           -webkit-perspective: 1000;
           -moz-perspective: 1000;
           -ms-perspective: 1000;
@@ -843,4 +851,15 @@ html[dir="rtl"] * {
   height: 20%;
   background: white; /* or transparent gradient */
   clip-path: polygon(0 40%, 3% 0, 97% 0, 100% 40%, 100% 100%, 0 100%);
+}
+
+/* me the ta */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

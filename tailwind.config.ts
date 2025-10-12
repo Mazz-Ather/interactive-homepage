@@ -59,6 +59,16 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		animation: {
+  			marquee: 'marquee var(--duration, 30s) linear infinite'
+  		},
+  		keyframes: {
+  			marquee: {
+  				to: {
+  					transform: 'translateX(-50%)'
+  				}
+  			}
   		}
   	}
   },

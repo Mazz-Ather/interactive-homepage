@@ -1,7 +1,8 @@
 
 import Contact from "./components/Home/Contact";
+import Contact1 from "./components/Home/contact1";
 import Hero from "./components/Home/Hero";
-import { RecentProjects } from "./components/Home/RecentProjects";
+import { RecentProjects } from "./components/Home/RecentProject";
 import Services from "./components/Home/Services";
 import Testimonials from "./components/Home/Testimonials";
 import Video from "./components/Home/Video";
@@ -38,9 +39,9 @@ const Home = ({ lenis }:any) => {
   <Video/>
    <Services/>
     <RecentProjects/>
-   <Contact/> 
-    <Testimonials />
-   </>
+    <Contact/> 
+    {/* <Contact1/>  */}
+    <Testimonials /></>
   );
 }
 

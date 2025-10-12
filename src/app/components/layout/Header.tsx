@@ -56,13 +56,15 @@ const translations: Translations = {
       { label: 'Gamification', href: '/services/gamification' },
     ],
     industriesDropdown: [
-      { label: 'Real Estate', href: '/industries/real-estate' },
-      { label: 'Events & Entertainment', href: '/industries/events-entertainment' },
-      { label: 'E-Retail & E-commerce', href: '/industries/retail-and-ecommerce' },
-      { label: 'Defense & Security', href: '/industries/defense-and-security' },
-      { label: 'Tourism & Hospitality', href: '/industries/tourism-and-hospitality' },
-      { label: 'Marketing & Ad Creative', href: '/industries/marketing-and-ad-creative' },
-    ],
+     { label: 'Real Estate', href: '/services/real-estate' },
+      { label: 'Events & Entertainment', href: '/services/events-and-entertainment' },
+      { label: 'Retail & E-commerce', href: '/services/retail-and-ecommerce' },
+      { label: 'Education & Training', href: '/services/education-and-training' },
+      { label: 'Healthcare', href: '/services/healthcare' },
+      { label: 'Defense & Security', href: '/services/defense-and-security' },
+      { label: 'Tourism & Hospitality', href: '/services/tourism-and-hospitality' },
+      { label: 'Marketing & Ad Creative', href: '/services/marketing-and-ad-creative' },
+        ],
   },
   ar: {
     logo: 'تفاعلي',
@@ -135,7 +137,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="bg-black text-white container max-w-[1800px] mx-auto  fixed top-0 left-0 right-0 z-10">
+      <nav className="bg-black sticky text-white container max-w-[1800px] mx-auto  fixed top-0 left-0 right-0 z-10">
         <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[86px] xl:ppx]">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
