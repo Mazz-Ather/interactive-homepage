@@ -12,7 +12,11 @@ const config: Config = {
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
   			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
-  		},
+  		}, screens: {
+        'xl80': '1280px',  // for ~80% width
+        'xl90': '1440px',  // for ~90% width
+        'xl100': '1600px', // for ~100% width
+      },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

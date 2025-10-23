@@ -62,34 +62,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     if (screenWidth < 768) {
       switch (position) {
         case 'farLeft':
-          translateXValue = '-120%';
-          scaleValue = 0.5;
-          opacityValue = 0.3;
-          zIndexValue = 0;
+          translateXValue = '-100%';
+          scaleValue = 0.7;
           break;
         case 'left':
-          translateXValue = '-80%';
-          scaleValue = 0.6;
-          opacityValue = 0.5;
-          zIndexValue = 1;
+          translateXValue = '-60%';
+          scaleValue = 0.95;
           break;
         case 'center':
           translateXValue = '0%';
-          scaleValue = 1;
-          opacityValue = 1;
-          zIndexValue = 3;
+          scaleValue = 2.25;
           break;
         case 'right':
-          translateXValue = '80%';
-          scaleValue = 0.6;
-          opacityValue = 0.5;
-          zIndexValue = 1;
+          translateXValue = '60%';
+          scaleValue = 0.95;
           break;
         case 'farRight':
-          translateXValue = '120%';
-          scaleValue = 0.5;
-          opacityValue = 0.3;
-          zIndexValue = 0;
+          translateXValue = '100%';
+          scaleValue = 0.7;
           break;
       }
     } else if (screenWidth < 1024) {
@@ -183,16 +173,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     if (screenWidth < 640) return 'w-[220px]';
     if (screenWidth < 768) return 'w-[250px]';
     if (screenWidth < 1024) return 'w-[280px]';
-    return 'w-[380px]';
+    return 'w-[560px]';
   };
 
-  // Updated height calculation to fit within viewport
   const getCardHeight = () => {
-    // Use max-h with specific pixel values that fit within the carousel container
     if (screenWidth < 640) return 'h-[400px]';
     if (screenWidth < 768) return 'h-[450px]';
     if (screenWidth < 1024) return 'h-[500px]';
-    return 'h-[550px]';
+    if (screenWidth < 1524) return 'h-[750px]';
+    return 'h-[730px]';
   };
 
   return (
@@ -218,27 +207,124 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         filter: isActive ? '' : 'none'
       }}
     >
+      {/* Main image container */}
       <div
-        className="relative mx-auto overflow-hidden w-full h-full rounded-"
+        className="relative mx-auto overflow-hidden w-full h-full"
         style={{
           backgroundImage: `url(${project.imageUrl})`,
-          backgroundSize: "cover",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
+          borderRadius: "0px",
         }}
-      ></div>
 
-      {/* Black shading at top and bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-blck via-transparent to-none z-10"></div>
+      >
+        <div className="absolute bottom-16 xl100:hidden left-0 right-0 h-52 bg-gradient-to-t from-black via-transparent to-transparent z-10"
+          style={{
+    clipPath: 'polygon(0% 0%, 100% 0%, 98% 52%, 0% 115%)'
+  }}
+        ></div>
+        {/* <div className="absolute xl100:block hidden -bottom-2 left-0 right-0 h-[200px] bg-gradient-to-t from-black via-transparent to-transparent z-10"
+          style={{
+    clipPath: 'polygon(0% 0%, 100% 0%, 98% 52%, 0% 115%)'
+  }}
+        ></div> */}
+  <div
+  className="absolute inset-x-0 bottom-0 h-[220px] max-w-[400px]  bg-gradient-to-t from-black/80 via-black/60 to-transparent z-10"
 
-      {/* Darker overlay only for left/right/farLeft/farRight cards */}
-      {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-      )}
+ style={{
+    // clipPath: 'polygon(0% 0%, 0% 0%, 75% 52%, 16% 115%)'
+  }}
+></div>
 
-      {/* Subtle overlay for the center card */}
-      {position === 'center' && (
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-none z-10"></div>
-      )}
+
+
+{/* small screen lg hidden */}
+        {/* Parallelogram overlay for inactive cards - SOLUTION 1: Clip-path */}
+        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+<div
+  className="
+    absolute inset-0 
+   bg-black/60
+    bg-opacity-60 
+    backdrop-blur-sm
+    lg:hidden
+  "
+  style={{
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 92%, 0% 100%)'
+  }}
+></div>
+
+        )}
+        {/* lg:block */}
+        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+<div
+  className="
+    absolute inset-0 
+   
+   bg-black/60
+    bg-opacity-60 
+    backdrop-blur-sm
+    lg:block
+    xl100:hidden
+   
+  "
+  style={{
+    clipPath: 'polygon(0% 20%, 100% 5%, 100% 92%, 0% 100%)'
+  }}
+></div>
+
+
+
+)}
+{/* // xl block  */}
+        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+<div
+  className="
+    absolute inset-0 
+   hidden
+   
+    bg-opacity-60 
+    backdrop-blur-sm
+    hiddden
+    xl100:block
+  "
+  style={{
+    clipPath: 'polygon(0% 10%, 100% -10%, 100% 99%, 0% 100%)'
+  }}
+></div>
+
+
+
+        )}
+
+
+        {/* Alternative SOLUTION 2: Gradient-based overlay (uncomment to use instead of clip-path) */}
+        {/* {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: `
+                linear-gradient(
+                  105deg, 
+                  transparent 0%, 
+                  transparent 8%, 
+                  rgba(0,0,0,0.65) 15%, 
+                  rgba(0,0,0,0.65) 85%, 
+                  transparent 92%, 
+                  transparent 100%
+                )
+              `,
+              backdropFilter: 'blur(2px)'
+            }}
+          />
+        )} */}
+
+        {/* Subtle overlay for the center card */}
+        {position === 'center' && (
+          <div className="absolute inset-0 bg-gradient-to-t from-blck/40 via-transparent to-transparent z-10"></div>
+        )}
+      </div>
 
       {/* Date display */}
       <div className="absolute top-8 right-8 text-white text-sm font-medium z-20">
@@ -316,8 +402,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <div
         className="
           absolute 
-          bottom-11 
-          left-0 right-0 
+          bottom-[57px] 
+          left-9 right-0 
           p-4 md:p-6 
           text-white
           z-20
@@ -327,7 +413,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <p
           className="
             text-xs md:text-sm text-white/80 line-clamp-3 
-            max-w-[90%] xl:max-w-[80%]
+            max-w-[90%] xl:max-w-[70%]
           "
         >
           {project.subtitle}
