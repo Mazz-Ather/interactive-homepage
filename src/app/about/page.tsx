@@ -37,7 +37,7 @@ const brandImages = [
   ]
 
   return (
-    <div className=''>
+    <div className='mb-9'>
       <AboutHero />
      {/* <Marquee className="pb-4 [&>div]:gap-0">
   <div className="flex gap-0">

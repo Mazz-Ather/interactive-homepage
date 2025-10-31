@@ -6,18 +6,18 @@ import Image from "next/image"
 
 export default function RecentprojectHero() {
   return (
-    <section className="relative min-h-screen h-screen  pb-11  bg-black -white overflow-hidden">
+    <section className="relative min-h-screen h-screen mb-9 xl100:max-w-[1920px] mx-auto xl100:max-h-[1080px] pb-11 bg-black  overflow-hidden">
       {/* Marquee Background - 3 rows */}
-<div className="absolute bottom-0 left-0 w-full h-[160px] bg-gradient-to-t from-black/70 via-black/80 via-black/40 to-transparent backdrop-bl z-[20] pointer-events-none" />
+<div className="absolute bottom-0 left-0 w-full h-[160px] xl80:h-[40px] lg:h-[20px] bg-gradient-to-t from-black/70 via-black/80 via-black/40 to-transparent backdrop-bl z-[20] pointer-events-none" />
 
 
       <div className="absolute inset-0 opacity-[0.31] pb-9 h-full">
-        <div className="flex flex-col justify-between py-[100px] h-full">
+        <div className="flex flex-col justify-between py-[130px] xl90:py-[82px] xl80:py-[50px] lg:py-[70px] h-full">
           {/* Row 1 - Moving Right (Top) */}
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="mx-4">
-                <div className="text-4xl lg:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
+                <div className="text-9xl lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
                  CEO&#39;s Message  CEO&#39;s Message  CEO&#39;s Message 
                 </div>
               </div>
@@ -28,7 +28,7 @@ export default function RecentprojectHero() {
           <div className="flex animate-marquee-reverse whitespace-nowrap">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="mx-4">
-                 <div className="text-4xl lg:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
+                 <div className="text-9xl   lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
                  CEO&#39;s Message  CEO&#39;s Message  CEO&#39;s Message 
                 </div>
               </div>
@@ -39,7 +39,7 @@ export default function RecentprojectHero() {
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="mx-4">
-               <div className="text-4xl lg:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
+               <div className="text-9xl  lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
                  CEO&#39;s Message  CEO&#39;s Message  CEO&#39;s Message 
                 </div>
               </div>
@@ -49,10 +49,10 @@ export default function RecentprojectHero() {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-6 py-20 min-h-screen flex items-center">
+      <div className="relative z-10 container mx-auto px-6 xl80:py-9 min-h-screen flex items-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="xl80:space-y-8">
             <div className="space-y-1 ">
             <div className="bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
               CEO&apos;s
