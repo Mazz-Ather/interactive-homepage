@@ -17,7 +17,7 @@ export default function RecentprojectHero() {
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="mx-4">
-                <div className="text-9xl lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
+                <div className="text-4xl lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
                  CEO&#39;s Message  CEO&#39;s Message  CEO&#39;s Message 
                 </div>
               </div>
@@ -28,7 +28,7 @@ export default function RecentprojectHero() {
           <div className="flex animate-marquee-reverse whitespace-nowrap">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="mx-4">
-                 <div className="text-9xl   lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
+                 <div className="text-4xl   lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
                  CEO&#39;s Message  CEO&#39;s Message  CEO&#39;s Message 
                 </div>
               </div>
@@ -39,7 +39,7 @@ export default function RecentprojectHero() {
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="mx-4">
-               <div className="text-9xl  lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
+               <div className="text-4xl  lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
                  CEO&#39;s Message  CEO&#39;s Message  CEO&#39;s Message 
                 </div>
               </div>
