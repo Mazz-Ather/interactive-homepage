@@ -6,6 +6,10 @@ import OurApproach from '../components/About/OurApproach'
 import SecondHero from '../components/About/SecondHero'
 import MeetTheTeam from '../components/About/MeetTheTeam'
 import NewsletterCTA from '../components/layout/NewsLetter'
+import OurStoryPage from '../components/About/OurStoryPage'
+import OurApproach1 from '../components/About/OurApproach1'
+import { RecentProjects1 } from '../components/Home/RecentProject1'
+import RecentProjectHero from '../components/About/RecentProjectHero'
 
 const page = () => {
 const brandImages = [
@@ -35,7 +39,7 @@ const brandImages = [
   return (
     <div className=''>
       <AboutHero />
-     <Marquee className="pb-4 [&>div]:gap-0">
+     {/* <Marquee className="pb-4 [&>div]:gap-0">
   <div className="flex gap-0">
     {duplicatedBrands.map((imagePath, index) => (
       <div
@@ -51,10 +55,12 @@ const brandImages = [
       </div>
     ))}
   </div>
-</Marquee>
-<OurApproach/>
-<SecondHero/>
-<MeetTheTeam/>
+</Marquee> */}
+<OurStoryPage/>
+<OurApproach1/>
+<RecentProjectHero/>
+{/* <SecondHero/>
+<MeetTheTeam/> */}
 <NewsletterCTA/>
     </div>
   )
