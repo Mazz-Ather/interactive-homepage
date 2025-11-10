@@ -356,7 +356,7 @@ const Navbar: React.FC = () => {
     if (isServices) {
       // Services: 3 items in first row, 2 items in second row (left-aligned with 3rd space blank)
       return (
-        <div className="space-y-4">
+        <div className="space-y-1">
           {/* First Row - 3 items */}
           <div className="grid grid-cols-3 gap-">
             {items.slice(0, 3).map((item, index) => (
@@ -417,7 +417,7 @@ const Navbar: React.FC = () => {
     } else {
       // Industries: 3 items per row, 3 rows (3-3-2 layout)
       return (
-        <div className="space-y-4">
+        <div className="space-y-1">
           {/* First Row - 3 items */}
           <div className="grid grid-cols-3 gap-4">
             {items.slice(0, 3).map((item, index) => (
@@ -547,15 +547,15 @@ const Navbar: React.FC = () => {
 
                     {/* Full Width Dropdown Menu */}
                     {item.hasDropdown && item.dropdownItems && (
-                      <div className={`absolute top-full bg-white  mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out z-50 ${
+                      <div className={`absolute rounded-full  top-full bg-white  mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out z-50 ${
                         item.label === t.services ? 'xl80:left-[-390px] lg:left-[-300px]' : 'left-[-450px] xl80:left-[-510px] lg:left-[-440px]'
                       }`}>
                         <div className="w-screen lg:w-[90vw]  max-w-7xl bg-white text-black rounded-lg shadow-2xl overflow-hidden">
                           <div className="flex">
                             {/* Content Section - 65% width */}
-                            <div className="w-[63%] p-8">
-                              <div className="mb-6">
-                                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                            <div className="w-[63%] p-5">
+                              <div className="mb-3">
+                                <h3 className="text-lg px font-semibold text-gray-500 mb-2">
                                   {item.label}
                                 </h3>
                                 <div className="w-full h-[1px] bg-[#F0F0F0]"></div>
@@ -566,8 +566,8 @@ const Navbar: React.FC = () => {
                             </div>
 
                             {/* Hero Promotional Section - 35% width */}
-                            <div className="w-[37%] bg-[#D8D8D8]/80 p-6 flex items-center justify-center">
-                              <div className="relative overflow-hidden rounded-xl w-full h-64 shadow-lg">
+                            <div className="w-[37%] bg-[#D8D8D8]/80 py-9 px-6   flex items-center justify-center">
+                              <div className="relative overflow-hidden rounded-2xl w-full h-[230px] shadow-lg">
                                 {/* Video Background */}
                                 <video
                                   className="absolute inset-0 w-full h-full object-cover"

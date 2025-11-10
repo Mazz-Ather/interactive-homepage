@@ -102,19 +102,19 @@ Each project is an opportunity to create something extraordinary — where imagi
     muted
     playsInline
   />
-  <div className="absolute inset-0 bg-black/30 backdrop-blur-md" />
+  <div className="absolute inset-0 bg-black/50  backdrop-blur-md" />
 </div>
 
 
             {/* Mini Div with Blurred Background */}
-         <div className="relative w-[381px] h-[381px] backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 mx-auto mt-[70px] overflow-visible">
+         <div className="relative w-[381px] h-[381px]  xl100:h-[441px] backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 mx-auto mt-[70px]  xl100:mt-[30px] overflow-visible">
      {/* Hero Image - Exceeding height from top of mini div */}
              <Image
   src="/images/hero2.png"
   alt="CEO"
   width={500}
   height={600}
-  className="absolute bottom-0 left-0 rounded-2xl object-cover w-full h-[420px] z-10"
+  className="absolute bottom-0 xl100:bottom-[3 left-0 rounded-2xl object-cover w-full h-[420px] xl100:h-[470px] z-10"
 />
 
 
