@@ -2,6 +2,8 @@
 
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
 interface CaseStudy {
   id: number;
@@ -52,7 +54,7 @@ const CaseStudies1: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative  w-full px-48 bg-black text-white overflow-hidden">
+    <section className="relative font-[Cairo] w-full px-48 bg-black text-white overflow-hidden">
       {/* Background Video - extends to half of first section */}
    {/* Background Video - extends to half of first section */}
 <div className="absolute -top-16 left-0 right-0 h-[calc(60vh+300px)] z-0 overflow-hidden pointer-events-none">
@@ -84,7 +86,7 @@ const CaseStudies1: React.FC = () => {
               Case Studies
                 </div>
               </h1>
-          <p className="text-gray-300 text-sm md:text-base pt-5 leading-relaxed">
+          <p className="text-gray-200 text-sm md:text-base pt-5 leading-relaxed">
             IndieVentures built 3D Editors, LMS - Heart Rate, SCVS, Stress Measurement, Pedometer, Sleep Monitor, Manage & Call-Sync data Counter, GHG+ Sports Models, Health
             Models Display wearable, DV Watch Pack, & Built-in Vision; Finite any 100+ free watch slot to download from old gallery, Bluetooth coding.
           </p>
@@ -104,8 +106,8 @@ const CaseStudies1: React.FC = () => {
             } items-start gap-12`}
           >
             {/* Image Section with Blurry Background */}
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
-              <div className="relative rounded-3xl overflow-hidden backdrop-blur-xl p-8 border border-purple-500/20 transition-all duration-500 !bg-none group-hover:border-purple-500/40 group-hover:shadow-2xl group-hover:shadow-purple-500/20 w-[430px] h-[300px]">
+            <div className="w-full xl90:-ml-0 -ml-9 lg:w-1/2 flex justify-center lg:justify-start">
+              <div className="relative rounded-3xl overflow-hidden backdrop-blur-xl p-8 border border-purple-500/20 transition-all duration-500 !bg-none group-hover:border-purple-500/40 group-hover:shadow-2xl group-hover:shadow-purple-500/20 w-[500px] h-[350px]">
                 {/* Blurry Background Effect */}
                 <div className="absolute inset-0 bg-[#D9D9D91A]/10 backdrop-blur-xl transition-all duration-500 group-hover:from-purple-600/20 group-hover:to-blue-600/20"></div>
                 
@@ -126,16 +128,16 @@ const CaseStudies1: React.FC = () => {
             </div>
 
             {/* Text Section */}
-            <div className="w-full lg:w-1/2 space-y-4">
+            <div className="w-full lg:w-1/2 space-y- ml-4 pt-6">
               <p className="text-white text-sm font-medium uppercase tracking-wide transition-colors duration-300 ">
                 {study.miniHeading}
               </p>
-              <h1 className="text-4xl sm:text-xl md:text-4xl font-bold ">
+              <h1 className="text-4xl sm:text-xl md:text-4xl pt-4 font-bold ">
                 <div className="bg-gradient-to-r from-[#B54CBE] via-[#065FE5] to-[#065FE5] bg-clip-text text-transparent">
                   {study.mainHeading}
                 </div>
               </h1>
-              <div className="space-y-4 max-w-lg text-gray-300">
+              <div className="space-y-5 max-w-xl text-sm pt-4 text-gray-300">
                 {/* Description with white 'The Project:' and 'VR for digital transformation' for 2nd item */}
                 <p className="leading-relaxed">
                   {study.id === 2 ? (
@@ -163,6 +165,24 @@ const CaseStudies1: React.FC = () => {
                     {study.servicesUsed.split(' ').slice(2).join(' ')}
                   </span>
                 </p>
+
+                <div className='pt-3'>
+                <Link href="/more-details">
+      <button className="group relative  flex items-center gap-2 px-5 py-[9px] bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-md overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE]">
+        
+        {/* Text */}
+        <span className="relative z-10 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#B54CBE] group-hover:via-[#854CBE] group-hover:to-[#065FE5] transition-all duration-300">
+          View More
+        </span>
+
+        {/* Arrow */}
+        <ArrowUpRight className="relative z-10 w-5 h-5 text-white transition-all duration-300 group-hover:text-blue-500 group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#B54CBE] group-hover:via-[#854CBE] group-hover:to-[#065FE5] group-hover:translate-x-1 group-hover:-translate-y-1" />
+
+        {/* Gradient background animation */}
+        <div className="absolute inset-0 rounded-md bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
+      </button>
+    </Link>
+                </div>
               </div>
             </div>
           </div>

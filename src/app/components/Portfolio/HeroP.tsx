@@ -5,7 +5,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 export default function HeroP() {
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden text-center">
+    <section className="relative font-[Cairo] h-screen w-full flex items-center justify-center overflow-hidden text-center">
       {/* Background Video */}
       <video
         className="absolute inset-0 -mt-16 w-full h-full object-cover"
