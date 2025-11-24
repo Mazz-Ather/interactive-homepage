@@ -217,150 +217,81 @@ export const ProjectCard1: React.FC<ProjectCardProps> = ({
           backgroundPosition: "center",
           borderRadius: "0px",
         }}
-
       >
-      <div className="absolute bottom-16 xl100:hidden left-0 right-0 h-52 bg-gradient-to-t from-black via-transparent to-transparent z-10"
-          style={{
-    clipPath: 'polygon(0% 0%, 100% 0%, 98% 52%, 0% 115%)'
-  }}
-        ></div>
-        {/* <div className="absolute xl100:block hidden -bottom-2 left-0 right-0 h-[200px] bg-gradient-to-t from-black via-transparent to-transparent z-10"
-          style={{
-    clipPath: 'polygon(0% 0%, 100% 0%, 98% 52%, 0% 115%)'
-  }}
-        ></div> */}
-  <div
-  className="absolute inset-x-0 bottom-0 h-[260px] max-w-[400px]  bg-gradient-to-t from-black/80 via-black/60 to-transparent z-10"
+        {/* SINGLE BOTTOM GRADIENT - Only for text readability */}
+        <div 
+          // className="absolute inset-x-0 bottom-24 h-[50px] bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10 pointer-events-none"
+        />
 
- style={{
-    // clipPath: 'polygon(0% 0%, 0% 0%, 75% 52%, 16% 115%)'
-  }}
-></div>
-
-{/* small screen lg hidden */}
-        {/* Parallelogram overlay for inactive cards - SOLUTION 1: Clip-path */}
+        {/* Parallelogram overlay for inactive cards - small screens */}
         {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
-<div
-  className="
-    absolute inset-0 
-   bg-black/60
-    bg-opacity-60 
-    backdrop-blur-sm
-    lg:hidden
-  "
-  style={{
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 92%, 0% 100%)'
-  }}
-></div>
-
-        )}
-        {/* lg:block */}
-        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
-<div
-  className="
-    absolute inset-0 
-   
-   bg-black/60
-    bg-opacity-60 
-    backdrop-blur-sm
-    lg:block
-    xl100:hidden
-    lg:g-red-500
-    xl80bg-green-500
-    xl90:g-blue-500
-    xl100:bg-yellow-500
-  "
-  style={{
-    clipPath: 'polygon(0% 22%, 100% 1%, 100% 98%, 0% 160%)'
-  }}
-></div>
-
-
-
-)}
-{/* // xl block  */}
-        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
-<div
-  className="
-    absolute inset-0 
-   hidden
-   bg-yellow-500
-    bg-opacity-60 
-    backdrop-blur-sm
-    hiddden
-    xl100:block
-  "
-  style={{
-    clipPath: 'polygon(0% 10%, 100% -10%, 100% 99%, 0% 100%)'
-  }}
-></div>
-
-
-
-        )}
-
-{/* // Add this inside your ProjectCard1 component, after the existing overlays */}
-
-{/* Corner gradient for farLeft - top left corner */}
-{position === 'farLeft' && (
-  <div 
-    className="absolute inset-0 z-10"
-    style={{
-      background: `
-        radial-gradient(
-          circle at top left,
-          rgba(0,0,0,0.8) 0%,
-          rgba(0,0,0,0.6) 30%,
-          rgba(0,0,0,0.3) 50%,
-          transparent 70%
-        )
-      `
-    }}
-  />
-)}
-
-{/* Corner gradient for farRight - top right corner */}
-{position === 'farRight' && (
-  <div 
-    className="absolute inset-0 z-10"
-    style={{
-      background: `
-        radial-gradient(
-          circle at top right,
-          rgba(0,0,0,0.8) 0%,
-          rgba(0,0,0,0.6) 30%,
-          rgba(0,0,0,0.3) 50%,
-          transparent 70%
-        )
-      `
-    }}
-  />
-)}
-
-        {/* Alternative SOLUTION 2: Gradient-based overlay (uncomment to use instead of clip-path) */}
-        {/* {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
-          <div 
-            className="absolute inset-0"
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm lg:hidden"
             style={{
-              background: `
-                linear-gradient(
-                  105deg, 
-                  transparent 0%, 
-                  transparent 8%, 
-                  rgba(0,0,0,0.65) 15%, 
-                  rgba(0,0,0,0.65) 85%, 
-                  transparent 92%, 
-                  transparent 100%
-                )
-              `,
-              backdropFilter: 'blur(2px)'
+              clipPath: 'polygon(0% 0%, 100% 0%, 100% 92%, 0% 100%)'
             }}
           />
-        )} */}
+        )}
+
+        {/* Parallelogram overlay for inactive cards - lg screens */}
+        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+          <div
+            className="absolute inset-0 bg-black/90 backdrop-blur-m hidden lg:block xl100:hidden"
+            style={{
+              clipPath: 'polygon(0% 22%, 100% 5%, 110% 70%, -830% 290%)'
+            }}
+          />
+        )}
+
+        {/* Parallelogram overlay for inactive cards - xl100+ screens */}
+        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm hidden xl100:block"
+            style={{
+              clipPath: 'polygon(0% 10%, 100% -10%, 100% 99%, 0% 100%)'
+            }}
+          />
+        )}
+
+        {/* Corner gradient for farLeft */}
+        {position === 'farLeft' && (
+          <div 
+            className="absolute inset-0 z-10"
+            style={{
+              background: `
+                radial-gradient(
+                  circle at top left,
+                  rgba(0,0,0,0.8) 0%,
+                  rgba(0,0,0,0.6) 30%,
+                  rgba(0,0,0,0.3) 50%,
+                  transparent 70%
+                )
+              `
+            }}
+          />
+        )}
+
+        {/* Corner gradient for farRight */}
+        {position === 'farRight' && (
+          <div 
+            className="absolute inset-0 z-10"
+            style={{
+              background: `
+                radial-gradient(
+                  circle at top right,
+                  rgba(0,0,0,0.8) 0%,
+                  rgba(0,0,0,0.6) 30%,
+                  rgba(0,0,0,0.3) 50%,
+                  transparent 70%
+                )
+              `
+            }}
+          />
+        )}
 
         {/* Subtle overlay for the center card */}
         {position === 'center' && (
-          <div className="absolute inset-0 bg-gradient-to-t from-blck/40 via-transparent to-transparent z-10"></div>
+          <div className="absolute inset-0 g-gradient-to-t from-black/20 via-transparent to-transparent z-10" />
         )}
       </div>
 

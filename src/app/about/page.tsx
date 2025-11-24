@@ -10,6 +10,7 @@ import OurStoryPage from '../components/About/OurStoryPage'
 import OurApproach1 from '../components/About/OurApproach1'
 import { RecentProjects1 } from '../components/Home/RecentProject1'
 import RecentProjectHero from '../components/About/RecentProjectHero'
+import ContactForm from '../components/layout/ContaxtForm'
 
 const page = () => {
 const brandImages = [
@@ -61,7 +62,9 @@ const brandImages = [
 <RecentProjectHero/>
 {/* <SecondHero/>
 <MeetTheTeam/> */}
+<ContactForm/>
 <NewsletterCTA/>
+
     </div>
   )
 }
