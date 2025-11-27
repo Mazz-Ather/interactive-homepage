@@ -11,29 +11,30 @@ interface ProcessStep {
   description: string;
 }
 
-const ProductionProcess: React.FC = () => {
+const DigitalProductionProcess: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(2);
 
-  const steps: ProcessStep[] = [
-    {
-      id: 1,
-      number: '01',
-      title: 'CONCEPT & SCRIPT:',
-      description: 'We work with you to finalize the concept and script, ensuring a clear vision for the final output.',
-    },
-    {
-      id: 2,
-      number: '02',
-      title: 'ASSET CREATION:',
-      description: 'Our 3D artists build and texture all the necessary characters, environments, and props.',
-    },
-    {
-      id: 3,
-      number: '03',
-      title: 'ANIMATION & RIGGING:',
-      description: 'We bring your story to life with smooth character animations and camera movements.',
-    },
-  ];
+ const steps: ProcessStep[] = [
+  {
+    id: 1,
+    number: '01',
+    title: 'Discovery & Planning',
+    description: 'We start with deep consultation to understand challenges, define KPIs, build architecture, and map user flows.',
+  },
+  {
+    id: 2,
+    number: '02',
+    title: 'Design & Development',
+    description: 'We create photorealistic immersive concepts, build custom VR/AR applications, and integrate web, DB, and systems.',
+  },
+  {
+    id: 3,
+    number: '03',
+    title: 'Testing, Deployment & Support',
+    description: 'We run rigorous security and usability tests, deploy the solution, and optimize it using real performance data.',
+  },
+];
+
 
   // Auto-change active step every 5 seconds
   useEffect(() => {
@@ -218,4 +219,4 @@ Services
   );
 };
 
-export default ProductionProcess;
+export default DigitalProductionProcess;

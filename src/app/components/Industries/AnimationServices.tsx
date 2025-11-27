@@ -35,15 +35,6 @@ const AnimationServices = () => {
     },
   ];
 
-  // Auto-rotate every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % services.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [services.length]);
-
   return (
     <section className="relative py-11 h-screen w-full overflow-hidden bg-black flex items-center justify-center">
       {/* Background Video */}
@@ -133,25 +124,27 @@ const AnimationServices = () => {
                   >
                     <div className="relative z-20 flex h-full w-full flex-col items-center justify-center px-6 text-center md:px-8 lg:px-10">
                       {/* Image */}
-                      <motion.div
-                        animate={{ scale: isActive ? 1.1 : (index === 0 ? 1.25 : 1) }}
-                        transition={{ duration: 0.3 }}
-                        className="mb-4 flex items-center justify-center md:mb-5"
-                        style={{
-                          width: 'clamp(48px, 5vw, 64px)',
-                          height: 'clamp(48px, 5vw, 64px)',
-                        }}
-                      >
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          width={64}
-                          height={64}
-                          className={`h-full w-full object-contain transition-all duration-300 ${
-                            isActive ? 'brightness-110 opacity-100' : 'brightness-90 opacity-70'
-                          }`}
-                        />
-                      </motion.div>
+                     <motion.div
+  animate={{
+    scale: isActive ? 1.1 : (index === 0 ? 1.6 : 1) // 👈 bigger when not active too
+  }}
+  transition={{ duration: 0.3 }}
+  className="mb-4 flex items-center justify-center md:mb-5"
+  style={{
+    width: index === 0 ? 'clamp(70px, 7vw, 85px)' : 'clamp(48px, 5vw, 64px)', // 👈 bigger base size
+    height: index === 0 ? 'clamp(70px, 7vw, 95px)' : 'clamp(48px, 5vw, 64px)',
+  }}
+>
+  <Image
+    src={service.image}
+    alt={service.title}
+    width={index === 0 ? 105 : 64}  // 👈 larger width/height for first one
+    height={index === 0 ? 105 : 64}
+    className={`h-full w-full object-contain transition-all duration-300 ${
+      isActive ? 'brightness-110 opacity-100' : 'brightness-90 opacity-70'
+    }`}
+  />
+</motion.div>
 
                       {/* Title - Always Visible */}
                       <h3

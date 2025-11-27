@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ProjectCard1 } from '../Home/ProjectCard1';
-import { ProjectCard12 } from '../Home/ProjectCard12';
+import { IndsutriesProjectCard } from './IndsutriesProjectCard';
 
 const projects = [
   {
@@ -49,7 +49,7 @@ const projects = [
   }
 ];
 
-export const RecentProjectsService = () => {
+export const IndustriesRecentProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [screenWidth, setScreenWidth] = useState(0);
 
@@ -70,60 +70,22 @@ export const RecentProjectsService = () => {
     setActiveIndex(prev => (prev - 1 + projects.length) % projects.length);
   };
 
-  // Positions for 5 cards
-  const positions = ['farLeft', 'left', 'center', 'right', 'farRight'] as const;
+  // Positions: left, center (active), right1, right2, right3
+  const positions = ['left', 'center', 'right1', 'right2', 'right3'] as const;
 
-  // Get 5 visible projects centered on activeIndex
+  // Get 5 visible projects with active card as second from left
   const visibleProjects = [
-    projects[(activeIndex - 2 + projects.length) % projects.length],
-    projects[(activeIndex - 1 + projects.length) % projects.length],
-    projects[activeIndex],
-    projects[(activeIndex + 1) % projects.length],
-    projects[(activeIndex + 2) % projects.length],
+    projects[(activeIndex - 1 + projects.length) % projects.length], // left
+    projects[activeIndex], // center (active)
+    projects[(activeIndex + 1) % projects.length], // right1
+    projects[(activeIndex + 2) % projects.length], // right2
+    projects[(activeIndex + 3) % projects.length], // right3
   ];
 
   return (
-    <div className="w-full bg-black py-16 lg:py-28 px-4 md:px-8 lg:px-16 relative overflow-hidden hidden md:block xl100:hidden">
-      {/* Marquee Background - 3 rows visible everywhere */}
-      <div className="absolute pt-52 inset-0 opacity-[0.31] h-full z-0 pointer-events-none">
-        <div className="flex flex-col justify-between py-[80px] xl90:py-[60px] xl80:py-[20px] lg:py-[30px] h-[80%] 2">
-          {/* Row 1 - Moving Right (Top) */}
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="mx-4">
-                <div className="text-4xl lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
-                  Recent Projects  Recent Projects  Recent Projects 
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Row 2 - Moving Left (Center) */}
-          <div className="flex animate-marquee-reverse whitespace-nowrap">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="mx-4">
-                <div className="text-4xl lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
-                  Recent Projects  Recent Projects  Recent Projects 
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Row 3 - Moving Right (Bottom) */}
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="mx-4">
-                <div className="text-4xl lg:text-[170px] xl80:text-[230px] font-[cairo] font-[800] text-[#7E7E7E] whitespace-nowrap">
-                  Recent Projects  Recent Projects  Recent Projects 
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Header Section - Z-INDEX 20 */}
-      <div className="relative z-20 flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+    <div className="w-full bg-blac pt-20 pb-6 px-4 md:px-8 lg:px-16 relative overflow-hidden hidden md:block xl100:hidden">
+      {/* Header Section */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
         <div className="relative">
           <div className="max-w-2xl overflow-hidden">
             <div className="relative z-20 max-w-2xl">
@@ -140,7 +102,7 @@ export const RecentProjectsService = () => {
           </div>
         </div>
         <motion.button
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.95 }}
           className="mt-6 md:-mt-20 px-6 py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] rounded-md text-white font-medium flex items-center whitespace-nowrap"
         >
@@ -148,32 +110,32 @@ export const RecentProjectsService = () => {
         </motion.button>
       </div>
 
-      {/* Carousel Section - Z-INDEX 30 with black background */}
-      <div className="relative z-30 h-[400px] md:h-[550px] lg:h-[450px] max-w-[410vw] mx-auto -mt-[100px] bg-blak/60 ">
+      {/* Carousel Section */}
+      <div className="relative h-[500px] md:h-[550px] lg:h-[750px] max-w-[110vw] mx-auto -mt-[230px]">
         <div className="absolute inset-0 flex items-center justify-center">
           {visibleProjects.map((project, idx) => {
             const position = positions[idx];
             const isActive = position === 'center';
             return (
-              <ProjectCard12
+              <IndsutriesProjectCard
                 key={project.id}
                 project={project}
                 position={position}
                 isActive={isActive}
                 screenWidth={screenWidth}
                 onClick={() => {
-                  if (position === 'farLeft' || position === 'left') handlePrev();
-                  else if (position === 'right' || position === 'farRight') handleNext();
+                  if (position === 'left') handlePrev();
+                  else if (position === 'right1' || position === 'right2' || position === 'right3') handleNext();
                 }}
               />
             );
           })}
         </div>
 
-        {/* Navigation Arrows - Z-INDEX 40 */}
+        {/* Navigation Arrows */}
         <button
           onClick={handlePrev}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-40 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
           aria-label="Previous project"
         >
           <svg
@@ -188,7 +150,7 @@ export const RecentProjectsService = () => {
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-40 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
           aria-label="Next project"
         >
           <svg

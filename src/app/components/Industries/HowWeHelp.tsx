@@ -33,7 +33,7 @@ const HowWeHelpEnhanced: React.FC = () => {
   ];
 
   return (
-    <section className="relative font-[cairo] bg-black text-white py-20 px-6 overflow-hidden min-h-screen flex items-center">
+    <section className="relative font-[cairo] bg-black text-white pb-20 px-6 overflow-hidden min-h-screen flex items-center">
       {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Heading */}

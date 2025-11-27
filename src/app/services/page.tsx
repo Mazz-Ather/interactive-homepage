@@ -14,7 +14,7 @@ const page = () => {
 <ServicesScroll/>
 <ProductionProcess/>
 <Newsletter/>
- {/* <RecentProjectsService/> */}
+ <RecentProjectsService/> 
  <ContactForm/>
  <NewsletterCTA/>
 </>

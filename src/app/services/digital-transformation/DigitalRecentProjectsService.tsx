@@ -1,8 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ProjectCard1 } from '../Home/ProjectCard1';
-import { ProjectCard12 } from '../Home/ProjectCard12';
+import { ProjectCard12 } from '@/app/components/Home/ProjectCard12';
 
 const projects = [
   {
@@ -49,7 +48,7 @@ const projects = [
   }
 ];
 
-export const RecentProjectsService = () => {
+export const DigitalRecentProjectsService = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [screenWidth, setScreenWidth] = useState(0);
 

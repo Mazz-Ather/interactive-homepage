@@ -13,30 +13,30 @@ const services: ServiceCard[] = [
   {
     id: 1,
     icon: '/images/icon11.png',
-    title: 'Cinematic CGI & VFX:',
-    description: 'We create high-impact computer-generated imagery for visual effects, commercials, short films, and corporate videos.',
+    title: 'VR Inspection Simulator',
+    description: 'We built a photorealistic VR application that allows inspectors to perform virtual walk-throughs and safety checks of gas stations. This eliminates the need for on-site travel and significantly improves training efficiency',
   },
   {
     id: 2,
     icon: '/images/icon12.png',
-    title: 'Architectural Visualization:',
-    description: 'We produce photorealistic 3D renders and immersive walkthroughs for real estate developers and architects.',
+    title: 'Custom Web Portal',
+    description: 'We developed a secure web portal that allows administrators to schedule sessions, monitor inspector progress, and view detailed reports and analytics from the VR simulations. This provides a complete, integrated solution for managing operations.',
   },
   {
     id: 3,
     icon: '/images/icon13.png',
-    title: 'Product Visualization:',
-    description: 'Our team builds detailed 3D models of products, allowing you to present your product designs in a visually compelling way.',
+    title: 'Data-Driven Safety Scoring',
+    description: 'We implemented automated inspection scoring inside VR sessions to evaluate accuracy, hazard identification, and compliance. This delivers measurable performance insights and improves training outcomes.',
   },
   {
     id: 4,
     icon: '/images/icon14.png',
-    title: 'Storyboarding & Concept Art:',
-    description: 'We handle the pre-production process, from initial storyboarding to creating concept art that sets the look and feel of your project.',
+    title: 'Automated Digital Reports',
+    description: 'We built real-time report generation from VR safety checks, tagging risk levels and compliance gaps. This removes manual paperwork and speeds up audit-ready documentation.',
   },
 ];
 
-const ServicesScrollSmooth: React.FC = () => {
+const DigitalServicesScroll: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -102,11 +102,12 @@ const ServicesScrollSmooth: React.FC = () => {
       {/* Header Section */}
       <div className="px-8 md:px-16 lg:px-24 mb-12 text-center">
         <h2 className="text-2xl md:text-5xl  font-bold text-white mb-4">
-          How We Help with 3D Animation & Visualisation
+      How We Help with Digital Transformation
+
         </h2>
-        <p className="text-gray-400 text-center text-lg md:text-xl max-w-3xl mx-auto">
-          We offer a full spectrum of 3D production services to meet your specific needs.
-        </p>
+        <p className="text-gray-400 text-center text-lg md:text-xl max-w-4xl mx-auto">
+       We specialize in creating powerful, purpose-built systems that solve real-world problems. For the Ministry of Energy (MOE) project, we developed an entire VR ecosystem:
+                </p>
       </div>
 
       {/* Scrollable Cards Section */}
@@ -208,4 +209,4 @@ const ServicesScrollSmooth: React.FC = () => {
   );
 };
 
-export default ServicesScrollSmooth;
+export default DigitalServicesScroll;
