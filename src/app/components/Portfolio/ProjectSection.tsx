@@ -57,12 +57,12 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section className="w-full font-[Cairo] min-h-screen bg-black py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="w-full !font-[Cairo] min-h-screen bg-black py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       
-      <div className="max-w-[1600px] mx-auto relative z-10">
+      <div className="!max-w-[1600px] mx-auto relative z-10">
         {/* White Inner Container */}
-        <div className="bg-[#EDEAFF] rounded-3xl p-8 sm:p-12 lg:p-16">
+        <div className="bg-[#EDEAFF] rounded-[32px] p-8 sm:p-12 lg:p-11">
       {/* Background Images */}
       <div className="absolute -mt-20 left-0 w-[700px] h-[2200px] opacity-70 z-0">
         <Image
@@ -72,7 +72,7 @@ const ProjectsSection = () => {
           className="object-contain"
         />
       </div>
-      <div className="absolute -bottom-[250px] left-1/2 -translate-x-1/2 w-1/2 h-1/2 opacity-40 z-0">
+      <div className="absolute -bottom-[230px] left-1/2 -translate-x-1/2 w-1/2 h-1/2 opacity-40 z-0">
         <Image
           src="/images/imgb2.png"
           alt=""
@@ -80,11 +80,11 @@ const ProjectsSection = () => {
           className="object-contain"
         />
       </div>    {/* Header Section */}
-          <div className="flex flex-col px-6 mx-9 lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
+          <div className="flex flex-col px-1 mx-9 lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
             {/* Left Side - Heading and Paragraph */}
             <div className="flex-1 max-w-2xl">
               <div className="text-left leading-tight ">
-              <h1 className="text-4xl sm:text-5xl font-bold ">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold ">
                 <div className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5] bg-clip-text font-extrabold text-transparent pb-3">
            Projects We Have
                 </div>
@@ -92,7 +92,7 @@ const ProjectsSection = () => {
                
               </h1>
             </div>
-              <p className="text-gray-600 text-base max-w-xl m sm:text-lg leading-tight -mt-2 ">
+              <p className="text-gray-900 text-base max-w-xl m sm:text-lg leading-tight -mt-2 ">
                 PMManagement Substation 15, Janzur Brq-Srar Street Measurement, 
                 Pedometers, Sleep Monitor, Message & Call Sync-Shoe
               </p>
@@ -138,7 +138,7 @@ const ProjectsSection = () => {
           </div>
 
           {/* Projects Grid - Updated for proper spacing */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 xl90:gap-0 xl90:gap-y-8 xl:gap-7 justify-items-center m-9">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 xl90:gap-0 xl90:gap-y-8 xl:gap-7 justify-items-center m-1">
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
@@ -156,7 +156,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       className="group relative rounded-[32px] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
       style={{
         width: '100%',
-        maxWidth: 'min(580px, 100%)',
+        maxWidth: 'min(660px, 110%)',
         aspectRatio: '728 / 669',
         height: 'auto'
       }}
@@ -190,7 +190,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
           {/* Right Side - View Case Button */}
           <Link href={project.link}>
-            <button className="group/btn flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-transparent text-white border border-white rounded-full font-medium text-xs sm:text-sm transition-all duration-300 hover:bg-white/10 hover:gap-3 hover:pr-5 whitespace-nowrap">
+            <button className="group/btn flex items-center gap-2 px-4 sm:px-5 py-2 sm:!py-[28.5px] sm:!px-[45px] bg-transparent text-white border border-white rounded-full font-medium text-xs sm:text-base transition-all duration-300 hover:bg-white/10 hover:gap-3 hover:pr-5 whitespace-nowrap">
               View Case
               <Icon
                 icon="ion:arrow-up-outline"

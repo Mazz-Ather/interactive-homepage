@@ -8,7 +8,7 @@ export default function HeroP() {
     <section className="relative font-[Cairo] h-screen w-full flex items-center justify-center overflow-hidden text-center">
       {/* Background Video */}
       <video
-        className="absolute inset-0 -mt-16 w-full h-full object-cover"
+        className="absolute inset-0 -mt-16 w-full h-full object-cover !contrast-  100"
         src="https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985518/bg_azwp7s.mp4"
         autoPlay
         loop
@@ -17,14 +17,15 @@ export default function HeroP() {
       />
 
       {/* Overlay (optional for dark tint) */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* <div className="absolute inset-0 bg-black/60" /> */}
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl px-6">
+      <div className="relative z-10 max-w-6xl !pt-11 px-6">
+{/* <div className="absolute inset-0 backdrop-brightness-110 backdrop-contrast-110"></div> */}
         <p className="text-sm text-white/80 mb-3"><span className='text-[19px] text-[#B54CBE]'>
           •</span> Portfolio</p>
          <div className="text-center leading-tight ">
-              <h1 className="text-4xl sm:text-5xl lg:text-[93px] font-bold ">
+              <h1 className="text-4xl sm:text-5xl lg:text-[120px] font-bold  backdrop-brightness-110 backdrop-contrast-110 ">
                 <div className="bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent">
                Where Ideas Become
                 </div>
@@ -36,7 +37,7 @@ export default function HeroP() {
             </div>
 
 
-        <p className="mt-6 text-white/40 max-w-2xl mx-auto text-sm sm:text-base">
+        <p className="mt-6 text-white/40 max-w-2xl mx-auto text-sm sm:text-base md:text-md ">
       We don't just build technology; we create award-winning immersive solutions that solve real-world problems. Our portfolio is a testament to our commitment to innovation, quality, and delivering tangible results for our clients in Riyadh and across the Middle East.
         </p>
 

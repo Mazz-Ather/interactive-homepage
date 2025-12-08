@@ -33,10 +33,10 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-5">
-      <div className="flex gap-5 w-full max-w-[1280px] font-sans flex-col lg:flex-row">
+    <div className="min-h-scren bg-black font-poppins flex items-center justify-center p-5 lg:pb-28 ">
+      <div className="flex gap-9 w-full max-w-[1380px] font-sans flex-col lg:flex-row">
         {/* Left Box - Larger */}
-        <div className="flex-[1.4] bg-[rgba(40,40,40,0.6)] backdrop-blur-[10px] rounded-[28px] px-[45px] py-[50px] text-white border border-[rgba(255,255,255,0.08)] flex flex-col lg:px-[35px] lg:py-[40px] md:px-6 md:py-8">
+        <div className="flex-[1.4] bg-[rgba(40,40,40,0.6)] backdrop-blur-[10px] rounded-[28px] px-[45px] py-[50px] text-white border border-[rgba(255,255,255,0.08)] flex flex-col lg:px-[35px] lg:py-[50px] md:px-6 md:py-8">
           <h1 className="text-[38px] font-medium leading-[1.35] mb-[45px] text-[#a0a0a0] tracking-[-0.5px] lg:text-[34px] md:text-[28px] md:mb-8 sm:text-2xl">
             Tell us about your project, your company & your goals!
           </h1>
@@ -120,10 +120,10 @@ const ContactForm: React.FC = () => {
         {/* Right Box - Form */}
         <div className="flex-1 bg-[rgba(40,40,40,0.6)] backdrop-blur-[10px] rounded-[28px] px-[45px] py-[50px] text-white border border-[rgba(255,255,255,0.08)] flex flex-col lg:px-[35px] lg:py-[40px] md:px-6 md:py-8">
           <div className="mb-8 text-center">
-            <h2 className="text-[32px] font-semibold mb-[10px] text-white tracking-[-0.5px] md:text-[26px] sm:text-2xl">
+            <h2 className="text-[32px] font-semibold mb-[10px] text-white tracking-[-0.5px] md:!text-[39px] sm:text-2xl">
               Get Started Today
             </h2>
-            <p className="text-[13.5px] text-[#999999] m-0 tracking-[-0.1px]">
+            <p className="text-[16.5px] text-[#999999] m-0 tracking-[-0.1px]">
               Think you can inspire the world with your story?
             </p>
           </div>
@@ -236,7 +236,7 @@ const ContactForm: React.FC = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="mt-[18px] py-[15px] px-0 bg-gradient-to-r from-purple-500 to-blue-500 border-none rounded-[14px] text-white text-[15px] font-semibold cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center gap-[10px] w-full tracking-[-0.2px] hover:-translate-y-[1px] hover:shadow-[0_12px_32px_rgba(168,85,247,0.35)] active:translate-y-0"
+              className="mt-[18px] py-[13px] px-0 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] border-none rounded-[100px] text-white text-[19px] font-semibold cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center gap-[10px] w-full tracking-[-0.2px] hover:-translate-y-[1px] max-w-[200px] mx-auto hover:shadow-[0_12px_32px_rgba(168,85,247,0.35)] active:translate-y-0"
             >
               Submit
               <svg

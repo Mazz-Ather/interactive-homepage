@@ -16,6 +16,7 @@ const page = () => {
 <HowWeHelp/>
 <OurProcess/>
 <AnimationServices/>
+
 <IndustriesRecentProjects/>
 <ContactForm/>
 <NewsletterCTA/>

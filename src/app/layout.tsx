@@ -6,7 +6,7 @@ import Footer from "./components/layout/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-poppins",
 });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.variable}>
+      <body className={`${poppins.variable} font-poppins`}>
         <Header />
 
         {/* ✅ Global ClipPath Definition (Accessible to all components) */}

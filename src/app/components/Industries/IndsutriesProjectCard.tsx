@@ -8,7 +8,7 @@ interface Project {
   title: string;
   subtitle: string;
   date?: string;
-  imageUrl: string;
+  imageUrl: string; 
   videoUrl: string;
 }
 
@@ -103,8 +103,8 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
       // Tablet
       switch (position) {
         case 'left':
-          translateXValue = '-90%';
-          translateYValue = '8%';
+          translateXValue = '-99%';
+          translateYValue = '10%';
           scaleValue = 0.7;
           opacityValue = 0.6;
           zIndexValue = 1;
@@ -142,36 +142,36 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
       // Desktop
       switch (position) {
         case 'left':
-          translateXValue = '-116%';
-          translateYValue = '6%';
+          translateXValue = '-126%';
+          translateYValue = '16%';
           scaleValue = 0.75;
           opacityValue = 0.95;
           zIndexValue = 1;
           break;
         case 'center':
           translateXValue = '-50%';
-          translateYValue = '2%';
+          translateYValue = '13%';
           scaleValue = 0.89;
           opacityValue = 1;
           zIndexValue = 3;
           break;
         case 'right1':
           translateXValue = '15%';
-          translateYValue = '0%';
+          translateYValue = '8%';
           scaleValue = 0.75;
           opacityValue = 0.95;
           zIndexValue = 2;
           break;
         case 'right2':
           translateXValue = '73%';
-          translateYValue = '-2%';
+          translateYValue = '5%';
           scaleValue = 0.75;
           opacityValue = 0.95;
           zIndexValue = 1;
           break;
         case 'right3':
           translateXValue = '125%';
-          translateYValue = '-6%';
+          translateYValue = '5%';
           scaleValue = 0.75;
           opacityValue = 0.95;
           zIndexValue = 0;
@@ -202,7 +202,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
     if (screenWidth < 640) return 'w-[220px]';
     if (screenWidth < 768) return 'w-[250px]';
     if (screenWidth < 1024) return 'w-[280px]';
-    return 'w-[390px]';
+    return 'w-[430px]';
   };
 
   const getCardHeight = () => {
@@ -210,7 +210,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
     if (screenWidth < 768) return 'h-[450px]';
     if (screenWidth < 1024) return 'h-[500px]';
     if (screenWidth < 1524) return 'h-[750px]';
-    return 'h-[500px]';
+    return 'h-[690px]';
   };
 
   return (
@@ -263,7 +263,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
           <div
             className="absolute inset-0 bg-black/50 backdrop-blur-m hidden lg:block xl100:hidden"
             style={{
-              clipPath: 'polygon(0% 22%, 100% 5%, 110% 70%, -830% 290%)'
+              clipPath: 'polygon(0%   2%, 120%   0%, 110% 70%, -466% 290%)'
             }}
           />
         )}
@@ -273,7 +273,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-sm hidden xl100:block"
             style={{
-              clipPath: 'polygon(0% 10%, 100% -10%, 100% 99%, 0% 100%)'
+              clipPath: 'polygon(0% 20%, 100% -10%, 100% 99%, 0% 100%)'
             }}
           />
         )}

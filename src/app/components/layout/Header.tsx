@@ -356,7 +356,7 @@ const Navbar: React.FC = () => {
     if (isServices) {
       // Services: 3 items in first row, 2 items in second row (left-aligned with 3rd space blank)
       return (
-        <div className="space-y-1">
+        <div className="space-y-1 !w-full">
           {/* First Row - 3 items */}
           <div className="grid grid-cols-3 gap-">
             {items.slice(0, 3).map((item, index) => (
@@ -508,9 +508,9 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="relative bg-black text-white z-50">
-        <div className="relative">
-          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
+   <nav className="fixed top-0 left-0 w-full bg-transparent text-white z-50">
+     <div className="relative">
+          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:xl:px-32 py-4">
             {/* Logo */}
                           <Image src="/images/logo.png" alt="Logo" width={50} height={50} />
             <div className="flex-shrink-0">
@@ -548,9 +548,9 @@ const Navbar: React.FC = () => {
                     {/* Full Width Dropdown Menu */}
                     {item.hasDropdown && item.dropdownItems && (
                       <div className={`absolute rounded-full  top-full bg-white  mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out z-50 ${
-                        item.label === t.services ? 'xl80:left-[-390px] lg:left-[-300px]' : 'left-[-450px] xl80:left-[-510px] lg:left-[-440px]'
+                        item.label === t.services ? 'xl80:left-[-425px] lg:left-[-280px]' : 'left-[-450px] xl80:left-[-535px] lg:left-[-450px]'
                       }`}>
-                        <div className="w-screen lg:w-[90vw]  max-w-7xl bg-white text-black rounded-lg shadow-2xl overflow-hidden">
+                        <div className="w-screen lg:w-[84vw]  max-w-8xl bg-white text-black rounded-lg shadow-2xl overflow-hidden">
                           <div className="flex">
                             {/* Content Section - 65% width */}
                             <div className="w-[63%] p-5">

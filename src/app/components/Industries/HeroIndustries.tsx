@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const HeroIndustries: React.FC = () => {
   return (
-    <section className="relative font-[cairo] h-screen w-full overflow-hidden">
+    <section className="relative font-[cairo] h-auto -mt-2 w-full overflow-hidden">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -15,21 +15,21 @@ const HeroIndustries: React.FC = () => {
         />
         
         {/* Gradient Overlay - Top to bottom: transparent to black */}
-        <div className="absolute h-auto inset-0 bg-gradient-to-b from-transparent via-black/60 to-black"></div>
+        <div className="absolute h-auto inset-0 bg-gradient-to-b from-transparent via-black/80 to-black"></div>
       </div>
 
       {/* Content Container - Left Center Aligned */}
-      <div className="relative pt-32 z-10 h-full flex items-center">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20">
-          <div className="max-w-xl lg:max-w-2xl">
+      <div className="relative pt-32 md:pt-[250px] z-10 h-full flex items-center">
+        <div className="container mx-auto px-6 md:px-12 lg:px-28">
+          <div className="max-w-xl lg:max-w-8xl ">
             {/* Mini Heading */}
-            <p className="text-white text-xs md:text-sm font-light tracking-wider mb-2 md:mb-3">
+            <p className="text-white text-xs md:!text-[21px] font-bold md:ml-1 tracking-wider mb-2 md:mb-3">
               Real Estate
             </p>
 
             {/* Main Heading - Smaller Size */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 leading-tight">
-              <span className="bg-gradient-to-r from-purple-500 via-purple-400 to-blue-500 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl  lg:text-6xl font-extrabold mb-3 md:mb-4 !leading-none ">
+              <span className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5] bg-clip-text text-transparent !leading-[0.8]">
                 Transforming Real Estate with Immersive Technology Solutions
               </span>
             </h1>
@@ -46,7 +46,7 @@ const HeroIndustries: React.FC = () => {
             {/* Buttons - Smaller Size */}
             <div className="flex flex-col sm:flex-row gap-3">
               {/* Primary Button */}
-              <button className="group relative px-5 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-purple-600 to-purple-500 text-white text-xs md:text-sm font-semibold rounded-full hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2">
+              <button className="group relative px-5 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] text-white text-xs md:text-base font-semibold rounded-md hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2">
                 Get A Quote
                 <svg 
                   className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform duration-300" 
@@ -64,7 +64,7 @@ const HeroIndustries: React.FC = () => {
               </button>
 
               {/* Secondary Button */}
-              <button className="px-5 py-2.5 md:px-6 md:py-3 bg-transparent border-2 border-white/30 text-white text-xs md:text-sm font-semibold rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300">
+              <button className="px-5 py-2.5 md:px-6 md:py-3 bg-transparent border-2 border-white/30 text-white text-xs md:text-base font-semibold rounded-md hover:bg-white/10 hover:border-white/50 transition-all duration-300">
                 Talk to our Special Tech Expert
               </button>
             </div>

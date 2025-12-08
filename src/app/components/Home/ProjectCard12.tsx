@@ -57,6 +57,8 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
     let rotateYValue = '0deg';
     let scaleValue = 1;
     let opacityValue = 1;
+    let overlayOpacity = 0;  
+
     let zIndexValue = 2;
 
     if (screenWidth < 768) {
@@ -119,32 +121,34 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
       // Large screens
       switch (position) {
         case 'farLeft':
-          translateXValue = '-120%';
-          scaleValue = 0.6;
+          translateXValue = '-140%';
+          scaleValue = 0.90;
           opacityValue = 1;
           zIndexValue = 0;
+ 
           break;
         case 'left':
-          translateXValue = '-75%';
-          scaleValue = 0.85;
+          translateXValue = '-90%';
+
+          scaleValue = 0.99;
           opacityValue = 1;
           zIndexValue = 1;
           break;
         case 'center':
           translateXValue = '0%';
-          scaleValue = 1;
+          scaleValue = 1.2;
           opacityValue = 1;
           zIndexValue = 3;
           break;
         case 'right':
-          translateXValue = '75%';
-          scaleValue = 0.85;
+          translateXValue = '90%';
+          scaleValue = 0.95;
           opacityValue = 1;
           zIndexValue = 1;
           break;
         case 'farRight':
-          translateXValue = '120%';
-          scaleValue = 0.6;
+          translateXValue = '140%';
+          scaleValue = 0.99;
           opacityValue = 1;
           zIndexValue = 0;
           break;
@@ -156,7 +160,8 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
       translateX: translateXValue,
       rotateY: rotateYValue,
       scale: scaleValue,
-      opacity: opacityValue
+      opacity: opacityValue,
+       overlayOpacity
     };
   };
 
@@ -173,7 +178,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
     if (screenWidth < 640) return 'w-[220px]';
     if (screenWidth < 768) return 'w-[250px]';
     if (screenWidth < 1024) return 'w-[280px]';
-    return 'w-[390px]';
+    return 'w-[380px]';
   };
 
   const getCardHeight = () => {
@@ -181,7 +186,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
     if (screenWidth < 768) return 'h-[450px]';
     if (screenWidth < 1024) return 'h-[500px]';
     if (screenWidth < 1524) return 'h-[750px]';
-    return 'h-[500px]';
+    return 'h-[670px]';
   };
 
   return (
@@ -202,10 +207,13 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{
-        transformStyle: 'preserve-3d',
-        filter: isActive ? '' : 'none'
-      }}
+  style={{
+  transformStyle: 'preserve-3d',
+  filter: position === "center" ? "brightness(3.85)" : "brightness(0.6)"
+}}
+
+
+
     >
       {/* Main image container */}
       <div
@@ -234,14 +242,28 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
         )}
 
         {/* Parallelogram overlay for inactive cards - lg screens */}
-        {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+        {/* {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
           <div
-            className="absolute inset-0 bg-black/50 brightness-[0.2] backdrop-blur-m hidden lg:block xl100:hidden"
-            style={{
-              clipPath: 'polygon(0% 24%, 98% 6%, 110% 70%, -830% 290%)'
-            }}
+           style={{
+    opacity: cardStyles.overlayOpacity,
+    transition: "opacity 0.3s ease"
+  }}
+            // className="absolute inset-0 bg-black/60 brightness-[0.2] backdrop-blur-m hidden lg:block xl100:hidden"
+            // style={{
+            //   clipPath: 'polygon(0% 20%, 97% 1%, 110% 70%, -810% 330%)'
+            // }}
           />
-        )}
+        )} */}
+{(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
+  <div
+    className="absolute inset-0 pointer-events-none hidden lg:block"
+    style={{
+      backgroundColor: "black",
+      opacity: cardStyles.overlayOpacity,
+      transition: "opacity 0.3s ease",
+    }}
+  />
+)}
 
         {/* Parallelogram overlay for inactive cards - xl100+ screens */}
         {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (

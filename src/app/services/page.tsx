@@ -13,7 +13,10 @@ const page = () => {
 <HeroService/>
 <ServicesScroll/>
 <ProductionProcess/>
+
+<div className="!pt-16 ">
 <Newsletter/>
+</div>
  <RecentProjectsService/> 
  <ContactForm/>
  <NewsletterCTA/>

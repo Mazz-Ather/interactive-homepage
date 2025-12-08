@@ -1,7 +1,6 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { gsap } from 'gsap';
 
 interface ServiceCard {
   id: number;
@@ -14,38 +13,34 @@ const services: ServiceCard[] = [
   {
     id: 1,
     icon: '/images/icon11.png',
-    title: 'Cinematic CGI & VFX:',
-    description: 'We create high-impact computer-generated imagery for visual effects, commercials, short films, and corporate videos.',
+    title: 'Cinematic CGI & VFX',
+    description: 'We create high-impact computer-generated imagery and visual effects for commercials, short films, and corporate videos',
   },
   {
     id: 2,
     icon: '/images/icon12.png',
-    title: 'Architectural Visualization:',
-    description: 'We produce photorealistic 3D renders and immersive walkthroughs for real estate developers and architects.',
+    title: 'Architectural Visualisation',
+    description: 'We produce photorealistic 3D renders and interactive walkthroughs for real estate developers and architects',
   },
   {
     id: 3,
     icon: '/images/icon13.png',
-    title: 'Product Visualization:',
-    description: 'Our team builds detailed 3D models of products, allowing you to present your product designs in a visually compelling way.',
+    title: 'Product Visualisation',
+    description: 'Our team builds detailed 3D models of products, allowing you to showcase every feature and detail in a visually compelling way.',
   },
   {
     id: 4,
     icon: '/images/icon14.png',
-    title: 'Storyboarding & Concept Art:',
-    description: 'We handle the pre-production process, from initial storyboarding to creating concept art that sets the look and feel of your project.',
+    title: 'Storyboarding & Concept Art',
+    description: ' We handle the pre-production process, from initial storyboarding to creating concept art that defines the look and feel of your project.',
   },
 ];
 
-const ServicesScrollSmooth: React.FC = () => {
+const ThreedServicesScroll: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [velocity, setVelocity] = useState(0);
-  const [lastX, setLastX] = useState(0);
-  const [lastTime, setLastTime] = useState(0);
-  const animationFrameRef = useRef<number>();
 
   // Reset scroll position to 0 on mount to show the spacer
   useEffect(() => {
@@ -59,37 +54,15 @@ const ServicesScrollSmooth: React.FC = () => {
     setIsDragging(true);
     setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
     setScrollLeft(scrollContainerRef.current.scrollLeft);
-    setLastX(e.pageX);
-    setLastTime(Date.now());
-    setVelocity(0);
     scrollContainerRef.current.style.cursor = 'grabbing';
-    
-    // Cancel any ongoing momentum
-    if (animationFrameRef.current) {
-      cancelAnimationFrame(animationFrameRef.current);
-    }
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !scrollContainerRef.current) return;
     e.preventDefault();
-    
     const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const currentTime = Date.now();
-    const timeDelta = currentTime - lastTime;
-    const distance = e.pageX - lastX;
-    
-    // Calculate velocity
-    if (timeDelta > 0) {
-      const vel = (distance / timeDelta) * 16; // Normalize to 60fps
-      setVelocity(vel);
-    }
-    
     const walk = (x - startX) * 2;
     scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-    
-    setLastX(e.pageX);
-    setLastTime(currentTime);
   };
 
   const handleMouseUp = () => {
@@ -107,33 +80,6 @@ const ServicesScrollSmooth: React.FC = () => {
       }
     }
   };
-
-  // Smooth momentum scrolling with GSAP
-  useEffect(() => {
-    if (!isDragging && Math.abs(velocity) > 1) {
-      let currentVelocity = velocity;
-      
-      const animate = () => {
-        if (scrollContainerRef.current && Math.abs(currentVelocity) > 0.5) {
-          // Apply the scroll
-          scrollContainerRef.current.scrollLeft -= currentVelocity;
-          
-          // Decelerate smoothly
-          currentVelocity *= 0.92; // Smooth deceleration
-          
-          animationFrameRef.current = requestAnimationFrame(animate);
-        }
-      };
-      
-      animationFrameRef.current = requestAnimationFrame(animate);
-    }
-    
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-    };
-  }, [isDragging, velocity]);
 
   useEffect(() => {
     const handleGlobalMouseUp = () => {
@@ -156,11 +102,12 @@ const ServicesScrollSmooth: React.FC = () => {
       {/* Header Section */}
       <div className="px-8 md:px-16 lg:px-24 mb-12 text-center">
         <h2 className="text-2xl md:text-5xl  font-bold text-white mb-4">
-          How We Help with 3D Animation & Visualisation
+   How We Help with 3D Animation & Visualisation
+
         </h2>
-        <p className="text-gray-400 text-center text-lg md:text-xl max-w-3xl mx-auto">
-          We offer a full spectrum of 3D production services to meet your specific needs.
-        </p>
+        <p className="text-gray-400 text-center text-lg md:text-xl max-w-4xl mx-auto">
+     We offer a full spectrum of 3D production services to meet your specific needs.
+            </p>
       </div>
 
       {/* Scrollable Cards Section */}
@@ -171,7 +118,7 @@ const ServicesScrollSmooth: React.FC = () => {
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
-          className="flex gap-6 overflow-x-auto  overflow-y-hidden scroll-smooth scrollbar-hide select-none"
+          className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-hide select-none"
           style={{
             WebkitOverflowScrolling: 'touch',
             cursor: 'grab',
@@ -183,7 +130,7 @@ const ServicesScrollSmooth: React.FC = () => {
           {services.map((service, index) => (
             <div
               key={service.id}
-              className="flex-shrink-0 !border-2 !border-white w-[340px] md:w-[380px] rounded-[32px] p-10 transition-all duration-300 group relative overflow-hidden"
+              className="flex-shrink-0 border-2 border-white w-[340px] md:w-[380px] rounded-[32px] p-10 transition-all duration-300 group relative overflow-hidden"
               style={{
                 background: 'linear-gradient(145deg, #161616ff 0%, #1a1a1a 100%)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -262,4 +209,4 @@ const ServicesScrollSmooth: React.FC = () => {
   );
 };
 
-export default ServicesScrollSmooth;
+export default ThreedServicesScroll;

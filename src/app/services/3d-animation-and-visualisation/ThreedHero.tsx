@@ -12,18 +12,18 @@ interface HeroServiceProps {
   onSecondaryClick?: () => void;
 }
 
-const HeroService: React.FC<HeroServiceProps> = ({
+const ThreedHero: React.FC<HeroServiceProps> = ({
   videoSrc = 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1763379895/DG_1_wvwmnd.mp4',
   miniHeading = 'Service',
   mainHeading = '3D Animation & Visualisation',
-  description = 'From captivating brand stories to stunning architectural walkthroughs, our team of animators and artists specializes in bringing ideas to life with unparalleled visual quality. We create immersive 3D experiences that captivate audiences across Saudi Arabia and beyond.',
+  description = 'From captivating brand stories to stunning architectural walkthroughs, our team of animators and artists specializes in bringing ideas to life with unparalleled visual quality. We manage the entire 3D animation production pipeline, delivering powerful content that resonates with audiences across Saudi Arabia and beyond',
   primaryButtonText = 'Get A Quote',
   secondaryButtonText = 'Talk to our AE Expert',
   onPrimaryClick,
   onSecondaryClick,
 }) => {
   return (
-    <section className="relative font-[Cairo] w-full h-auto min-h-[650px] overflow-hidden">
+    <section className="relative font-[Cairo] w-full h-screen min-h-[600px] overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -41,8 +41,8 @@ const HeroService: React.FC<HeroServiceProps> = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center pt-11 lg:!pt-40">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-28 max-w-8xl">
+      <div className="relative z-10 h-full flex items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-2xl">
             {/* Mini Heading */}
             {/* <p className="text-white text-sm sm:text-base font-medium mb-4 tracking-wide">
@@ -52,12 +52,12 @@ const HeroService: React.FC<HeroServiceProps> = ({
             {/* Main Heading with Gradient */}
               <div className="lg:pt-11 mb-4 max-w-2xl">
           <p className="text-lg uppercase tracking-widest text-gray-100 font-bold">Service</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-            <div className="bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent">
-             3d Animation &
-            </div>
+          <h1 className="text-4xl  sm:text-5xl md:text-6xl font-bold leading-tight">
+            <div className="pb-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent">
+      3D Animation & </div>
             <div className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent">
-       Visualization
+     Visualisation
+            
             </div>
           </h1>
         </div>
@@ -101,4 +101,4 @@ const HeroService: React.FC<HeroServiceProps> = ({
   );
 };
 
-export default HeroService;
+export default ThreedHero;

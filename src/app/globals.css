@@ -8,12 +8,20 @@
   --font-cairo: 'Cairo', sans-serif;
 }
 
-.font-\[cairo\] {
+/* Utility classes */
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.font-cairo {
   font-family: var(--font-cairo);
 }
-html , body{
+
+html, body {
   background: #000;
 }
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

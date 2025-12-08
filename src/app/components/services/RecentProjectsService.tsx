@@ -9,42 +9,42 @@ const projects = [
     id: 1,
     title: 'About Project',
     subtitle: 'National Day Campaign | Saudi Arabia National Day 2023 video has been made to celebrate love for country.',
-    imageUrl: "/images/pro11.png",
+    imageUrl: "/im1.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 2,
     title: 'About Project',
     subtitle: 'Interactive digital experience showcasing cultural heritage through immersive storytelling.',
-    imageUrl: "/images/pro12.png",
+    imageUrl: "/im2.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 3,
     title: 'About Project',
     subtitle: 'Architectural visualization project highlighting modern sustainable design concepts.',
-    imageUrl: "/images/pro11.png",
+    imageUrl: "/im3.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 4,
     title: 'About Project',
     subtitle: 'Brand identity development for emerging tech startup with global reach.',
-    imageUrl: "/images/pro12.png",
+    imageUrl:  "/im4.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 5,
     title: 'About Project',
     subtitle: 'Motion graphics campaign for international sports event with custom animations.',
-    imageUrl: "/images/pro11.png",
+    imageUrl: "/im3.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 6,
     title: 'About Project',
     subtitle: 'Motion graphics campaign for international sports event with custom animations.',
-    imageUrl: "/images/pro12.png",
+    imageUrl:  "/im4.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   }
 ];

@@ -33,7 +33,7 @@ const HowWeHelpEnhanced: React.FC = () => {
   ];
 
   return (
-    <section className="relative font-[cairo] bg-black text-white pb-20 px-6 overflow-hidden min-h-screen flex items-center">
+    <section className="relative font-[cairo] bg-black text-white pt-32 pb-36 px-6 overflow-hidden h-auto flex items-center">
       {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Heading */}
@@ -52,22 +52,22 @@ const HowWeHelpEnhanced: React.FC = () => {
         {/* Service Cards with Connecting Lines */}
         <div className="relative max-w-6xl mx-auto">
           {/* Service Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-9">
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`relative rounded-[20px] border backdrop-blur-sm px-6 py-8 transition-all duration-500 hover:scale-105 min-h-[140px] flex flex-col ${
+                className={`relative rounded-[20px] border backdrop-blur-sm px-6 py-4 transition-all duration-500 hover:scale-105 min-h-[140px] flex flex-col ${
                   index === activeIndex
-                    ? 'bg-gradient-to-br from-white/15 to-white/5 border-white/30 shadow-2xl  scale-105'
+                    ? 'bg-gradient-to-br from-white/25 to-white/15 border-white/30 shadow-2xl  scale-105'
                     : 'bg-white/5 border-white/10 opacity-70 hover:opacity-100'
                 }`}
               >
                 {/* Dot and Title on Same Line */}
                 <div className="flex items-center gap-3 mb-4">
                   <div
-                    className={`w-2.5 h-2.5 rounded-full flex-shrink-0 transition-all duration-500 ${
+                    className={`w-3.5 h-3.5 rounded-full flex-shrink-0 transition-all duration-500 ${
                       index === activeIndex
-                        ? 'bg-gradient-to-r from-purple-400 to-blue-400 shadow-lg shadow-purple-400/50' 
+                        ? 'bg-gradient-to-r from-white to-white shadow-lg shadow-white/40' 
                         : 'bg-gray-500'
                     }`}
                   />
@@ -94,17 +94,17 @@ const HowWeHelpEnhanced: React.FC = () => {
       </div>
 
       {/* Background Image at Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/2 md:h-2/3 pointer-events-none">
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 md:h-2/3  pb-20 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/80 to-black z-10" />
   <img 
           src="/images/logob2.png"
           alt=""
-          className="w-full absolute h-full object-cover mt-[140px] opacity-20"
+          className="w-full absolute h-auto object-cover mt-[60px] opacity-30"
         />
          <img 
           src="/images/logob3.png"
           alt=""
-          className="w-full h-full object-cover mt-[280px] opacity-20 "
+          className="w-full h-auto object-cover mt-[160px] opacity-20 "
         />
       </div>
 

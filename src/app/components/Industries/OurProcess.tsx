@@ -76,7 +76,7 @@ const OurProcess: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-black pb-9 px-4 sm:px-6 overflow-hidden">
+    <section className="relative min-h-screen bg-black font-cairo pb-9 px-4 sm:px-6 overflow-hidden">
       <div className="max-w-9xl mx-auto bg-[#EDEAFF] rounded-3xl shadow-2xl overflow-hidden">
 
       {/* ===== Background Decorative Images ===== */}
@@ -116,7 +116,7 @@ const OurProcess: React.FC = () => {
           <div className="flex flex-col lg:flex-row items-start justify-between mb-16 gap-6">
             {/* Title */}
             <div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-light tracking-tight">
                 <span className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent font-bold">
                   Our Process for
                 </span>
@@ -129,7 +129,7 @@ const OurProcess: React.FC = () => {
 
             {/* Description and Button - Right Side */}
             <div className="flex flex-col items-end gap-4 max-w-md ml-auto">
-              <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-right">
+              <p className="text-gray-900 text-sm sm:text-base md:text-lg leading-relaxed text-right">
                 We follow a tailored process to ensure your project delivers maximum impact.
               </p>
               
@@ -159,9 +159,9 @@ const OurProcess: React.FC = () => {
                       {String(service.id).padStart(3, "00")}
                     </span>
 
-                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-wide text-gray-900 group-hover:text-[#065FE5] transition-all duration-300">
+                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl  tracking-wide !text-gray-700 group-hover:text-[#065FE5] transition-all duration-300">
                       {service.title}
-                    </h3>
+                    </h3> 
                   </div>
 
                   <div className="arrow-container relative overflow-hidden">
@@ -195,10 +195,10 @@ const OurProcess: React.FC = () => {
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="px-4 sm:px-6 py-6 rounded-xl mx-2 sm:mx-4">
+                  <div className="px-4 sm:px-6 py-9 rounded-xl mx-2 sm:mx-4">
                     <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
                       <div className="w-full space-y-3 sm:space-y-4">
-                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        <p className="text-gray-900 text-sm sm:text-base md:text-xl  ml-[48px] leading-relaxed">
                           {service.detailedDescription}
                         </p>
                       </div>

@@ -85,12 +85,12 @@ export const IndustriesRecentProjects = () => {
   return (
     <div className="w-full bg-blac pt-20 pb-6 px-4 md:px-8 lg:px-16 relative overflow-hidden hidden md:block xl100:hidden">
       {/* Header Section */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-">
         <div className="relative">
           <div className="max-w-2xl overflow-hidden">
             <div className="relative z-20 max-w-2xl">
               <h2 className="text-4xl z-[999] pb-2 overflow-hidden md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] text-transparent bg-clip-text">
-                Recent Projects
+                Featured Projects
               </h2>
               <p className="text-gray-300 text-sm md:text-base max-w-[415px] pb-4 lg:pb-11 lg:max-w-[390px]">
                 Discover our latest work. Our creative team has been busy crafting
@@ -102,7 +102,7 @@ export const IndustriesRecentProjects = () => {
           </div>
         </div>
         <motion.button
-          whileHover={{ scale: 1.01 }}
+          whileHover={{ scale: 1 }}
           whileTap={{ scale: 0.95 }}
           className="mt-6 md:-mt-20 px-6 py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] rounded-md text-white font-medium flex items-center whitespace-nowrap"
         >
@@ -135,7 +135,7 @@ export const IndustriesRecentProjects = () => {
         {/* Navigation Arrows */}
         <button
           onClick={handlePrev}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
+          className="absolute -left-3 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
           aria-label="Previous project"
         >
           <svg
@@ -150,7 +150,7 @@ export const IndustriesRecentProjects = () => {
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
+          className="absolute -right-3 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 rounded-full p-3 text-white hover:bg-black/70"
           aria-label="Next project"
         >
           <svg
