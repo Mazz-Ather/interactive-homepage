@@ -1,0 +1,18 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\lenovo\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.4.2
+2 info using node@v22.14.0
+3 silly config load:file:C:\Users\lenovo\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:E:\client\interactive\.npmrc
+5 silly config load:file:C:\Users\lenovo\.npmrc
+6 silly config load:file:C:\Users\lenovo\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm
+8 verbose argv "--cache" "clean" "--force"
+9 verbose logfile logs-max:10 dir:E:\client\interactive\clean\_logs\2025-12-09T18_17_07_621Z-
+10 verbose logfile E:\client\interactive\clean\_logs\2025-12-09T18_17_07_621Z-debug-0.log
+11 warn using --force Recommended protections disabled.
+12 verbose cwd E:\client\interactive
+13 verbose os Windows_NT 10.0.26100
+14 verbose node v22.14.0
+15 verbose npm  v11.4.2
+16 verbose exit 1
+17 verbose code 1
