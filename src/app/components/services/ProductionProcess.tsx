@@ -58,7 +58,7 @@ const ProductionProcess: React.FC = () => {
 
   // Create extended array for seamless infinite scroll
   const getExtendedSteps = () => {
-    const extended = [];
+    const extended:any[] = [];
     // We need enough cards to show prev, center, next at all times
     // Repeat the array 3 times to handle wrapping
     for (let repeat = 0; repeat < 3; repeat++) {
