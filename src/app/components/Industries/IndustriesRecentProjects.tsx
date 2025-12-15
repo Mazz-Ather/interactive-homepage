@@ -83,7 +83,7 @@ export const IndustriesRecentProjects = () => {
   ];
 
   return (
-    <div className="w-full bg-blac pt-20 pb-6 px-4 md:px-8 lg:px-16 relative overflow-hidden hidden md:block xl100:hidden">
+    <div className="w-full bg-blac pt-20 pb-6 px-4 md:px-8 lg:px-16 relative overflow-hidden hidden md:block ">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-">
         <div className="relative">
@@ -111,7 +111,7 @@ export const IndustriesRecentProjects = () => {
       </div>
 
       {/* Carousel Section */}
-      <div className="relative h-[500px] md:h-[550px] lg:h-[750px] max-w-[110vw] mx-auto -mt-[230px]">
+      <div className="relative h-[500px] md:h-[550px] lg:h-[750px] max-w-[110vw] mx-auto md:-mt-[230px]">
         <div className="absolute inset-0 flex items-center justify-center">
           {visibleProjects.map((project, idx) => {
             const position = positions[idx];

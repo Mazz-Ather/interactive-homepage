@@ -50,14 +50,14 @@ const DigitalHero: React.FC<HeroServiceProps> = ({
             </p> */}
 
             {/* Main Heading with Gradient */}
-              <div className="lg:pt-11 mb-4 max-w-2xl">
+              <div className="lg:pt-11 mb-4 max-w-4xl">
           <p className="text-lg uppercase tracking-widest text-gray-100 font-bold">Service</p>
           <h1 className="text-4xl  sm:text-5xl md:text-6xl font-bold leading-tight">
             <div className="pb-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent">
-         Digital 
+         Digital Transformation
             </div>
             <div className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent">
-       Transformation
+       
             </div>
           </h1>
         </div>

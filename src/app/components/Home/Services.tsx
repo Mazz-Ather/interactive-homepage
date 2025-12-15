@@ -71,7 +71,7 @@ const ServicesComponent: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gblack py-9 px-4 sm:px-6 ">
+    <section className="relative font-[Cairo] min-h-screen bg-gblack py-9 px-4 sm:px-6 ">
       <div className="max-w-9xl mx-auto bg-[#EDEAFF] rounded-3xl shadow-2xl overflow-hidden">
         <div className="relative z-10 px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
        <div className="flex flex-col lg:flex-row items-center justify-between text-center lg:text-left mb-16 gap-6">

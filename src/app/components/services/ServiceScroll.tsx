@@ -10,175 +10,212 @@ interface ServiceCard {
   description: string;
 }
 
-const services: ServiceCard[] = [
+
+export const services: ServiceCard[] = [
   {
     id: 1,
     icon: '/images/icon11.png',
-    title: 'Cinematic CGI & VFX:',
+    title: 'Cinematic CGI & VFX',
     description: 'We create high-impact computer-generated imagery for visual effects, commercials, short films, and corporate videos.',
   },
   {
     id: 2,
     icon: '/images/icon12.png',
-    title: 'Architectural Visualization:',
+    title: 'Architectural Visualization',
     description: 'We produce photorealistic 3D renders and immersive walkthroughs for real estate developers and architects.',
   },
   {
     id: 3,
     icon: '/images/icon13.png',
-    title: 'Product Visualization:',
+    title: 'Product Visualization',
     description: 'Our team builds detailed 3D models of products, allowing you to present your product designs in a visually compelling way.',
   },
   {
     id: 4,
     icon: '/images/icon14.png',
-    title: 'Storyboarding & Concept Art:',
+    title: 'Storyboarding & Concept Art',
     description: 'We handle the pre-production process, from initial storyboarding to creating concept art that sets the look and feel of your project.',
   },
 ];
 
 const ServicesScrollSmooth: React.FC = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const [currentX, setCurrentX] = useState(0);
   const [velocity, setVelocity] = useState(0);
   const [lastX, setLastX] = useState(0);
   const [lastTime, setLastTime] = useState(0);
-  const animationFrameRef = useRef<number>();
+  const animationRef = useRef<any>(null);
+  const momentumRef = useRef<any>(null);
 
-  // Reset scroll position to 0 on mount to show the spacer
   useEffect(() => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollLeft = 0;
+    if (contentRef.current) {
+      gsap.set(contentRef.current, { x: 0 });
     }
   }, []);
 
+  const getMaxScroll = () => {
+    if (!containerRef.current || !contentRef.current) return 0;
+    const containerWidth = containerRef.current.offsetWidth;
+    const contentWidth = contentRef.current.scrollWidth;
+    return -(contentWidth - containerWidth);
+  };
+
+  const applyElasticBounds = (x: number) => {
+    const maxScroll = getMaxScroll();
+    const elasticStrength = 0.25;
+
+    if (x > 0) {
+      return x * elasticStrength;
+    }
+    else if (x < maxScroll) {
+      const overflow = x - maxScroll;
+      return maxScroll + (overflow * elasticStrength);
+    }
+    return x;
+  };
+
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollContainerRef.current) return;
     setIsDragging(true);
-    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-    setScrollLeft(scrollContainerRef.current.scrollLeft);
-    setLastX(e.pageX);
+    setStartX(e.clientX);
+    setLastX(e.clientX);
     setLastTime(Date.now());
     setVelocity(0);
-    scrollContainerRef.current.style.cursor = 'grabbing';
     
-    // Cancel any ongoing momentum
-    if (animationFrameRef.current) {
-      cancelAnimationFrame(animationFrameRef.current);
+    if (contentRef.current) {
+      const currentTransform = gsap.getProperty(contentRef.current, 'x') as number;
+      setCurrentX(currentTransform);
+    }
+    
+    if (animationRef.current) {
+      animationRef.current.kill();
+    }
+    if (momentumRef.current) {
+      momentumRef.current.kill();
     }
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollContainerRef.current) return;
-    e.preventDefault();
+    if (!isDragging || !contentRef.current) return;
     
-    const x = e.pageX - scrollContainerRef.current.offsetLeft;
     const currentTime = Date.now();
     const timeDelta = currentTime - lastTime;
-    const distance = e.pageX - lastX;
+    const diff = e.clientX - startX;
+    const moveDiff = e.clientX - lastX;
     
-    // Calculate velocity
     if (timeDelta > 0) {
-      const vel = (distance / timeDelta) * 16; // Normalize to 60fps
+      const vel = (moveDiff / timeDelta) * 16;
       setVelocity(vel);
     }
     
-    const walk = (x - startX) * 2;
-    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+    const newX = currentX + diff;
+    const elasticX = applyElasticBounds(newX);
     
-    setLastX(e.pageX);
+    gsap.set(contentRef.current, { x: elasticX });
+    
+    setLastX(e.clientX);
     setLastTime(currentTime);
   };
 
   const handleMouseUp = () => {
+    if (!isDragging || !contentRef.current) return;
     setIsDragging(false);
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.style.cursor = 'grab';
+
+    const currentTransform = gsap.getProperty(contentRef.current, 'x') as number;
+    const maxScroll = getMaxScroll();
+    
+    const isOutOfBounds = currentTransform > 0 || currentTransform < maxScroll;
+    
+    if (isOutOfBounds) {
+      let targetX = currentTransform > 0 ? 0 : maxScroll;
+      
+      animationRef.current = gsap.to(contentRef.current, {
+        x: targetX,
+        duration: 0.7,
+        ease: 'elastic.out(1, 0.5)',
+      });
+    } else if (Math.abs(velocity) > 0.5) {
+      let currentVel = velocity;
+      let currentPos = currentTransform;
+      
+      const animateMomentum = () => {
+        if (Math.abs(currentVel) > 0.1) {
+          currentPos -= currentVel;
+          
+          if (currentPos > 0 || currentPos < maxScroll) {
+            const targetX = currentPos > 0 ? 0 : maxScroll;
+            gsap.to(contentRef.current, {
+              x: targetX,
+              duration: 0.6,
+              ease: 'elastic.out(1, 0.5)',
+            });
+            return;
+          }
+          
+          gsap.set(contentRef.current, { x: currentPos });
+          currentVel *= 0.95;
+          momentumRef.current = requestAnimationFrame(animateMomentum);
+        }
+      };
+      
+      momentumRef.current = requestAnimationFrame(animateMomentum);
     }
   };
 
   const handleMouseLeave = () => {
     if (isDragging) {
-      setIsDragging(false);
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.style.cursor = 'grab';
-      }
+      handleMouseUp();
     }
   };
-
-  // Smooth momentum scrolling with GSAP
-  useEffect(() => {
-    if (!isDragging && Math.abs(velocity) > 1) {
-      let currentVelocity = velocity;
-      
-      const animate = () => {
-        if (scrollContainerRef.current && Math.abs(currentVelocity) > 0.5) {
-          // Apply the scroll
-          scrollContainerRef.current.scrollLeft -= currentVelocity;
-          
-          // Decelerate smoothly
-          currentVelocity *= 0.92; // Smooth deceleration
-          
-          animationFrameRef.current = requestAnimationFrame(animate);
-        }
-      };
-      
-      animationFrameRef.current = requestAnimationFrame(animate);
-    }
-    
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-    };
-  }, [isDragging, velocity]);
 
   useEffect(() => {
     const handleGlobalMouseUp = () => {
       if (isDragging) {
-        setIsDragging(false);
-        if (scrollContainerRef.current) {
-          scrollContainerRef.current.style.cursor = 'grab';
-        }
+        handleMouseUp();
       }
     };
 
-    document.addEventListener('mouseup', handleGlobalMouseUp);
+    window.addEventListener('mouseup', handleGlobalMouseUp);
     return () => {
-      document.removeEventListener('mouseup', handleGlobalMouseUp);
+      window.removeEventListener('mouseup', handleGlobalMouseUp);
+      if (momentumRef.current) {
+        cancelAnimationFrame(momentumRef.current);
+      }
     };
-  }, [isDragging]);
+  }, [isDragging, velocity, currentX]);
 
   return (
     <div className="w-full py-20 bg-black font-[Cairo]">
       {/* Header Section */}
       <div className="px-8 md:px-16 lg:px-24 mb-12 text-center">
-        <h2 className="text-2xl md:text-5xl  font-bold text-white mb-4">
-          How We Help with 3D Animation & Visualisation
-        </h2>
-        <p className="text-gray-400 text-center text-lg md:text-xl max-w-3xl mx-auto">
-          We offer a full spectrum of 3D production services to meet your specific needs.
-        </p>
+ <h2 className="text-2xl md:text-5xl font-bold text-white mb-4">
+ How We Help Our Clients
+</h2>
+<p className="text-gray-400 text-center text-lg md:text-xl max-w-3xl mx-auto">
+  We provide a full range of professional services to meet the unique needs of our clients and help their business thrive.
+</p>
+
       </div>
 
       {/* Scrollable Cards Section */}
-      <div className="overflow-hidden">
+      <div 
+        ref={containerRef}
+        className="overflow-hidden"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+      >
         <div
-          ref={scrollContainerRef}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-          className="flex gap-6 overflow-x-auto  overflow-y-hidden scroll-smooth scrollbar-hide select-none"
-          style={{
-            WebkitOverflowScrolling: 'touch',
-            cursor: 'grab',
-          }}
+          ref={contentRef}
+          className="flex gap-6 select-none"
+          style={{ willChange: 'transform' }}
         >
-          {/* Left Spacer - Creates initial padding */}
-          <div className="flex-shrink-0 w-52" aria-hidden="true" />
+          {/* Left Spacer */}
+          <div className="flex-shrink-0 w-8 md:w-52" />
           
           {services.map((service, index) => (
             <div
@@ -187,28 +224,27 @@ const ServicesScrollSmooth: React.FC = () => {
               style={{
                 background: 'linear-gradient(145deg, #161616ff 0%, #1a1a1a 100%)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
-                scrollSnapAlign: index === 0 ? 'none' : 'start',
               }}
             >
               {/* Gradient Glow Borders - 4 sides */}
               <div 
                 className="absolute top-0 left-0 blur-sm right-0 h-[60px] pointer-events-none"
                 style={{
-                  background: 'linear-gradient(180deg,  rgba(54, 54, 54, 1) 0%, transparent 100%)',
+                  background: 'linear-gradient(180deg, rgba(54, 54, 54, 1) 0%, transparent 100%)',
                 }}
               />
               
               <div 
                 className="absolute bottom-0 blur-sm left-0 right-0 h-[60px] pointer-events-none"
                 style={{
-                  background: 'linear-gradient(0deg,  rgba(54, 54, 54, 1) 0%, transparent 100%)',
+                  background: 'linear-gradient(0deg, rgba(54, 54, 54, 1) 0%, transparent 100%)',
                 }}
               />
               
               <div 
                 className="absolute left-0 top-0 blur-sm bottom-0 w-[60px] pointer-events-none"
                 style={{
-                  background: 'linear-gradient(90deg,  rgba(54, 54, 54, 1) 0%, transparent 100%)',
+                  background: 'linear-gradient(90deg, rgba(54, 54, 54, 1) 0%, transparent 100%)',
                 }}
               />
               
@@ -221,18 +257,14 @@ const ServicesScrollSmooth: React.FC = () => {
 
               {/* Icon Container */}
               <div className="w-20 h-20 mb-8 relative z-10">
-              <div
-    key={index}
-    className="w-full h-full flex items-center justify-center"
-  >
-   <img
-  src={service.icon}
-  alt={service.title}
-  className={`w-[70px] h-[70px] object-contain transition-transform duration-300
-    ${index === 3 ? 'scale-[1.8] origin-center' : ''}`}
-/>
-
-  </div>
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    className={`w-[70px] h-[70px] object-contain transition-transform duration-300
+                      ${index === 3 ? 'scale-[1.8] origin-center' : ''}`}
+                  />
+                </div>
               </div>
 
               {/* Title */}
@@ -246,18 +278,11 @@ const ServicesScrollSmooth: React.FC = () => {
               </p>
             </div>
           ))}
+
+          {/* Right Spacer */}
+          <div className="flex-shrink-0 w-8 md:w-52" />
         </div>
       </div>
-
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </div>
   );
 };

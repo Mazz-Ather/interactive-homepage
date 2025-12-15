@@ -15,11 +15,17 @@ const page = () => {
 <HeroIndustries/>
 <HowWeHelp/>
 <OurProcess/>
+
+<div className="mt-9 md:mt-20">
+<NewsletterCTA/>
+</div>
 <AnimationServices/>
 
 <IndustriesRecentProjects/>
+<div className="pt-9 md:pt-20">
+
 <ContactForm/>
-<NewsletterCTA/>
+</div>
 </>
 )
 }

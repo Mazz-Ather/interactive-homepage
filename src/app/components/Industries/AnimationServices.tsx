@@ -13,27 +13,30 @@ interface ServiceItem {
 
 const AnimationServices = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+const services: ServiceItem[] = [
+  {
+    id: 1,
+    image: '/images/icon14.png',
+    title: 'The Challenge',
+    description:
+      'Communicating complex ideas, spaces, or products in a way that is clear, engaging, and easy for audiences to understand.',
+  },
+  {
+    id: 2,
+    image: '/images/icon13.png',
+    title: 'The Solution',
+    description:
+      'We design tailored digital experiences and visual assets that simplify complexity and align with your business goals.',
+  },
+  {
+    id: 3,
+    image: '/images/icon12.png',
+    title: 'The Result',
+    description:
+      'Clear, compelling experiences that build trust, drive engagement, and help your audience make confident decisions.',
+  },
+];
 
-  const services: ServiceItem[] = [
-    {
-      id: 1,
-      image: '/images/icon14.png',
-      title: 'The Challenge:',
-      description: 'We create high-impact computer-generated imagery and visual effects for commercials, short films, and corporate videos.',
-    },
-    {
-      id: 2,
-      image: '/images/icon13.png',
-      title: 'The Solution:',
-      description: 'Advanced 3D modeling and rendering techniques combined with cutting-edge animation tools.',
-    },
-    {
-      id: 3,
-      image: '/images/icon12.png',
-      title: 'The Result:',
-      description: 'Stunning visual experiences that captivate audiences and bring your vision to life.',
-    },
-  ];
 
   return (
     <section className="relative py-11 h-screen w-full overflow-hidden bg-black flex items-center justify-center">
@@ -65,17 +68,19 @@ const AnimationServices = () => {
           className="mb-12 text-center"
         >
           <h1 className="mb-4 text-4xl font-bold leading-tight md:text-4xl lg:text-5xl xl:text-6xl">
-            <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-              How We Help with 3D
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent">
-              Animation & Visualisation
-            </span>
+           <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+  How We Help Businesses
+</span>
+<br />
+<span className="bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent">
+  Communicate, Engage & Convert
+</span>
+
           </h1>
-          <p className="mx-auto max-w-2xl text-base text-gray-300 md:text-lg lg:text-xl">
-            We offer a full spectrum of 3D production services to meet your specific needs.
-          </p>
+         <p className="mx-auto max-w-3xl text-base text-gray-300 md:text-lg lg:text-xl">
+  We partner with businesses across industries to design digital experiences that communicate value, engage audiences, and drive real-world results.
+</p>
+
         </motion.div>
 
         {/* Circles Container */}

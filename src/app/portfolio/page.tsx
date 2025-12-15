@@ -12,9 +12,12 @@ const page = () => {
     <div>
         <HeroP/>
         <ProjectsSection/>
-        <CaseStudies1/>
-        <ContactForm/>
         <NewsletterCTA/>
+
+        <div className='mt-16'>
+        <CaseStudies1/>
+        </div>
+        <ContactForm/>
     </div>
   )
 }

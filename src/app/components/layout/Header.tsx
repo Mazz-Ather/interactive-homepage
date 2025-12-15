@@ -23,7 +23,7 @@ interface Translations {
     home: string;
     services: string;
     industries: string;
-    products: string;
+    // products: string;
     portfolio: string;
     about: string;
     workWithUs: string;
@@ -57,7 +57,7 @@ interface Translations {
     home: string;
     services: string;
     industries: string;
-    products: string;
+    // products: string;
     portfolio: string;
     about: string;
     workWithUs: string;
@@ -94,7 +94,7 @@ const translations: Translations = {
     home: 'HOME',
     services: 'SERVICES',
     industries: 'INDUSTRIES',
-    products: 'PRODUCTS',
+    // products: 'PRODUCTS',
     portfolio: 'PORTFOLIO',
     about: 'ABOUT US',
     workWithUs: 'Work With Us',
@@ -133,51 +133,51 @@ const translations: Translations = {
     industriesDropdown: [
       { 
         label: 'Real Estate', 
-        href: '/services/real-estate',
+        href: '/industries/real-estate',
         description: 'Innovative solutions for property visualization and virtual tours.',
-        image: '/images/ilogo1.png'
+        image: '/images/real.png'
       },
       { 
         label: 'Events & Entertainment', 
-        href: '/services/events-and-entertainment',
+        href: '/industries/events-and-entertainment',
         description: 'Interactive experiences for memorable events and entertainment.',
-        image: '/images/ilogo2.png'
+        image: '/images/real2.png'
       },
       { 
         label: 'Retail & E-commerce', 
-        href: '/services/retail-and-ecommerce',
+        href: '/industries/retail-and-ecommerce',
         description: 'Transform shopping experiences with immersive retail solutions.',
-        image: '/images/ilogo3.png'
+        image: '/images/real3.png'
       },
       { 
         label: 'Education & Training', 
-        href: '/services/education-and-training',
+        href: '/industries/education-and-training',
         description: 'Revolutionary learning experiences through interactive education.',
-        image: '/images/ipg'
+        image: '/images/real4.png'
       },
       { 
         label: 'Healthcare', 
-        href: '/services/healthcare',
+        href: '/industries/healthcare',
         description: 'Advanced healthcare solutions with immersive technologies.',
-        image: '/images/ilogo5.png'
+        image: '/images/real5.png'
       },
       { 
         label: 'Defense & Security', 
-        href: '/services/defense-and-security',
+        href: '/industries/defense-and-security',
         description: 'Cutting-edge defense training and security simulations.',
-        image: '/images/ilogo6.png'
+        image: '/images/real6.png'
       },
       { 
         label: 'Tourism & Hospitality', 
-        href: '/services/tourism-and-hospitality',
+        href: '/industries/tourism-and-hospitality',
         description: 'Enhance guest experiences with virtual tourism solutions.',
-        image: '/images/ilogo7.png'
+        image: '/images/real7.png'
       },
       { 
         label: 'Marketing & Ad Creative', 
-        href: '/services/marketing-and-ad-creative',
+        href: '/industries/marketing-and-ad-creative',
         description: 'Revolutionary marketing campaigns with immersive creativity.',
-        image: '/images/ilogo8.png'
+        image: '/images/real8.png'
       },
     ],
     promoSection: {
@@ -198,7 +198,7 @@ const translations: Translations = {
     home: 'الرئيسية',
     services: 'الخدمات',
     industries: 'الصناعات',
-    products: 'المنتجات',
+    // products: 'المنتجات',
     portfolio: 'المحفظة',
     about: 'من نحن',
     workWithUs: 'اعمل معنا',
@@ -321,7 +321,7 @@ const Navbar: React.FC = () => {
       hasDropdown: true,
       dropdownItems: t.industriesDropdown
     },
-    { label: t.products, href: '/products' },
+    // { label: t.products, href: '/products' },
     { label: t.portfolio, href: '/portfolio' },
     { label: t.about, href: '/about' },
   ];

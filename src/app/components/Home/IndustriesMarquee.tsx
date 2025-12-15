@@ -94,17 +94,20 @@ const IndustriesMarquee: React.FC = () => {
     <section className="industries-marquee-section">
       <div className="industries-header">
         <p className="industries-mini-heading ">Industries</p>
-         <div className="text-center -mt4 py-2">
-              <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-                <div className="bg-gradient-to-r from-[#B54CBE] via-[#065FE5] to-[#065FE5] bg-clip-text text-transparent">
-                We&apos;ve partnered with 
-                </div>
-                <div className="bg-gradient-to-r from-[#B54CBE] via-[#065FE5] to-[#065FE5] bg-clip-text text-transparent">
-               businesses worldwide,
-                </div>
-               
-              </h1>
-            </div>
+     <div className="text-center mt-4 py-2">
+  <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
+    <span className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5]
+      bg-clip-text text-transparent">
+      We&apos;ve partnered with
+    </span>
+    <br />
+    <span className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5]
+      bg-clip-text text-transparent">
+      businesses worldwide
+    </span>
+  </h1>
+</div>
+
       </div>
 
       {/* First Marquee - Moving Left */}

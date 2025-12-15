@@ -8,64 +8,91 @@ const testimonials = [
     text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
     image: "https://randomuser.me/api/portraits/women/1.jpg",
     name: "Briana Patton",
-    // role: "Operations Manager",
-          stars: 5,
+    stars: 5,
   },
   {
     text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
     image: "https://randomuser.me/api/portraits/men/2.jpg",
     name: "Bilal Ahmed",
-          stars: 5,
-    // role: "IT Manager",
+    stars: 5,
   },
   {
     text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
     image: "https://randomuser.me/api/portraits/women/3.jpg",
     name: "Saman Malik",
-          stars: 4,
-    // role: "Customer Support Lead",
+    stars: 4,
   },
   {
     text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
     image: "https://randomuser.me/api/portraits/men/4.jpg",
     name: "Omar Razak",
-          stars: 4,
-    // role: "CEO",
+    stars: 4,
   },
   {
     text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
     image: "https://randomuser.me/api/portraits/women/5.jpg",
     name: "Zainab Hussain",
-    // role: "Project Manager",
-          stars: 5,
+    stars: 5,
   },
   {
     text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
     name: "Aliza Khan",
-    // role: "Business Analyst",
-          stars: 5, 
+    stars: 5,
   },
   {
     text: "Our business functions improved with a user-friendly design and positive customer feedback.",
     image: "https://randomuser.me/api/portraits/men/7.jpg",
     name: "Farhan Siddiqui",
-    // role: "Marketing Director",
-          stars: 5, 
+    stars: 5,
   },
   {
     text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
     image: "https://randomuser.me/api/portraits/women/8.jpg",
     name: "Sana Sheikh",
-    // role: "Sales Manager",
-          stars: 5, 
+    stars: 5,
   },
   {
     text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
     image: "https://randomuser.me/api/portraits/men/9.jpg",
     name: "Hassan Ali",
-    // role: "E-commerce Manager",
-          stars: 5, 
+    stars: 5,
+  },
+  {
+    text: "The automation features saved us countless hours and reduced operational errors drastically.",
+    image: "https://randomuser.me/api/portraits/women/10.jpg",
+    name: "Ayesha Noor",
+    stars: 5,
+  },
+  {
+    text: "Real-time analytics helped us make smarter decisions and scale faster than expected.",
+    image: "https://randomuser.me/api/portraits/men/11.jpg",
+    name: "Usman Tariq",
+    stars: 4,
+  },
+  {
+    text: "The ERP system is intuitive, powerful, and perfectly aligned with our growing business needs.",
+    image: "https://randomuser.me/api/portraits/women/12.jpg",
+    name: "Hira Salman",
+    stars: 5,
+  },
+  {
+    text: "Exceptional performance and stability. We’ve seen measurable improvements across all departments.",
+    image: "https://randomuser.me/api/portraits/men/13.jpg",
+    name: "Saad Javed",
+    stars: 5,
+  },
+  {
+    text: "From onboarding to daily usage, everything feels smooth and thoughtfully designed.",
+    image: "https://randomuser.me/api/portraits/women/14.jpg",
+    name: "Nimra Khalid",
+    stars: 4,
+  },
+  {
+    text: "This ERP gave us clarity, control, and confidence in managing our business operations.",
+    image: "https://randomuser.me/api/portraits/men/15.jpg",
+    name: "Ali Raza",
+    stars: 5,
   },
 ];
 
@@ -73,7 +100,8 @@ const testimonials = [
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
-
+const fourthColumn = testimonials.slice(9, 12);
+// const fifthColumn = testimonials.slice(0, 3); // Reusing first 3 for the 5th column
 
 const Testimonials = () => {
   return (
@@ -106,6 +134,7 @@ const Testimonials = () => {
         </motion.div>
 
         <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[380px] overflow-hidden">
+          <TestimonialsColumn testimonials={fourthColumn} className="hidden xl:block" duration={16} />
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
@@ -115,4 +144,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials ;
+export default Testimonials;

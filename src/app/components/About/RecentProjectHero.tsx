@@ -6,13 +6,13 @@ import Image from "next/image"
 
 export default function RecentprojectHero() {
   return (
-    <section className="relative min-h-screen h-screen mb-9 xl100:max-w-[1920px] mx-auto xl100:max-h-[1080px] pb-11 bg-black  overflow-hidden">
+    <section className="relative h-min-content mb-9 xl100:max-w-[1920px] mx-auto xl100:max-h-[1080px] pb-11 bg-black  overflow-hidden">
       {/* Marquee Background - 3 rows */}
 <div className="absolute bottom-0 left-0 w-full h-[160px] xl80:h-[40px] lg:h-[20px] bg-gradient-to-t from-black/70 via-black/80 via-black/40 to-transparent backdrop-bl z-[20] pointer-events-none" />
 
 
       <div className="absolute inset-0 opacity-[0.31] pb-9 h-full">
-        <div className="flex flex-col justify-between py-[130px] xl90:py-[82px] xl80:py-[50px] lg:py-[70px] h-full">
+        <div className="flex flex-col justify-between py-[150px] xl90:py-[129px] xl80:py-[90px] lg:py-[70px] h-full">
           {/* Row 1 - Moving Right (Top) */}
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(3)].map((_, i) => (

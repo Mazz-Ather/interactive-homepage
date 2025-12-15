@@ -115,7 +115,7 @@ const OurApproach1: React.FC = () => {
 
             {/* Description */}
             <div className="text-black max-w-md">
-              <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+              <p className="text-gray-900 text-sm sm:text-base md:text-lg leading-relaxed">
                 We design and build full-scale immersive solutions tailored to
                 your unique needs.
               </p>
@@ -188,7 +188,7 @@ const OurApproach1: React.FC = () => {
                   <div className="px-4 sm:px-6 py-6 rounded-xl mx-2 sm:mx-4">
                     <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
                       <div className="w-full space-y-3 sm:space-y-4">
-                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        <p className="text-gray-900 md:ml-16 text-sm sm:text-base md:text-lg leading-relaxed">
                           {service.detailedDescription}
                         </p>
                       </div>

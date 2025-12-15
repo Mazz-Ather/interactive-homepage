@@ -14,12 +14,12 @@ const page = () => {
 <ServicesScroll/>
 <ProductionProcess/>
 
-<div className="!pt-16 ">
+{/* <div className="!pt-16 ">
 <Newsletter/>
-</div>
+</div> */}
+<NewsletterCTA/>
  <RecentProjectsService/> 
  <ContactForm/>
- <NewsletterCTA/>
 </>
   )
 }

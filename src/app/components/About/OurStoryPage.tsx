@@ -11,7 +11,7 @@ export default function OurStory() {
   <img
     src="/images/story.png"
     alt="Background Text"
-    className="absolute inset-0 w-full mt-9 md:h-[230px] object-cover"
+    className="absolute inset-0 w-full mt-9 md:h-[230px]"
   />
 {/* </div> */}
       {/* CONTENT WRAPPER */}
@@ -23,7 +23,7 @@ export default function OurStory() {
             alt="Person with VR headset"
             width={500}
             height={500}
-            className="relative z-20 object-contain"
+            className="relative z-20 object-cover"
           />
           <p className="text-gray-300 text-lg leading-relaxed">
             Our journey began in 2008 with a vision to merge cutting-edge

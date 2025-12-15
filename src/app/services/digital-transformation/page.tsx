@@ -13,10 +13,10 @@ const page = () => {
 <DigitalHero/>
 <DigitalServicesScroll/>
 <DigitalProductionProcess/>
-<Newsletter/>
-<DigitalRecentProjectsService/>
+{/* <NewsletterCTA/> */}
+{/* <Newsletter/> */}
+{/* <DigitalRecentProjectsService/> */}
 <ContactForm/>
-<NewsletterCTA/>
 </>
   )
 }

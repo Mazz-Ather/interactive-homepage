@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const VRHeroPage = () => {
   return (
-    <div className="lg:min-h-screen container max-w-[1800px] mx-auto ">
+    <div className="lg:min-h-screen container pt-6 max-w-[1800px] mx-auto ">
 
       <div className="relative max-w-[1800px] mx-auto lg:h-screen overflow-hidden">
         {/* Background Video */}

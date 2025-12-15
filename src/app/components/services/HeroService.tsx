@@ -37,7 +37,9 @@ const HeroService: React.FC<HeroServiceProps> = ({
           Your browser does not support the video tag.
         </video>
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
+        {/* <div className="absolute inset-0 bg-black/60" /> */}
+        <div className="absolute h-auto inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/95"></div>
+      
       </div>
 
       {/* Content */}
@@ -52,18 +54,19 @@ const HeroService: React.FC<HeroServiceProps> = ({
             {/* Main Heading with Gradient */}
               <div className="lg:pt-11 mb-4 max-w-2xl">
           <p className="text-lg uppercase tracking-widest text-gray-100 font-bold">Service</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-            <div className="bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent">
-             3d Animation &
+          <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold leading-tight">
+            <div className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5] bg-clip-text text-transparent">
+            Transforming Ideas into Immersive Realities with Our Expert Team
+
             </div>
-            <div className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent">
+            {/* <div className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent">
        Visualization
-            </div>
+            </div> */}
           </h1>
         </div>
 
             {/* Description */}
-            <p className="text-white/90 text-sm sm:text-base md:text-lg mb-8 leading-relaxed">
+            <p className="text-white/90 text-sm sm:text-base md:text-md mb-8 leading-relaxed">
               {description}
             </p>
 

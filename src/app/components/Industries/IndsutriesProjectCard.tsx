@@ -253,7 +253,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-sm lg:hidden"
             style={{
-              clipPath: 'polygon(0% 0%, 100% 0%, 100% 92%, 0% 100%)'
+              clipPath: 'polygon(0% 0%, 100% 0%, 100% 92%, 0% 100%)'  
             }}
           />
         )}
@@ -261,7 +261,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
         {/* Parallelogram overlay for inactive cards - lg screens */}
         {position !== 'center' && (
           <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-m hidden lg:block xl100:hidden"
+            className="absolute inset-0 bg-black/50 backdrop-blur-m hidden md:block "
             style={{
               clipPath: 'polygon(0%   2%, 120%   0%, 110% 70%, -466% 290%)'
             }}
@@ -271,7 +271,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
         {/* Parallelogram overlay for inactive cards - xl100+ screens */}
         {position !== 'center' && (
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm hidden xl100:block"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm hidden"
             style={{
               clipPath: 'polygon(0% 20%, 100% -10%, 100% 99%, 0% 100%)'
             }}

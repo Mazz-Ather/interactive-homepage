@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function NewsletterCTA() {
   return (
-    <section className="bg-black text-center pb-11 px-6">
+    <section className="bg-black text-center pb-0 pt-3 px-6">
       <div className="max-w-4xl mx-auto">
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">

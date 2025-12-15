@@ -390,6 +390,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
       )}
 
       {/* Project info */}
+      
       <div
         className="
           absolute 
@@ -397,13 +398,17 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
           left-0 right-0 
           p-4 md:p-6 
           text-white
+          overflow-hidden
           z-20
+          !brightness-[40%]
+          contrast-[120%]
         "
       >
-        <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
+
+   <h3 className="text-lg font-[200]  md:text-xl font-bold mb-2">{project.title}</h3>
         <p
           className="
-            text-xs md:text-sm text-white/80 line-clamp-3 
+            text-xs !font-[200] md:text-sm text-white/80 line-clamp-3 mb-9   
             max-w-[90%] xl:max-w-[80%]
           "
         >

@@ -6,41 +6,40 @@ const HeroIndustries: React.FC = () => {
     <section className="relative font-[cairo] h-auto -mt-2 w-full overflow-hidden">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/3d.png"
-          alt="Real Estate Cityscape"
-          fill
-          className="object-cover"
-          priority
-        />
+        <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/animated-future-dubai-skyline-with-high-tech-build-2025-10-16-05-01-24-utc (1).mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
         
         {/* Gradient Overlay - Top to bottom: transparent to black */}
-        <div className="absolute h-auto inset-0 bg-gradient-to-b from-transparent via-black/80 to-black"></div>
+        <div className="absolute h-auto inset-0 bg-gradient-to-b from-transparent via-black/70 to-black"></div>
       </div>
 
       {/* Content Container - Left Center Aligned */}
       <div className="relative pt-32 md:pt-[250px] z-10 h-full flex items-center">
         <div className="container mx-auto px-6 md:px-12 lg:px-28">
-          <div className="max-w-xl lg:max-w-8xl ">
+          <div className="max-w-xl lg:!max-w-[50%] ">
             {/* Mini Heading */}
             <p className="text-white text-xs md:!text-[21px] font-bold md:ml-1 tracking-wider mb-2 md:mb-3">
-              Real Estate
+              Industries
             </p>
 
             {/* Main Heading - Smaller Size */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl  lg:text-6xl font-extrabold mb-3 md:mb-4 !leading-none ">
-              <span className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5] bg-clip-text text-transparent !leading-[0.8]">
-                Transforming Real Estate with Immersive Technology Solutions
+              <span className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5] bg-clip-text text-transparent !leading-[0.7]">
+            Immersive Solutions Tailored for Your Industry in Saudi Arabia
+
               </span>
             </h1>
 
             {/* Paragraph - Smaller Size */}
             <p className="text-white/85 text-xs sm:text-sm md:text-base leading-relaxed mb-5 md:mb-6">
-              The real estate industry is evolving, and so are the expectations of 
-              buyers and investors. At AO Interactive, we provide powerful, 
-              technology-driven solutions that help developers, architects, 
-              real estate agents, and investors streamline operations, accelerating 
-              sales cycles and reducing marketing costs in Saudi Arabia.
+            At AO Interactive, we understand that every industry has unique challenges and opportunities. Our approach is to apply our immersive technology expertise to create tailored solutions that address the specific needs of your sector. Explore how we help businesses in your industry thrive below.
+            
             </p>
 
             {/* Buttons - Smaller Size */}
@@ -73,7 +72,7 @@ const HeroIndustries: React.FC = () => {
       </div>
 
       {/* Bottom gradient enhancement for darker bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[110%] bg-gradient-to-t from-black to-transparent z-[5]"></div>
+      {/* <div className="absolute bottom-0 left-0 right-0 h-[71%] bg-gradient-to-t from-black/10 to-transparent z-[5]"></div> */}
     </section>
   );
 };

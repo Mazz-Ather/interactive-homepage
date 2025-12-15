@@ -16,45 +16,46 @@ interface Service {
 const services: Service[] = [
   {
     id: 1,
-    title: "Consultation:",
+    title: "Discovery & Strategy",
     href: "/services/consultation",
     image:
       "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop",
-    description: "Understanding your needs",
+    description: "Aligning goals and vision",
     detailedDescription:
-      "We work closely with you to understand your property, target audience, and marketing goals.",
+      "We collaborate with your team to understand your objectives, audience, and challenges, defining a clear strategy for success.",
   },
   {
     id: 2,
-    title: "3D Modeling:",
+    title: "Digital Asset Creation",
     href: "/services/3d-modeling",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
-    description: "Creating detailed 3D models",
+    description: "High-quality visual assets",
     detailedDescription:
-      "Our team creates detailed 3D models of your property with precision and attention to every detail.",
+      "We create premium digital assets that accurately represent your product, space, or concept with precision and realism.",
   },
   {
     id: 3,
-    title: "Interactive Development:",
+    title: "Interactive Experiences",
     href: "/services/interactive-development",
     image:
       "https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?w=600&h=400&fit=crop",
-    description: "Building immersive experiences",
+    description: "Engaging user experiences",
     detailedDescription:
-      "We develop interactive virtual tours and immersive experiences that engage your potential buyers.",
+      "We transform static visuals into interactive experiences that capture attention and drive meaningful engagement.",
   },
   {
     id: 4,
-    title: "Deployment & Support:",
+    title: "Launch & Optimization",
     href: "/services/deployment-support",
     image:
       "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop",
-    description: "Launch and ongoing support",
+    description: "Seamless delivery and support",
     detailedDescription:
-      "We deploy your solution and provide continuous support to ensure optimal performance and results.",
+      "We deploy your solution smoothly and continue optimizing performance to ensure long-term impact and reliability.",
   },
 ];
+
 
 const OurProcess: React.FC = () => {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
@@ -122,7 +123,7 @@ const OurProcess: React.FC = () => {
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent font-bold">
-                  Real Estate Projects
+                  Industries Projects
                 </span>
               </h1>
             </div>

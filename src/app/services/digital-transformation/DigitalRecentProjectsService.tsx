@@ -2,48 +2,50 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ProjectCard12 } from '@/app/components/Home/ProjectCard12';
+// import { ProjectCard1 } from '../Home/ProjectCard1';
+// import { ProjectCard12 } from '../Home/ProjectCard12';
 
 const projects = [
   {
     id: 1,
     title: 'About Project',
     subtitle: 'National Day Campaign | Saudi Arabia National Day 2023 video has been made to celebrate love for country.',
-    imageUrl: "/images/pro11.png",
+    imageUrl: "/im1.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 2,
     title: 'About Project',
     subtitle: 'Interactive digital experience showcasing cultural heritage through immersive storytelling.',
-    imageUrl: "/images/pro12.png",
+    imageUrl: "/im2.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 3,
     title: 'About Project',
     subtitle: 'Architectural visualization project highlighting modern sustainable design concepts.',
-    imageUrl: "/images/pro11.png",
+    imageUrl: "/im3.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 4,
     title: 'About Project',
     subtitle: 'Brand identity development for emerging tech startup with global reach.',
-    imageUrl: "/images/pro12.png",
+    imageUrl:  "/im4.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 5,
     title: 'About Project',
     subtitle: 'Motion graphics campaign for international sports event with custom animations.',
-    imageUrl: "/images/pro11.png",
+    imageUrl: "/im3.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
     id: 6,
     title: 'About Project',
     subtitle: 'Motion graphics campaign for international sports event with custom animations.',
-    imageUrl: "/images/pro12.png",
+    imageUrl:  "/im4.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   }
 ];
@@ -82,7 +84,7 @@ export const DigitalRecentProjectsService = () => {
   ];
 
   return (
-    <div className="w-full bg-black py-16 lg:py-28 px-4 md:px-8 lg:px-16 relative overflow-hidden hidden md:block xl100:hidden">
+    <div className="w-full bg-black py-16 lg:pt-20 lg:pb-32 px-4 md:px-8 lg:px-16 relative overflow-hidden hidden md:block xl100:hidden">
       {/* Marquee Background - 3 rows visible everywhere */}
       <div className="absolute pt-52 inset-0 opacity-[0.31] h-full z-0 pointer-events-none">
         <div className="flex flex-col justify-between py-[80px] xl90:py-[60px] xl80:py-[20px] lg:py-[30px] h-[80%] 2">

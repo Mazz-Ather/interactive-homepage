@@ -59,11 +59,11 @@ const brandImages = [
 </Marquee> */}
 <OurStoryPage/>
 <OurApproach1/>
+<NewsletterCTA/>
 <RecentProjectHero/>
 {/* <SecondHero/>
 <MeetTheTeam/> */}
 <ContactForm/>
-<NewsletterCTA/>
 
     </div>
   )
