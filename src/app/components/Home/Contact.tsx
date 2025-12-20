@@ -1,31 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 interface ContactSectionProps {}
 
 const ContactSection: React.FC<ContactSectionProps> = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-  };
+  const [state, handleSubmit] = useForm("mrezzpvq");
 
   return (
-    <div className="min-h-screen  flex flex-col bg-re-500 lg:px-20 text-white overflow-auto">
+    <div id="contact-section" className="min-h-screen  flex flex-col bg-re-500 lg:px-20 text-white overflow-auto">
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 py-8 lg:py-16 flex-grow min-h-[min-content]">
         {/* Top Header Section */}
@@ -139,57 +123,73 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
               THINK YOU CAN INSPIRE THE WORLD WITH YOUR STORY?
             </p>
 
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors w-full"
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors w-full"
-                />
+            {state.succeeded ? (
+              <div className="flex flex-col items-center justify-center h-[300px] text-center">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mb-4">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <polyline points="22 4 12 14.01 9 11.01" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <h3 className="text-xl font-semibold mb-2 text-white">Thank You!</h3>
+                <p className="text-gray-400 text-sm">Your message has been sent successfully. We'll get back to you soon!</p>
               </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
-                />
-              </div>
-              <div>
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none"
-                />
-              </div>
-              <div className="flex justify-center">
-                <button
-                  onClick={handleSubmit}
-                  className="group relative px-[50px] py-2 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-full overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE]"
-                >
-                  <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">
-                    Submit →
-                  </span>
-                  <div className="absolute rounded-full inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
-                </button>
-              </div>
-            </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
+                  <div>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      required
+                      className="px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors w-full"
+                    />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} />
+                  </div>
+                  <div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone"
+                      required
+                      className="px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors w-full"
+                    />
+                    <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+                  </div>
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                  />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} />
+                </div>
+                <div>
+                  <textarea
+                    name="message"
+                    placeholder="Message"
+                    required
+                    rows={4}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                  />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
+                </div>
+                <div className="flex justify-center">
+                  <button
+                    type="submit"
+                    disabled={state.submitting}
+                    className="group relative px-[50px] py-2 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-full overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">
+                      {state.submitting ? 'Submitting...' : 'Submit →'}
+                    </span>
+                    <div className="absolute rounded-full inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </div>

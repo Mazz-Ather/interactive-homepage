@@ -25,7 +25,7 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col lg:px-20 text-white overflow-hidden">
+    <div id="contact-section" className="h-screen flex flex-col lg:px-20 text-white overflow-hidden">
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 py-4 lg:py-6 w-full h-full flex flex-col">
         {/* Top Header Section */}

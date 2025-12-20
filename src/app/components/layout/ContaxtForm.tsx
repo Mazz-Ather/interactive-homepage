@@ -1,39 +1,29 @@
 'use client'
-import React, { useState } from 'react';
-
-interface FormData {
-  name: string;
-  phone: string;
-  email: string;
-  message: string;
-}
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    phone: '',
-    email: '',
-    message: '',
-  });
+  const [state, handleSubmit] = useForm("mrezzpvq");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
-  };
+  if (state.succeeded) {
+    return (
+      <div className="min-h-scren bg-black font-poppins flex items-center justify-center p-5 lg:pb-28">
+        <div className="flex gap-9 w-full max-w-[1380px] font-sans flex-col lg:flex-row">
+          <div className="flex-1 bg-[rgba(40,40,40,0.6)] backdrop-blur-[10px] rounded-[28px] px-[45px] py-[50px] text-white border border-[rgba(255,255,255,0.08)] flex flex-col items-center justify-center text-center">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mb-6">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <polyline points="22 4 12 14.01 9 11.01" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <h2 className="text-[32px] font-semibold mb-4 text-white">Thank You!</h2>
+            <p className="text-[16.5px] text-[#999999]">Your message has been sent successfully. We'll get back to you soon!</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-scren bg-black font-poppins flex items-center justify-center p-5 lg:pb-28 ">
+    <div id="contact-section" className="min-h-scren bg-black font-poppins flex items-center justify-center p-5 lg:pb-28 ">
       <div className="flex gap-9 w-full max-w-[1380px] font-sans flex-col lg:flex-row">
         {/* Left Box - Larger */}
         <div className="flex-[1.4] bg-[rgba(40,40,40,0.6)] backdrop-blur-[10px] rounded-[28px] px-[45px] py-[50px] text-white border border-[rgba(255,255,255,0.08)] flex flex-col lg:px-[35px] lg:py-[50px] md:px-6 md:py-8">
@@ -148,10 +138,13 @@ const ContactForm: React.FC = () => {
                   type="text"
                   name="name"
                   placeholder="Name"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
                   className="w-full py-4 px-[18px] pl-[46px] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.15)] rounded-[14px] text-white text-sm font-sans transition-all duration-[250ms] ease-in-out tracking-[-0.1px] placeholder:text-[#777777] focus:outline-none focus:border-[rgba(255,255,255,0.3)] focus:bg-[rgba(255,255,255,0.05)]"
+                />
+                <ValidationError
+                  prefix="Name"
+                  field="name"
+                  errors={state.errors}
                 />
               </div>
               <div className="relative flex items-center">
@@ -170,10 +163,13 @@ const ContactForm: React.FC = () => {
                   type="tel"
                   name="phone"
                   placeholder="Phone"
-                  value={formData.phone}
-                  onChange={handleChange}
                   required
                   className="w-full py-4 px-[18px] pl-[46px] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.15)] rounded-[14px] text-white text-sm font-sans transition-all duration-[250ms] ease-in-out tracking-[-0.1px] placeholder:text-[#777777] focus:outline-none focus:border-[rgba(255,255,255,0.3)] focus:bg-[rgba(255,255,255,0.05)]"
+                />
+                <ValidationError
+                  prefix="Phone"
+                  field="phone"
+                  errors={state.errors}
                 />
               </div>
             </div>
@@ -202,10 +198,13 @@ const ContactForm: React.FC = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
                 required
                 className="w-full py-4 px-[18px] pl-[46px] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.15)] rounded-[14px] text-white text-sm font-sans transition-all duration-[250ms] ease-in-out tracking-[-0.1px] placeholder:text-[#777777] focus:outline-none focus:border-[rgba(255,255,255,0.3)] focus:bg-[rgba(255,255,255,0.05)]"
+              />
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
               />
             </div>
 
@@ -225,11 +224,14 @@ const ContactForm: React.FC = () => {
               <textarea
                 name="message"
                 placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
                 rows={5}
                 required
                 className="w-full py-4 px-[18px] pl-[46px] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.15)] rounded-[14px] text-white text-sm font-sans transition-all duration-[250ms] ease-in-out tracking-[-0.1px] resize-none min-h-[140px] flex-1 placeholder:text-[#777777] focus:outline-none focus:border-[rgba(255,255,255,0.3)] focus:bg-[rgba(255,255,255,0.05)]"
+              />
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
               />
             </div>
 

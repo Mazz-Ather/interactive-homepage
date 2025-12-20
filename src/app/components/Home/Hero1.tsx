@@ -1,6 +1,9 @@
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import Link from "next/link"
 
 const VRHeroPage = () => {
+    const { scrollToContactSection } = useSmoothScroll();
+  
   return (
   <div className="lg:h-screen  pt-8 lg:pt-0">
 
@@ -83,11 +86,11 @@ const VRHeroPage = () => {
           <div className="space-y-6 pb-8">
             {/* CTA Button */}
             <div className="text-center">
-              <Link href="/contact" className="relative group">
+              <div onClick={() => scrollToContactSection()} className="relative group">
               <div className="group relative px-8 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-full overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
                 <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">See More details  →</span>
                <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5]  transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>   </div>
-            </Link></div>
+            </div></div>
 
             {/* Service Tags */}
             <div className="flex flex-wrap justify-center gap-3">
@@ -168,11 +171,11 @@ const VRHeroPage = () => {
 
         {/* Bottom Left CTA Button - Desktop Only */}
         <div className="absolute -bottom-20 xl:-bottom-24 left-16 xl:left-24 2xl:left-32 hidden lg:block z-20">
-          <Link href="/contact" className="relative group">
+          <div onClick={() => scrollToContactSection()} className="relative group">
               <div className="group relative px-8 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-full overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
                 <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">See More details  →</span>
                <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5]  transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>   </div>
-            </Link>
+            </div>
         </div>
 
         {/* Bottom Right Service Tags - Desktop Only */}

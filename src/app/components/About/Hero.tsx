@@ -3,8 +3,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
 const AboutHero = () => {
+  const { scrollToContactSection } = useSmoothScroll();
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center">
       {/* Background Video */}
@@ -50,12 +52,12 @@ const AboutHero = () => {
         <div className="flex flex-wrap items-center gap-4 mt-8">
           {/* Get a Quote Button */}
        <div className="text-center">
-                <Link href="/contact" className="relative group">
+                <div onClick={() => scrollToContactSection()} className="relative group cursor-pointer">
                   <div className="group relative px-8 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent border border-white   rounded-md h-[51px] overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
                     <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">See More details  →</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
                   </div>
-                </Link>
+                </div>
               </div>
 
           {/* Clutch Review Button */}

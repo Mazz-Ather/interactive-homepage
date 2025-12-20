@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
 interface TeamMember {
   id: number;
@@ -44,6 +45,7 @@ const teamMembers: TeamMember[] = [
 ];
 
 export default function MeetTheTeam() {
+   const { scrollToContactSection } = useSmoothScroll();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -243,12 +245,12 @@ export default function MeetTheTeam() {
         {/* Mobile Show All Button */}
         <div className="md:hidden mt-8 flex justify-center">
          <div className="text-center">
-                <Link href="/contact" className="relative group">
+                <div onClick={() => scrollToContactSection()} className="relative group cursor-pointer">
                   <div className="group relative px-8 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-full overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
                     <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">See More details  →</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
                   </div>
-                </Link>
+                </div>
               </div>
         </div>
       </div>

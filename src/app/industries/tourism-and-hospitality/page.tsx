@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { IndsutriesProjectCard } from "@/app/components/Industries/IndsutriesProjectCard";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 interface ServiceCard {
   title: string;
@@ -80,6 +81,8 @@ interface FormData {
 }
 
 const page = () => {
+     const { scrollToContactSection } = useSmoothScroll();
+  
   // HowWeHelpEnhanced
   const [activeIndex, setActiveIndex] = useState(0);
   const [screenWidth, setScreenWidth] = useState(0);
@@ -476,14 +479,14 @@ const page = () => {
                     memorable.
                   </p>
 
-                  <Link href="/contact" className="relative group">
+                  <div onClick={() => scrollToContactSection()} className="relative group">
                     <div className="group relative px-8 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-lg overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
                       <span className="relative z-10 text-white group-hover:text-black transition-colors duration-300">
                         See More Details →
                       </span>
                       <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               </div>
 

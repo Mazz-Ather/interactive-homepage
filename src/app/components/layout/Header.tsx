@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ChevronDown, Menu, X, Globe, ArrowRight, Play } from 'lucide-react';
 import Image from 'next/image';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
 interface NavItem {
   label: string;
@@ -303,6 +304,7 @@ const Navbar: React.FC = () => {
   const [language, setLanguage] = useState<'en' | 'ar'>('en');
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const { scrollToContactSection } = useSmoothScroll();
 
   const isRTL = language === 'ar';
   const t = translations[language];
@@ -598,21 +600,21 @@ const Navbar: React.FC = () => {
                                         : t.promoSection.industries.subtitle
                                       }
                                     </p> */}
-                           <Link href="/contact" className="relative group inline-block">
+                           <button onClick={() => scrollToContactSection()} className="relative group inline-block">
   <div className="relative px-8 py-3 rounded-md overflow-hidden border border-transparent">
-    
+
     {/* Gradient background */}
     <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 transform group-hover:scale-110 origin-center"></div>
 
     {/* Button text */}
-    <button className="relative z-10 text-white font-semibold transition-colors duration-300">
+    <span className="relative z-10 text-white font-semibold transition-colors duration-300">
       See All Projects →
-    </button>
+    </span>
 
     {/* Border appears on hover */}
     <div className="absolute inset-0 rounded-md border border-[#B54CBE] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
   </div>
-</Link>
+</button>
 
 
                                   </div>
@@ -640,12 +642,12 @@ const Navbar: React.FC = () => {
                 </span>
               </button>
 
-              <Link href="/contact" className="relative group">
+              <button onClick={() => scrollToContactSection()} className="relative group">
                 <div className="relative rounded-3xl overflow-hidden px-6 py-2 border border-white text-white font-medium tracking-wide transition-colors duration-300 group-hover:text-black">
                   <span className="relative z-10">{t.workWithUs}</span>
                   <div className="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
                 </div>
-              </Link>
+              </button>
             </div>
 
             {/* Mobile Controls */}
@@ -760,13 +762,15 @@ const Navbar: React.FC = () => {
 
             {/* CTA */}
             <div className="pt-6 border-t border-gray-800 px-4 pb-6">
-              <Link
-                href="/contact"
+              <button
                 className="block w-full text-center py-3 border border-white text-white font-medium hover:bg-white hover:text-black transition-all duration-300"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToContactSection();
+                }}
               >
                 {t.workWithUs}
-              </Link>
+              </button>
             </div>
           </div>
         </div>
