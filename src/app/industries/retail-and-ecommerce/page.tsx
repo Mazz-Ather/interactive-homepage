@@ -6,6 +6,9 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { IndsutriesProjectCard } from "@/app/components/Industries/IndsutriesProjectCard";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import NewsletterCTA from "@/app/components/layout/NewsLetter";
+import ContactForm from "@/app/components/layout/ContaxtForm";
+import { IndustriesRecentProjects } from "@/app/components/Industries/IndustriesRecentProjects";
 
 interface ServiceCard {
   title: string;
@@ -264,7 +267,7 @@ const page = () => {
         <div className="absolute inset-0 z-0">
           <video
             className="absolute inset-0 w-full h-full object-cover"
-            src="/animated-future-dubai-skyline-with-high-tech-build-2025-10-16-05-01-24-utc (1).mp4"
+            src="https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766907688/animated-future-dubai-skyline-with-high-tech-build-2025-10-16-05-01-24-utc_1_1_zulhbk.mp4"
             autoPlay
             loop
             muted
@@ -278,7 +281,7 @@ const page = () => {
         {/* Content Container - Left Center Aligned */}
         <div className="relative pt-32 md:pt-[250px] z-10 h-full flex items-center">
           <div className="container mx-auto px-6 md:px-12 lg:px-28">
-            <div className="max-w-xl lg:!max-w-[45%] ">
+            <div className="max-w-xl lg:!max-w-[65%] ">
               {/* Mini Heading */}
               <p className="text-white text-xs md:!text-[21px] font-bold md:ml-1 tracking-wider mb-2 md:mb-3">
                 Retail & E-commerce
@@ -459,7 +462,7 @@ const page = () => {
               <div className="flex flex-col lg:flex-row items-start justify-between mb-16 gap-6">
                 {/* Title */}
                 <div>
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-light tracking-tight">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light tracking-tight">
                     <span className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent font-bold">
                       Our Process for
                     </span>
@@ -559,7 +562,7 @@ const page = () => {
           {/* ===== Centered Heading and Paragraph After Section ===== */}
         </div>
       </section>
-
+<NewsletterCTA/>
       {/* section 3d */}
       <section className="relative py-11 h-screen w-full overflow-hidden bg-black flex items-center justify-center">
         {/* Background Video */}
@@ -726,38 +729,8 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* section 4 news letter */}
-      <div className="mt-9 md:mt-20">
-        <section className="bg-black text-center pb-11 px-6">
-          <div className="max-w-4xl mx-auto">
-            {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-              Ready to create an immersive shopping{" "}
-              <span className="bg-gradient-to-r from-[#B54CBE] via-[#065FE5] to-[#065FE5] bg-clip-text text-transparent">
-                experience for your customers?
-              </span>
-            </h2>
-
-            {/* Subtext */}
-            {/* <p className="text-gray-400 text-sm sm:text-base mb-10">
-              Connect to the very fit. Provides system updates for your watch
-              and facilitates smart device management.
-            </p> */}
-
-            {/* Button */}
-            <div className="text-center max-w-[220px] mx-auto">
-              <Link href="/contact" className="relative group">
-                <div className="group relative px-2 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-sm overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
-                  <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">
-                    Contact Us →
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </section>
-      </div>
+      <IndustriesRecentProjects/>
+      <ContactForm/>
       {/*  */}
     </>
   );

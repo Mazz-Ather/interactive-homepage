@@ -23,7 +23,7 @@ const EventsHero: React.FC<HeroServiceProps> = ({
   onSecondaryClick,
 }) => {
   return (
-    <section className="relative font-[Cairo] w-full h-screen min-h-[600px] overflow-hidden">
+    <section className="relative font-[Cairo] w-full h-screen min-h-screen overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -31,13 +31,14 @@ const EventsHero: React.FC<HeroServiceProps> = ({
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full -mt-9 object-cover"
         >
           <source src={videoSrc} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/90 to-transparent" /> 
       </div>
 
       {/* Content */}

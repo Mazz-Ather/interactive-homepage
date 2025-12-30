@@ -2,51 +2,64 @@
 import React, { useEffect, useState } from 'react';
 import { ProjectCard } from './ProjectCard';
 import { motion } from 'framer-motion';
-
+import Link from 'next/link';
 const projects = [
   {
+    // Dubai Mall
     id: 1,
-    title: 'About Project',
-    subtitle: 'National Day Campaign | Saudi Arabia National Day 2023 video has been made to celebrate love for country.',
-    imageUrl: "/images/pro11.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
+    title: 'Immersive LED Display',
+    subtitle:
+      'A large-scale immersive video designed for premium digital screens inside Dubai Mall, combining cinematic visuals, smooth motion, and depth-focused composition to capture attention in high-footfall environments.',
+    imageUrl: "/images/pro4.png",
+    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766624904/VideoDubaiAquarium_2_ubc1yh.mp4'
   },
   {
+    // VR game
     id: 2,
-    title: 'About Project',
-    subtitle: 'Interactive digital experience showcasing cultural heritage through immersive storytelling.',
-    imageUrl: "/images/pro12.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
+    title: 'VR Interactive Game',
+    subtitle:
+      'A fully interactive VR game experience featuring real-time environments, user-driven gameplay, and immersive visual feedback, designed for exhibitions, events, and experiential entertainment.',
+    imageUrl: "/images/pro5.png",
+    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766624850/InteractiveGame_cgmzaa.mp4'
   },
   {
+    // VR walkthrough
     id: 3,
-    title: 'About Project',
-    subtitle: 'Architectural visualization project highlighting modern sustainable design concepts.',
+    title: 'VR Walkthrough',
+    subtitle:
+      'A realistic VR walkthrough that allows users to explore a digital environment in full scale, focusing on spatial accuracy, lighting realism, and smooth navigation for presentations and demos.',
     imageUrl: "/images/pro11.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
+    // Projection mapping
     id: 4,
-    title: 'About Project',
-    subtitle: 'Brand identity development for emerging tech startup with global reach.',
+    title: 'Projection Mapping',
+    subtitle:
+      'A projection mapping project that transforms physical surfaces into dynamic visual experiences, using precise alignment, motion graphics, and color calibration for live events and branded installations.',
     imageUrl: "/images/pro12.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
+    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766624844/Coloring_wuyqsn.mp4'
   },
   {
+    // Dubai Aquarium
     id: 5,
-    title: 'About Project',
-    subtitle: 'Motion graphics campaign for international sports event with custom animations.',
+    title: 'Digital Aquarium Visuals',
+    subtitle:
+      'Custom-designed visual content created for Dubai Aquarium’s digital displays, enhancing the visitor experience with fluid motion, depth-driven visuals, and environment-inspired animation.',
     imageUrl: "/images/pro11.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
+    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766625496/Fish_Aquarium_lxanzs.mp4'
   },
   {
+    // 3D anamorphic billboard
     id: 6,
-    title: 'About Project',
-    subtitle: 'Motion graphics campaign for international sports event with custom animations.',
+    title: '3D Anamorphic Billboard',
+    subtitle:
+      'A high-impact 3D anamorphic billboard animation designed to create a powerful illusion of a vehicle emerging from the screen, engineered for maximum visual depth and street-level engagement.',
     imageUrl: "/images/pro12.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
+    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766625510/IMG_6772_ej1cuo.mov'
   }
 ];
+
 
 export const RecentProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -128,13 +141,12 @@ export const RecentProjects = () => {
 </div>
     </div>
         </div>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-6 md:mb-28 px-6 py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] rounded-md text-white font-medium flex items-center whitespace-nowrap"
+        <Link href="/portfolio"
+
+          className="mt-6 md:mb-28 px-6 !z-[999] py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] rounded-md text-white font-medium flex items-center whitespace-nowrap"
         >
           Show All Projects →
-        </motion.button>
+        </Link>
       </div>
 
       {/* Carousel Section */}

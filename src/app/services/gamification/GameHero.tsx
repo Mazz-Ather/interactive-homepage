@@ -31,11 +31,11 @@ const GameHero: React.FC<HeroServiceProps> = ({
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full -mt-9 object-cover"
         >
           <source src={videoSrc} type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video><div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/90 to-transparent" /> 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60" />
       </div>

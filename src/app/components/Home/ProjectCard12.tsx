@@ -73,7 +73,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
           break;
         case 'center':
           translateXValue = '0%';
-          scaleValue = 2.25;
+          scaleValue = 1.25;
           break;
         case 'right':
           translateXValue = '60%';
@@ -136,7 +136,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
           break;
         case 'center':
           translateXValue = '0%';
-          scaleValue = 1.2;
+          scaleValue = 1.02;
           opacityValue = 1;
           zIndexValue = 3;
           break;
@@ -197,7 +197,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
         zIndex: cardStyles.zIndex,
         translateX: cardStyles.translateX,
         rotateY: cardStyles.rotateY,
-        scale: isHovered && isActive ? 1.05 : cardStyles.scale,
+        scale: isHovered && isActive ? 1.01 : cardStyles.scale,
         opacity: cardStyles.opacity
       }}
       transition={{
@@ -234,7 +234,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
         {/* Parallelogram overlay for inactive cards - small screens */}
         {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm lg:hidden"
+            className="absolute inset-0  backdrop-blur-sm lg:hidden"
             style={{
               clipPath: 'polygon(0% 0%, 100% 0%, 100% 92%, 0% 100%)'
             }}
@@ -258,7 +258,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
   <div
     className="absolute inset-0 pointer-events-none hidden lg:block"
     style={{
-      backgroundColor: "black",
+      // backgroundColor: "black",
       opacity: cardStyles.overlayOpacity,
       transition: "opacity 0.3s ease",
     }}
@@ -268,7 +268,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
         {/* Parallelogram overlay for inactive cards - xl100+ screens */}
         {(position === 'left' || position === 'right' || position === 'farLeft' || position === 'farRight') && (
           <div
-            className="absolute inset-0 bg-red-500 backdrop-blur-sm hidden xl100:block"
+            className="absolute inset-0 pointer-events-none backdrop-blur-sm hidden xl100:block"
             style={{
               clipPath: 'polygon(0% 10%, 100% -10%, 100% 99%, 0% 100%)'
             }}
@@ -312,9 +312,9 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
             )} */}
 
         {/* Subtle overlay for the center card */}
-        {position === 'center' && (
+        {/* {position === 'center' && (
           <div className="absolute inset-0 g-gradient-to-t from-black/20 via-transparent to-transparent z-10" />
-        )}
+        )} */}
       </div>
 
       {/* Date display */}
@@ -327,7 +327,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
         <video
           ref={videoRef}
           src={project.videoUrl}
-          className="absolute inset-0 w-full h-full mx-auto object-cover z-10"
+          className="absolute inset-0 w-full h-full  py-24 mx-auto object-cover z-10"
           controls
           autoPlay
           onClick={e => e.stopPropagation()}
@@ -341,7 +341,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
           onClick={handlePlayClick}
         >
           <motion.div
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center cursor-pointer"
           >
@@ -368,7 +368,7 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
           onClick={handlePlayClick}
         >
           <motion.div
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
           >
@@ -390,11 +390,12 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
       )}
 
       {/* Project info */}
-      
+      <div className="absolute inset-0 brightness-[60%] bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
+
       <div
         className="
           absolute 
-          bottom-[113px] 
+          bottom-[129px] 
           left-0 right-0 
           p-4 md:p-6 
           text-white
@@ -405,10 +406,10 @@ export const ProjectCard12: React.FC<ProjectCardProps> = ({
         "
       >
 
-   <h3 className="text-lg font-[200]  md:text-xl font-bold mb-2">{project.title}</h3>
+   <h3 className="text-lg font-[200]  md:text-xl font-semibold mb-2">{project.title}</h3>
         <p
           className="
-            text-xs !font-[200] md:text-sm text-white/80 line-clamp-3 mb-9   
+            text-xs !font-[100] md:text-sm text-white/80 line-clamp-3 mb-9   
             max-w-[90%] xl:max-w-[80%]
           "
         >

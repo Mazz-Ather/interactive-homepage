@@ -6,6 +6,7 @@ import NewsletterCTA from "@/app/components/layout/NewsLetter"
 import RealHero from "./RealHero"
 import RealProcess from "./RealProcess"
 import RealScroll from "./RealScroll"
+import { RecentProjectsService } from "@/app/components/services/RecentProjectsService"
 // import ThreedHero from "./ThreedHero"
 // import ThreedServicesScroll from "./ThreedServicesScroll"
 // import ThreedProductionProcess from "./ThreedProductionProcess"
@@ -17,7 +18,7 @@ const page = () => {
 <RealHero/>
 <RealScroll/>
 <RealProcess/>
-
+<RecentProjectsService/>
 
 {/* <NewsletterCTA/> */}
 <ContactForm/>

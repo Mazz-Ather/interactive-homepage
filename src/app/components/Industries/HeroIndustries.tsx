@@ -1,14 +1,19 @@
 'use client'
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import Image from 'next/image';
 
 const HeroIndustries: React.FC = () => {
+  const { scrollToContactSection } = useSmoothScroll();
+
+
+    
   return (
     <section className="relative font-[cairo] h-auto -mt-2 w-full overflow-hidden">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
         <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/animated-future-dubai-skyline-with-high-tech-build-2025-10-16-05-01-24-utc (1).mp4"
+        src="https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766907688/animated-future-dubai-skyline-with-high-tech-build-2025-10-16-05-01-24-utc_1_1_zulhbk.mp4"
         autoPlay
         loop
         muted
@@ -22,7 +27,7 @@ const HeroIndustries: React.FC = () => {
       {/* Content Container - Left Center Aligned */}
       <div className="relative pt-32 md:pt-[250px] z-10 h-full flex items-center">
         <div className="container mx-auto px-6 md:px-12 lg:px-28">
-          <div className="max-w-xl lg:!max-w-[50%] ">
+          <div className="max-w-xl lg:!max-w-[60%] ">
             {/* Mini Heading */}
             <p className="text-white text-xs md:!text-[21px] font-bold md:ml-1 tracking-wider mb-2 md:mb-3">
               Industries
@@ -45,7 +50,7 @@ const HeroIndustries: React.FC = () => {
             {/* Buttons - Smaller Size */}
             <div className="flex flex-col sm:flex-row gap-3">
               {/* Primary Button */}
-              <button className="group relative px-5 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] text-white text-xs md:text-base font-semibold rounded-md hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2">
+              <button onClick={() => scrollToContactSection()} className="group relative px-5 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] text-white text-xs md:text-base font-semibold rounded-md hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2">
                 Get A Quote
                 <svg 
                   className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform duration-300" 
@@ -63,7 +68,7 @@ const HeroIndustries: React.FC = () => {
               </button>
 
               {/* Secondary Button */}
-              <button className="px-5 py-2.5 md:px-6 md:py-3 bg-transparent border-2 border-white/30 text-white text-xs md:text-base font-semibold rounded-md hover:bg-white/10 hover:border-white/50 transition-all duration-300">
+              <button  onClick={() => scrollToContactSection()} className="px-5 py-2.5 md:px-6 md:py-3 bg-transparent border-2 border-white/30 text-white text-xs md:text-base font-semibold rounded-md hover:bg-white/10 hover:border-white/50 transition-all duration-300">
                 Talk to our Special Tech Expert
               </button>
             </div>

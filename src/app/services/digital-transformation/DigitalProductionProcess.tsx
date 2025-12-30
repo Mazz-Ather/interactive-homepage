@@ -107,7 +107,7 @@ const DigitalProductionProcess: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left Content */}
         <div className="space-y-4 z-[999] bring-to-front contrast-125">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
             <div className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5] bg-clip-text text-transparent">
               Our Production
             </div>

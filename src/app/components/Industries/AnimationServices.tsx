@@ -39,7 +39,7 @@ const services: ServiceItem[] = [
 
 
   return (
-    <section className="relative py-11 h-screen w-full overflow-hidden bg-black flex items-center justify-center">
+    <section className="relative  h-screen w-full overflow-hidden bg-black flex items-center justify-center">
       {/* Background Video */}
       <video
         autoPlay
@@ -59,7 +59,7 @@ const services: ServiceItem[] = [
       <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-black to-transparent z-[5]"></div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-4 py-8">
+      <div className="relative z-10 w-full px-4 !py-11">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}

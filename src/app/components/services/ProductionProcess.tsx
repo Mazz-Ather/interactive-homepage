@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
 interface ProcessStep {
   id: number;
@@ -13,6 +14,7 @@ interface ProcessStep {
 
 const ProductionProcess: React.FC = () => {
   const [centerIndex, setCenterIndex] = useState<number>(1);
+  const { scrollToContactSection } = useSmoothScroll();
 
 const steps: ProcessStep[] = [
   {
@@ -99,14 +101,14 @@ const steps: ProcessStep[] = [
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full !h-[90vh] -my-11 object-cover opacity-40 blur-sm z-0 bg-black/20"
+        className="absolute inset-0 w-full !h-[90vh] -my-11 object-cover opacity-40 blur-sm -z-1 bg-black/40"
       >
         <source src="https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985516/servide-bg_npenqb.mp4" type="video/mp4" />
       </video>
 
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left Content */}
-        <div className="space-y-4 z-[999] bring-to-front contrast-125">
+        <div className="space-y-4 !z-[999] ">
           <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
             <div className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5] bg-clip-text text-transparent">
               Our Production 
@@ -122,12 +124,12 @@ const steps: ProcessStep[] = [
           </p>
 
           <div className='pt-3'>
-            <Link href="/contact" className="relative group max-w-sm">
+            <button onClick={() => scrollToContactSection()} className="relative group max-w-sm">
               <div className="group relative w-[230px] px-11 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent border border-[#B54CBE] rounded-md h-[51px] overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE]">
                 <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">Get Start With Us →</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
               </div>
-            </Link>
+            </button>
           </div>
         </div>
 

@@ -222,7 +222,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
         translateX: cardStyles.translateX,
         translateY: cardStyles.translateY,
         rotateY: cardStyles.rotateY,
-        scale: isHovered && isActive ? 1.01 : cardStyles.scale,
+        scale: isHovered && isActive ? 1 : cardStyles.scale,
         opacity: cardStyles.opacity
       }}
       transition={{
@@ -344,7 +344,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
           onClick={handlePlayClick}
         >
           <motion.div
-            whileHover={{ scale: 1.01 }}
+            whileHover={{ scale: 1 }}
             whileTap={{ scale: 0.9 }}
             className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center cursor-pointer"
           >
@@ -371,7 +371,7 @@ export const IndsutriesProjectCard: React.FC<ProjectCardProps> = ({
           onClick={handlePlayClick}
         >
           <motion.div
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1 }}
             whileTap={{ scale: 0.9 }}
             className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
           >

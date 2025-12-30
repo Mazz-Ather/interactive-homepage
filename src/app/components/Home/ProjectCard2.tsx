@@ -303,7 +303,8 @@ export const ProjectCard2: React.FC<ProjectCardProps> = ({
         </div>
       )}
 
-      {/* Project info */}
+      {/* Project info */}<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
+
       <div
         className="
           absolute 

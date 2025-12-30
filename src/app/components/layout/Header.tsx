@@ -358,14 +358,14 @@ const Navbar: React.FC = () => {
     if (isServices) {
       // Services: 3 items in first row, 2 items in second row (left-aligned with 3rd space blank)
       return (
-        <div className="space-y-1 !w-full">
+        <div className="space-y-0 !w-full">
           {/* First Row - 3 items */}
           <div className="grid grid-cols-3 gap-">
             {items.slice(0, 3).map((item, index) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="group/item p-4 rounded-lg  transition-all duration-200 hover:shadow-sm "
+                className="group/item px-4 pt-3 pb-2 rounded-lg  transition-all duration-200 hover:shadow-sm "
               >
                 <div className="flex items-start space-x-3">
                   <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0 mt-1">
@@ -392,7 +392,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group/item p-4 rounded-lg hover:bg-gray-50 transition-all duration-200 hover:shadow-sm"
+                  className="group/item px-4 tt- pb-23 rounded-lg hover:bg-gray-50 transition-all duration-200 hover:shadow-sm"
                 >
                   <div className="flex items-start space-x-3">
                     <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0 mt-1">
@@ -411,7 +411,7 @@ const Navbar: React.FC = () => {
                 </Link>
               ))}
               {/* Empty space for 3rd column */}
-              <div></div>
+              {/* <div></div> */}
             </div>
           )}
         </div>
@@ -419,14 +419,14 @@ const Navbar: React.FC = () => {
     } else {
       // Industries: 3 items per row, 3 rows (3-3-2 layout)
       return (
-        <div className="space-y-1">
+        <div className="space-y-0">
           {/* First Row - 3 items */}
           <div className="grid grid-cols-3 gap-4">
             {items.slice(0, 3).map((item, index) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="group/item p-4 rounded-lg hover:bg-gray-50 transition-all duration-200 hover:shadow-sm"
+                className="group/item px-4 pt-3 pb-2 rounded-lg hover:bg-gray-50 transition-all duration-200 hover:shadow-sm"
               >
                 <div className="flex items-start space-x-3">
                   <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0 mt-1">
@@ -437,7 +437,7 @@ const Navbar: React.FC = () => {
                     <h4 className="font-medium text-gray-900 group-hover/item:text-black mb-1 text-sm leading-tight">
                       {item.label}
                     </h4>
-                    <p className="text-xs text-gray-600 group-hover/item:text-gray-700 leading-relaxed line-clamp-2">
+                    <p className="text-xs text-gray-600 group-hover/item:text-gray-700 leading-relaxed line-clamp-1">
                       {item.description}
                     </p>
                   </div>
@@ -453,7 +453,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group/item p-4 rounded-lg hover:bg-gray-50 transition-all duration-200  hover:shadow-sm"
+                  className="group/item   pt-3 pb-2 px-4 rounded-lg hover:bg-gray-50 transition-all duration-200  hover:shadow-sm"
                 >
                   <div className="flex items-start space-x-3">
                     <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0 mt-1">
@@ -464,7 +464,7 @@ const Navbar: React.FC = () => {
                       <h4 className="font-medium text-gray-900 group-hover/item:text-black mb-1 text-sm leading-tight">
                         {item.label}
                       </h4>
-                      <p className="text-xs text-gray-600 group-hover/item:text-gray-700 leading-relaxed line-clamp-2">
+                      <p className="text-xs text-gray-600 group-hover/item:text-gray-700 leading-relaxed line-clamp-1">
                         {item.description}
                       </p>
                     </div>
@@ -481,7 +481,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group/item p-4 rounded-lg hover:bg-gray-50 transition-all duration-200  hover:shadow-sm"
+                  className="group/item px-4 pt-3 pb-3 rounded-lg hover:bg-gray-50 transition-all duration-200  hover:shadow-sm"
                 >
                   <div className="flex items-start space-x-3">
                     <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0 mt-1">
@@ -492,7 +492,7 @@ const Navbar: React.FC = () => {
                       <h4 className="font-medium text-gray-900 group-hover/item:text-black mb-1 text-sm leading-tight">
                         {item.label}
                       </h4>
-                      <p className="text-xs text-gray-600 group-hover/item:text-gray-700 leading-relaxed line-clamp-2">
+                      <p className="text-xs text-gray-600 group-hover/item:text-gray-700 leading-relaxed line-clamp-1">
                         {item.description}
                       </p>
                     </div>
@@ -532,7 +532,7 @@ const Navbar: React.FC = () => {
                     onMouseEnter={() => item.hasDropdown ? handleMouseEnter(item.label) : undefined}
                     onMouseLeave={() => item.hasDropdown ? handleMouseLeave() : undefined}
                   >
-                    <Link
+                    <Link 
                       href={item.href}
                       className="relative flex items-center text-sm font-medium tracking-wide transition-colors duration-200 hover:text-gray-300 group py-2"
                     >
@@ -549,15 +549,15 @@ const Navbar: React.FC = () => {
 
                     {/* Full Width Dropdown Menu */}
                     {item.hasDropdown && item.dropdownItems && (
-                      <div className={`absolute rounded-full  top-full bg-white  mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out z-50 ${
+                      <div className={`absolute rounded-full  top-full bg-white h-[fit-content] mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out z-50 ${
                         item.label === t.services ? 'xl80:left-[-425px] lg:left-[-280px]' : 'left-[-450px] xl80:left-[-535px] lg:left-[-450px]'
                       }`}>
-                        <div className="w-screen lg:w-[84vw]  max-w-8xl bg-white text-black rounded-lg shadow-2xl overflow-hidden">
+                        <div className="w-screen lg:w-[84vw]  max-w-8xl  bg-white text-black rounded-lg shadow-2xl overflow-hidden">
                           <div className="flex">
                             {/* Content Section - 65% width */}
-                            <div className="w-[63%] p-5">
+                            <div className="w-[63%] py-3 px-5">
                               <div className="mb-3">
-                                <h3 className="text-lg px font-semibold text-gray-500 mb-2">
+                                <h3 className="text-lg px font-semibold text-gray-500 mb-1">
                                   {item.label}
                                 </h3>
                                 <div className="w-full h-[1px] bg-[#F0F0F0]"></div>
@@ -568,8 +568,8 @@ const Navbar: React.FC = () => {
                             </div>
 
                             {/* Hero Promotional Section - 35% width */}
-                            <div className="w-[37%] bg-[#D8D8D8]/80 py-9 px-6   flex items-center justify-center">
-                              <div className="relative overflow-hidden rounded-2xl w-full h-[230px] shadow-lg">
+                            <div className="w-[37%] bg-[#D8D8D8]/80 py-7 px-0    flex items-center justify-center">
+                              <div className="relative overflow-hidden rounded-2xl w-[88%] h-[200px] shadow-lg">
                                 {/* Video Background */}
                                 <video
                                   className="absolute inset-0 w-full h-full object-cover"
@@ -581,13 +581,13 @@ const Navbar: React.FC = () => {
                                   <source src="https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985518/bg_azwp7s.mp4" type="video/mp4" />
                                 </video>
                                 
-                                {/* Gradient overlay */}
-                                {/* <div className="absolute inset-0 bg-black/40"></div> */}
+                                {/* 
+                                
                                 
                                 {/* Hero Content */}
-                                <div className="relative z-10 h-full flex flex-col justify-center items-center text-center p-6 text-white">
-                                  <div className="space-y-4 max-w-sm">
-                                   <h2 className="text-[32px] font-bold leading-tight tracking-wide bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent">
+                                <div className="relative z-10 h-full flex flex-col justify-center items-center text-center  text-white">
+                                  <div className="space-y-4 max-w-lg">
+                                   <h2 className="text-[28px] font-bold leading-tight tracking-wide bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent">
   {item.label === t.services 
     ? t.promoSection.services.title
     : t.promoSection.industries.title
@@ -601,7 +601,7 @@ const Navbar: React.FC = () => {
                                       }
                                     </p> */}
                            <button onClick={() => scrollToContactSection()} className="relative group inline-block">
-  <div className="relative px-8 py-3 rounded-md overflow-hidden border border-transparent">
+  <div className="relative px-5 py-2 rounded-md overflow-hidden border border-transparent">
 
     {/* Gradient background */}
     <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 transform group-hover:scale-110 origin-center"></div>

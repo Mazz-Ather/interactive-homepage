@@ -192,7 +192,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         zIndex: cardStyles.zIndex,
         translateX: cardStyles.translateX,
         rotateY: cardStyles.rotateY,
-        scale: isHovered && isActive ? 1.05 : cardStyles.scale,
+        scale: isHovered && isActive ? 1.01 : cardStyles.scale,
         opacity: cardStyles.opacity
       }}
       transition={{
@@ -350,7 +350,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           onClick={handlePlayClick}
         >
           <motion.div
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center cursor-pointer"
           >
@@ -377,7 +377,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           onClick={handlePlayClick}
         >
           <motion.div
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center cursor-pointer"
           >
@@ -397,6 +397,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </motion.div>
         </div>
       )}
+<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
 
       {/* Project info */}
       <div

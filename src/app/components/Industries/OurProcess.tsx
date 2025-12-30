@@ -119,7 +119,7 @@ const OurProcess: React.FC = () => {
           <div className="flex flex-col lg:flex-row items-start justify-between mb-16 gap-6">
             {/* Title */}
             <div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-light tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl  font-light tracking-tight">
                 <span className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent font-bold">
                   Our Process for
                 </span>
@@ -146,6 +146,7 @@ const OurProcess: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
           </div>
 
           {/* SERVICE LIST */}

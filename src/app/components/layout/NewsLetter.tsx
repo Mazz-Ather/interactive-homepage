@@ -1,8 +1,11 @@
 'use client';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import Link from 'next/link';
 import React from 'react';
 
 export default function NewsletterCTA() {
+    const { scrollToContactSection } = useSmoothScroll();
+  
   return (
     <section className="bg-black text-center pb-0 pt-3 px-6">
       <div className="max-w-4xl mx-auto">
@@ -21,12 +24,12 @@ export default function NewsletterCTA() {
 
         {/* Button */}
         <div className="text-center max-w-[220px] mx-auto">
-                <Link href="/contact" className="relative group">
-                  <div className="group relative px-2 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-sm overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
+                <button onClick={() => scrollToContactSection()}  className="relative group">
+                  <div className="group relative px-9 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-sm overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
                     <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">Contact Us  →</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
                   </div>
-                </Link>
+                </button>
               </div>
               </div>
     </section>

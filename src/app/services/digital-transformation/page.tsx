@@ -6,6 +6,7 @@ import Newsletter from "@/app/components/services/NewsLettter"
 import { DigitalRecentProjectsService } from "./DigitalRecentProjectsService"
 import ContactForm from "@/app/components/layout/ContaxtForm"
 import NewsletterCTA from "@/app/components/layout/NewsLetter"
+import { RecentProjectsService } from "@/app/components/services/RecentProjectsService"
 
 const page = () => {
   return (
@@ -13,7 +14,8 @@ const page = () => {
 <DigitalHero/>
 <DigitalServicesScroll/>
 <DigitalProductionProcess/>
-{/* <NewsletterCTA/> */}
+<NewsletterCTA/>
+<RecentProjectsService/>
 {/* <Newsletter/> */}
 {/* <DigitalRecentProjectsService/> */}
 <ContactForm/>

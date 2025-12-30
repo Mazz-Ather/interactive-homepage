@@ -6,6 +6,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { IndsutriesProjectCard } from "@/app/components/Industries/IndsutriesProjectCard";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import ContactForm from "@/app/components/layout/ContaxtForm";
+import { IndustriesRecentProjects } from "@/app/components/Industries/IndustriesRecentProjects";
 
 interface ServiceCard {
   title: string;
@@ -266,7 +268,7 @@ const page = () => {
         <div className="absolute inset-0 z-0">
           <video
             className="absolute inset-0 w-full h-full object-cover"
-            src="/animated-future-dubai-skyline-with-high-tech-build-2025-10-16-05-01-24-utc (1).mp4"
+            src="https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766907688/animated-future-dubai-skyline-with-high-tech-build-2025-10-16-05-01-24-utc_1_1_zulhbk.mp4"
             autoPlay
             loop
             muted
@@ -287,7 +289,7 @@ const page = () => {
               </p>
 
               {/* Main Heading - Smaller Size */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl  lg:text-6xl font-extrabold mb-3 md:mb-4 !leading-none ">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl  lg:text-5xl font-extrabold mb-3 md:mb-4 !leading-none ">
                 <span className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5] bg-clip-text text-transparent !leading-[0.7]">
                   Captivating Audiences with Immersive Technology in KSA
                 </span>
@@ -305,7 +307,7 @@ const page = () => {
               {/* Buttons - Smaller Size */}
               <div className="flex flex-col sm:flex-row gap-3">
                 {/* Primary Button */}
-                <button className="group relative px-5 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] text-white text-xs md:text-base font-semibold rounded-md hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2">
+                <button onClick={() => scrollToContactSection()}  className="group relative px-5 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] text-white text-xs md:text-base font-semibold rounded-md hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2">
                   Get A Quote
                   <svg
                     className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform duration-300"
@@ -321,9 +323,8 @@ const page = () => {
                     />
                   </svg>
                 </button>
-
                 {/* Secondary Button */}
-                <button className="px-5 py-2.5 md:px-6 md:py-3 bg-transparent border-2 border-white/30 text-white text-xs md:text-base font-semibold rounded-md hover:bg-white/10 hover:border-white/50 transition-all duration-300">
+                <button onClick={() => scrollToContactSection()}  className="px-5 py-2.5 md:px-6 md:py-3 bg-transparent border-2 border-white/30 text-white text-xs md:text-base font-semibold rounded-md hover:bg-white/10 hover:border-white/50 transition-all duration-300">
                   Talk to our Special Tech Expert
                 </button>
               </div>
@@ -458,7 +459,7 @@ const page = () => {
               <div className="flex flex-col lg:flex-row items-start justify-between mb-16 gap-6">
                 {/* Title */}
                 <div>
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-light tracking-tight">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-light tracking-tight">
                     <span className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text text-transparent font-bold">
                       Our Process for
                     </span>
@@ -558,7 +559,41 @@ const page = () => {
         </div>
       </section>
 
-      {/* section 3d */}
+     
+      {/* section 4 news letter */}
+      <div className="mt-9 md:mt-20">
+        <section className="bg-black text-center pb-11 px-6">
+          <div className="max-w-4xl mx-auto">
+            {/* Heading */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              Ready to create an{" "}
+              <span className="bg-gradient-to-r from-[#B54CBE] via-[#065FE5] to-[#065FE5] bg-clip-text text-transparent">
+                unforgettable event?
+              </span>
+            </h2>
+
+            {/* Subtext */}
+            {/* <p className="text-gray-400 text-sm sm:text-base mb-10">
+              Connect to the very fit. Provides system updates for your watch
+              and facilitates smart device management.
+            </p> */}
+
+            {/* Button */}
+            <div className="text-center max-w-[220px] mx-auto">
+              <Link href="/contact" className="relative group">
+                <div className="group relative px-2 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-sm overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
+                  <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">
+                    Contact Us →
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+      {/*  */}
+       {/* section 3d */}
       <section className="relative py-11 h-screen w-full overflow-hidden bg-black flex items-center justify-center">
         {/* Background Video */}
         <video
@@ -723,40 +758,11 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* section 4 news letter */}
-      <div className="mt-9 md:mt-20">
-        <section className="bg-black text-center pb-11 px-6">
-          <div className="max-w-4xl mx-auto">
-            {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-              Ready to create an{" "}
-              <span className="bg-gradient-to-r from-[#B54CBE] via-[#065FE5] to-[#065FE5] bg-clip-text text-transparent">
-                unforgettable event?
-              </span>
-            </h2>
 
-            {/* Subtext */}
-            {/* <p className="text-gray-400 text-sm sm:text-base mb-10">
-              Connect to the very fit. Provides system updates for your watch
-              and facilitates smart device management.
-            </p> */}
-
-            {/* Button */}
-            <div className="text-center max-w-[220px] mx-auto">
-              <Link href="/contact" className="relative group">
-                <div className="group relative px-2 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-sm overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
-                  <span className="relative z-10 text-white group-hover:text-white transition-colors duration-300">
-                    Contact Us →
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </section>
+      <div className="!pt-6">
+        <IndustriesRecentProjects/>
+      <ContactForm/>
       </div>
-      {/*  */}
-      
     </>
   );
 };

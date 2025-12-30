@@ -368,17 +368,19 @@ export const ProjectCard1: React.FC<ProjectCardProps> = ({
       )}
 
       {/* Project info */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
+
       <div
         className="
           absolute 
-          bottom-[113px] 
+          bottom-[143px] 
           left-0 right-0 
           p-4 md:p-6 
           text-white
           z-20
         "
       >
-        <h3 className="text-lg md:text-xl font-bold mb-2">{project.title}</h3>
+        <h3 className="text-lg md:text-xl  font-bold mb-2">{project.title}</h3>
         <p
           className="
             text-xs md:text-sm text-white/80 line-clamp-3 

@@ -290,3 +290,12 @@ const steps: ProcessStep[] = [
 };
 
 export default ProductionProcess;
+
+https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766907688/animated-future-dubai-skyline-with-high-tech-build-2025-10-16-05-01-24-utc_1_1_zulhbk.mp4
+
+ const { scrollToContactSection } = useSmoothScroll();
+
+
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+
+onClick={() => scrollToContactSection()} 

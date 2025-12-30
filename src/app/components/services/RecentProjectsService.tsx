@@ -3,55 +3,51 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ProjectCard1 } from '../Home/ProjectCard1';
 import { ProjectCard12 } from '../Home/ProjectCard12';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
 const projects = [
   {
+    // Dubai Mall
     id: 1,
-    title: 'About Project',
-    subtitle: 'National Day Campaign | Saudi Arabia National Day 2023 video has been made to celebrate love for country.',
+    title: 'Immersive LED Display',
+    subtitle:
+      'A large-scale immersive video designed for premium digital screens inside Dubai Mall, combining cinematic visuals, smooth motion, and depth-focused composition to capture attention in high-footfall environments.',
     imageUrl: "/im1.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
+    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766624904/VideoDubaiAquarium_2_ubc1yh.mp4'
   },
   {
+    // VR game
     id: 2,
-    title: 'About Project',
-    subtitle: 'Interactive digital experience showcasing cultural heritage through immersive storytelling.',
+    title: 'VR Interactive Game',
+    subtitle:
+      'A fully interactive VR game experience featuring real-time environments, user-driven gameplay, and immersive visual feedback, designed for exhibitions, events, and experiential entertainment.',
     imageUrl: "/im2.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
+    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766624850/InteractiveGame_cgmzaa.mp4'
   },
   {
+    // VR walkthrough
     id: 3,
-    title: 'About Project',
-    subtitle: 'Architectural visualization project highlighting modern sustainable design concepts.',
+    title: 'VR Walkthrough',
+    subtitle:
+      'A realistic VR walkthrough that allows users to explore a digital environment in full scale, focusing on spatial accuracy, lighting realism, and smooth navigation for presentations and demos.',
     imageUrl: "/im3.png",
     videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
   },
   {
+    // Projection mapping
     id: 4,
-    title: 'About Project',
-    subtitle: 'Brand identity development for emerging tech startup with global reach.',
-    imageUrl:  "/im4.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
+    title: 'Projection Mapping',
+    subtitle:
+      'A projection mapping project that transforms physical surfaces into dynamic visual experiences, using precise alignment, motion graphics, and color calibration for live events and branded installations.',
+    imageUrl: "/im4.png",
+    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1766624844/Coloring_wuyqsn.mp4'
   },
-  {
-    id: 5,
-    title: 'About Project',
-    subtitle: 'Motion graphics campaign for international sports event with custom animations.',
-    imageUrl: "/im3.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
-  },
-  {
-    id: 6,
-    title: 'About Project',
-    subtitle: 'Motion graphics campaign for international sports event with custom animations.',
-    imageUrl:  "/im4.png",
-    videoUrl: 'https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985531/video2_owerib.mp4'
-  }
 ];
 
 export const RecentProjectsService = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [screenWidth, setScreenWidth] = useState(0);
+    const { scrollToContactSection } = useSmoothScroll();
 
   useEffect(() => {
     const handleResize = () => {
@@ -83,7 +79,7 @@ export const RecentProjectsService = () => {
   ];
 
   return (
-    <div className="w-full bg-black py-16 lg:py-28 px-4 md:px-8 lg:px-16 relative overflow-hidden hidden md:block xl100:hidden">
+    <div className="w-full bg-black py-16 lg:py-28 px-4 md:px-8 lg:px-16 relative overflow-hidden hidden md:block ">
       {/* Marquee Background - 3 rows visible everywhere */}
       <div className="absolute pt-52 inset-0 opacity-[0.31] h-full z-0 pointer-events-none">
         <div className="flex flex-col justify-between py-[80px] xl90:py-[60px] xl80:py-[20px] lg:py-[30px] h-[80%] 2">
@@ -140,6 +136,7 @@ export const RecentProjectsService = () => {
           </div>
         </div>
         <motion.button
+        onClick={() => scrollToContactSection()} 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="mt-6 md:-mt-20 px-6 py-3 bg-gradient-to-r from-[#B54CBE] to-[#065FE5] rounded-md text-white font-medium flex items-center whitespace-nowrap"

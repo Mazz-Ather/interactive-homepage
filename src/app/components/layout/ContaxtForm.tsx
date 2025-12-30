@@ -81,11 +81,8 @@ const ContactForm: React.FC = () => {
             <div className="absolute top-7 left-[35px] text-[52px] text-[rgba(255,255,255,0.15)] font-serif leading-none font-bold md:text-[42px] md:left-6 md:top-[22px]">
               "
             </div>
-            <p className="text-[13.5px] leading-[1.75] mb-[22px] pl-0 text-white italic tracking-[-0.1px] pt-4 md:text-[13px]">
-              IP68(Waterproof, built-in alexa, 1.8", Heart Rate, SpO2, Stress Measurement, Pedometer, Sleep
-              Monitor, Message & Call Sync,Step Counter, 100+ Sports Modes, Health Modes,Display weather,
-              DIY Watch Face, 4 Built-in Watch Faces and 100s free watch dial to download from dial gallery,
-              Bluetooth calling.
+            <p className="text-[13.5px] leading-[1.75] mb-[22px] pl-0 text-white italic tracking-[-0.1px] pt-4 md:text-[15px]">
+             Great ideas start with a conversation. If your project challenges us and inspires creativity, we’d love to build something exceptional with you.
             </p>
             <div className="flex justify-between items-center gap-4">
               <div className="flex flex-col gap-[3px] text-right flex-1">

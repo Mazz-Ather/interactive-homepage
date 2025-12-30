@@ -6,6 +6,7 @@ import NewsletterCTA from "@/app/components/layout/NewsLetter"
 import GameHero from "./GameHero"
 import GameScroll from "./GameScroll"
 import GameProcess from "./GameProcess"
+import { RecentProjectsService } from "@/app/components/services/RecentProjectsService"
 
 // import ThreedHero from "./ThreedHero"
 // import ThreedServicesScroll from "./ThreedServicesScroll"
@@ -21,7 +22,8 @@ const page = () => {
 <GameHero/>
 <GameScroll/>
 <GameProcess/>
-{/* <NewsletterCTA/> */}
+<NewsletterCTA/>
+<RecentProjectsService/>
 <ContactForm/>
 </>
   )

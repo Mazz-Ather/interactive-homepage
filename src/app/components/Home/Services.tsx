@@ -18,7 +18,7 @@ const services: Service[] = [
     id: 1,
     title: "Digital Transformation",
     href: "/services/digital-transformation",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop",
+    image: "/di1.png",
     description: "End-to-end custom VR/AR solutions",
     detailedDescription: "We create end-to-end custom VR/AR solutions that streamline operations, enhance training, and change the way your business works."
   },
@@ -26,7 +26,7 @@ const services: Service[] = [
     id: 2,
     title: "Events & Exhibitions",
     href: "/services/events-exhibitions",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
+    image: "/di2.png",
     description: "Immersive tech for events and exhibitions",
     detailedDescription: "We design and implement immersive tech for events, ensuring your booth and brand capture attention and leave a lasting impression."
   },
@@ -34,7 +34,7 @@ const services: Service[] = [
     id: 3,
     title: "3D Animation & Visualisation",
     href: "/services/3d-animation-visualisation",
-    image: "https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?w=600&h=400&fit=crop",
+    image: "di7.jpg ",
     description: "Stunning 3D content and cinematic VFX",
     detailedDescription: "Our team produces stunning 3D content, from architectural models to cinematic VFX, bringing your vision to life."
   },
@@ -42,7 +42,7 @@ const services: Service[] = [
     id: 4,
     title: "Real Estate Digital Twins",
     href: "/services/real-estate-digital-twins",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
+    image: "di5.png",
     description: "Interactive digital models of properties",
     detailedDescription: "We create interactive digital models of properties, providing a powerful new way to showcase and sell real estate."
   },
@@ -50,7 +50,7 @@ const services: Service[] = [
     id: 5,
     title: "Gamification",
     href: "/services/gamification",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=400&fit=crop",
+    image: "/di6.png",
     description: "Game design principles for business challenges",
     detailedDescription: "We apply the principles of game design to business challenges, increasing user engagement and motivation."
   }
@@ -98,7 +98,7 @@ const ServicesComponent: React.FC = () => {
    <div className="text-center">
                 <div onClick={() => scrollToContactSection()} className="relative group">
                   <div className="group relative px-8 py-3 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-full overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE] ">
-                    <span className="relative z-10 text-white group-hover:text-black transition-colors duration-300">See More details  →</span>
+                    <span className="relative cursor-pointer z-10 text-white group-hover:text-black transition-colors duration-300">See More details  →</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] transition-transform duration-500 group-hover:scale-y-0 group-hover:origin-top"></div>
                   </div>
                 </div>
@@ -180,9 +180,9 @@ const ServicesComponent: React.FC = () => {
                           {service.detailedDescription}
                         </p>
 
-                        <div className="pt-2">
+                        <div className="pt-2 pointer-events-auto">
                           <button
-                            className="inline-flex items-center space-x-2 text-[#065FE5] hover:text-[#B54CBE] transition-colors duration-300 group/link text-sm sm:text-base font-medium"
+                            className="inline-flex items-center space-x-2 text-[#065FE5] hover:text-[#B54CBE] transition-colors duration-300 !cursor-pointer group/link text-sm sm:text-base font-medium"
                             onClick={(e) => e.stopPropagation()}
                           >
                             <span>Learn More</span>

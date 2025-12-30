@@ -11,23 +11,23 @@ import NewsletterCTA from "../components/layout/NewsLetter"
 const page = () => {
 
   return (
-<>
-<HeroIndustries/>
-<HowWeHelp/>
-<OurProcess/>
+    <>
+      <HeroIndustries />
+      <HowWeHelp />
+      <OurProcess />
 
-<div className="mt-9 md:mt-20">
-<NewsletterCTA/>
-</div>
-<AnimationServices/>
+      <div className="mt-9 md:!mb-16 md:mt-16">
+        <NewsletterCTA />
+      </div>
+      <AnimationServices />
 
-<IndustriesRecentProjects/>
-<div className="pt-9 md:pt-20">
+      <IndustriesRecentProjects />
+      {/* <div className="pt-9 md:pt-20"> */}
 
-<ContactForm/>
-</div>
-</>
-)
+        <ContactForm />
+      {/* </div> */}
+    </>
+  )
 }
 
 export default page

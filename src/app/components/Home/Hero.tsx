@@ -13,6 +13,7 @@ const VRHeroPage = () => {
           <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
             <source src="https://res.cloudinary.com/dnqcj9kh3/video/upload/v1758985518/bg_azwp7s.mp4" type="video/mp4" />
           </video>
+          
         </div>
 
         {/* Main Content Container */}
