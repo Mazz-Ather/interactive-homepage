@@ -1,7 +1,7 @@
 'use client'
+
 import React from 'react'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import Image from 'next/image'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
@@ -18,7 +18,7 @@ const AboutHero = () => {
         muted
         playsInline
       />
-
+ <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black/70 via-black/90 to-transparent" /> 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60" />
 
