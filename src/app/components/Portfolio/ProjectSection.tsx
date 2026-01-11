@@ -1,5 +1,6 @@
   'use client'
-  import React, { useState, useEffect } from 'react';
+
+  import React, { useState } from 'react';
   import Image from 'next/image';
   import Link from 'next/link';
   import { ArrowUpRight, X } from "lucide-react";
@@ -14,7 +15,7 @@
   }
 
   const ProjectsSection = () => {
-    const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+    const [activeProject, setActiveProject] = useState<Project | null>(null);
 
     const projects: Project[] = [
       {
@@ -61,56 +62,26 @@
       }
     ];
 
-    // Lock body scroll when modal is open
-    useEffect(() => {
-      if (selectedVideo) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'unset';
-      }
-      return () => {
-        document.body.style.overflow = 'unset';
-      };
-    }, [selectedVideo]);
-
     return (
       <>
         <section className="w-full !font-[Cairo] min-h-screen bg-black py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="!max-w-[1600px] mx-auto relative z-10">
-            <div className="bg-[#EDEAFF] rounded-[32px] p-8 sm:p-12 lg:p-11">
-              <div className="absolute -mt-20 left-0 w-[700px] h-[2200px] opacity-70 z-0">
-                <Image
-                  src="/images/imgt1.png"
-                  alt=""
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="absolute -bottom-[230px] left-1/2 -translate-x-1/2 w-1/2 h-1/2 opacity-40 z-0">
-                <Image
-                  src="/images/imgb2.png"
-                  alt=""
-                  fill
-                  className="object-contain"
-                />
-              </div>
+            <div className="bg-[#EDEAFF] rounded-[32px] p-8 sm:p-12 lg:p-11 relative overflow-hidden shadow-2xl">
               
-              <div className="flex flex-col px-1 mx-9 lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
+              {/* Header Section */}
+              <div className="flex flex-col px-1 mx-4 lg:mx-9 lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
                 <div className="flex-1 max-w-2xl">
-                  <div className="text-left leading-tight ">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold ">
-                      <div className="bg-gradient-to-r from-[#B54CBE]  to-[#065FE5] bg-clip-text font-extrabold text-transparent pb-3">
-                        Projects We Have
-                      </div>
-                    </h1>
-                  </div>
-                  <p className="text-gray-900 text-base max-w-xl m sm:text-lg leading-tight -mt-2 ">
-                    PMManagement Substation 15, Janzur Brq-Srar Street Measurement, 
-                    Pedometers, Sleep Monitor, Message & Call Sync-Shoe
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">
+                    <div className="bg-gradient-to-r from-[#B54CBE] to-[#065FE5] bg-clip-text font-extrabold text-transparent pb-3">
+                      Projects We Have
+                    </div>
+                  </h1>
+                  <p className="text-gray-900 text-base max-w-xl sm:text-lg leading-tight -mt-2">
+                    Explore our latest innovations in immersive technology and digital renovation.
                   </p>
                 </div>
 
-                <div className="flex flex-col  gap-4 w-full mt-4 lg:w-auto">
+           <div className="flex flex-col  gap-4 w-full mt-4 lg:w-auto">
                   <Link href="/more-details">
                     <button className="group relative flex items-center gap-2 px-11 py-[11px] bg-gradient-to-r from-[#B54CBE] via-[#854CBE] to-[#065FE5] bg-clip-text text-transparent rounded-md overflow-hidden transition-all duration-500 hover:bg-transparent hover:border hover:border-[#B54CBE]">
                       <span className="relative z-10 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#B54CBE] group-hover:via-[#854CBE] group-hover:to-[#065FE5] transition-all duration-300">
@@ -133,12 +104,13 @@
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 xl90:gap-0 xl90:gap-y-8 xl:gap-7 justify-items-center m-1">
+              {/* Projects Grid */}
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-7 justify-items-center m-1">
                 {projects.map((project) => (
                   <ProjectCard 
                     key={project.id} 
                     project={project} 
-                    onViewCase={(link) => setSelectedVideo(link)}
+                    onSelect={(p) => setActiveProject(p)} 
                   />
                 ))}
               </div>
@@ -146,89 +118,90 @@
           </div>
         </section>
 
-        {/* MODAL - Always centered on VIEWPORT */}
-        {selectedVideo && (
-          <>
-            {/* Backdrop */}
+        {/* --- CLEAN DIRECT VIDEO MODAL --- */}
+        {activeProject && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
             <div 
-              onClick={() => setSelectedVideo(null)}
-              className="fixed top-0 left-0 w-screen h-screen bg-black/90 z-[999998]"
+              className="absolute inset-0 bg-black/95 backdrop-blur-xl animate-in fade-in duration-300"
+              onClick={() => setActiveProject(null)}
             />
             
-            {/* Modal Content */}
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[1100px] h-[75vh] max-h-[700px] z-[999999]">
-              <div className="relative w-full h-full bg-black rounded-2xl overflow-hidden shadow-2xl">
-                <button
-                  onClick={() => setSelectedVideo(null)}
-                  className="absolute top-4 right-4 z-10 p-2.5 bg-white/20 hover:bg-white/30 rounded-full transition-colors"
-                >
-                  <X className="w-6 h-6 text-white" />
-                </button>
+            <div className="relative w-full max-w-5xl aspect-video bg-black rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(181,76,190,0.3)] border border-white/10 animate-in zoom-in-95 duration-300">
+              
+              {/* Close Button */}
+              <button 
+                onClick={() => setActiveProject(null)}
+                className="absolute top-6 right-6 z-[120] p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all hover:rotate-90"
+              >
+                <X className="w-6 h-6" />
+              </button>
 
-                <video
-                  src={selectedVideo}
-                  controls
-                  autoPlay
-                  className="w-full h-full object-contain"
-                />
+              {/* Video Player - No Controls, AutoPlay, Muted to ensure no UI icons appear */}
+              <video 
+                key={activeProject.link}
+                src={activeProject.link} 
+                poster={activeProject.image}
+                autoPlay 
+                muted 
+                loop
+                playsInline
+                className="w-full h-full object-contain z-10 pointer-events-none"
+                style={{ filter: 'no-drop-shadow' }} // UI icons ko suppress karne ke liye
+              >
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Minimal Info Overlay */}
+              <div className="absolute bottom-0 left-0 p-6 sm:p-10 z-20 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-transparent w-full">
+                  <p className="text-purple-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs mb-1">Watch Case Study</p>
+                  <h2 className="text-white text-xl sm:text-2xl font-bold">{activeProject.title}</h2>
               </div>
             </div>
-          </>
+          </div>
         )}
       </>
     );
   };
 
-  // Individual Project Card Component
-  const ProjectCard = ({ project, onViewCase }: { project: Project; onViewCase: (link: string) => void }) => {
+  const ProjectCard = ({ project, onSelect }: { project: Project; onSelect: (p: Project) => void }) => {
     return (
       <div 
-        className="group relative rounded-[32px] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+        className="group relative rounded-[40px] overflow-hidden shadow-2xl transition-all duration-700 hover:scale-[1.01] cursor-pointer"
         style={{
           width: '100%',
-          maxWidth: 'min(660px, 110%)',
+          maxWidth: '660px',
           aspectRatio: '728 / 669',
-          height: 'auto'
         }}
+        onClick={() => onSelect(project)}
       >
-        <div className="relative w-full h-full overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
-          
-          <div className="relative w-full h-full transition-transform duration-700 group-hover:scale-110">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="object-cover w-full h-full"
-            />
-          </div>
+        <div className="absolute inset-0">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="object-cover w-full h-full transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent z-10" />
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-8 lg:p-10">
-          <div className="flex justify-between items-end gap-4">
-            <div className="flex-1">
-              <h3 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold mb-1 transition-all duration-300 group-hover:text-purple-400">
+        <div className="absolute bottom-0 left-0 right-0 z-20 p-8 sm:p-12">
+          <div className="flex justify-between items-end gap-6">
+            <div className="flex-1 transform transition-transform duration-500 group-hover:-translate-y-2">
+              <h3 className="text-white text-2xl sm:text-4xl font-extrabold mb-2 tracking-tight group-hover:text-purple-300 transition-colors">
                 {project.title}
               </h3>
-              <p className="text-gray-300 text-sm sm:text-base transition-all duration-300 group-hover:text-white">
+              <p className="text-gray-300 text-sm sm:text-lg font-medium">
                 {project.subtitle}
               </p>
             </div>
 
-            <button 
-              onClick={() => onViewCase(project.link)}
-              className="group/btn flex items-center gap-2 px-4 sm:px-5 py-2 sm:!py-[28.5px] sm:!px-[45px] bg-transparent text-white border border-white rounded-full font-medium text-xs sm:text-base transition-all duration-300 hover:bg-white/10 hover:gap-3 hover:pr-5 whitespace-nowrap"
-            >
+            <div className="group/btn flex items-center gap-3 px-8 py-4 sm:py-[28px] sm:px-[45px]  backdrop-blur-sm text-white border border-white/30 rounded-full font-bold text-sm sm:text-base transition-all duration-300">
               View Case
               <Icon
                 icon="ion:arrow-up-outline"
-                className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover/btn:rotate-[30deg] text-yellow-500 rotate-[45deg]"
+                className="w-5 h-5 text-yellow-500 transition-transform duration-500 group-hover/btn:rotate-[45deg] rotate-[45deg]"
               />
-            </button>
+            </div>
           </div>
-        </div>
-
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 via-transparent to-blue-500/20"></div>
         </div>
       </div>
     );

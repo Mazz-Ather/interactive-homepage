@@ -633,7 +633,7 @@ html[dir="rtl"] * {
 .custom-card-container .interactive-element {
   pointer-events: auto;
 }
-
+/* from there */
 /* Glass morphism effects */
 .glass-card {
   backdrop-filter: blur(20px);
@@ -782,19 +782,9 @@ html[dir="rtl"] * {
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
-
+/* from there */
 /* Ensure smooth rendering */
-* {
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden;
 
-  -webkit-perspective: 1000;
-  -moz-perspective: 1000;
-  -ms-perspective: 1000;
-  perspective: 1000;
-}
 /* cpontact form */
 /* Add this to your globals.css file */
 /* Add this to your globals.css file - BORDER GLOW WITH BLACK CENTER */
@@ -1062,3 +1052,14 @@ html[dir="rtl"] * {
 .animate-marquee-reverse {
   animation: marquee 20s linear infinite reverse;
 }
+/* * {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+} */
